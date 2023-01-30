@@ -1,1 +1,13 @@
-ENTITY LINKING ON HISTORICAL DATA
+# ENTITY LINKING ON HISTORICAL DATA
+
+### Data Set-up:
+
+[Ground_truth_workflow](https://drive.google.com/file/d/1_CWj_Ux45Q6IAAnGwVurQxSnTkOvlVG_/view?usp=sharing)
+
+![Ground_truth_workflow](resources/ground_truth_data_setup.jpg)
+
+### Naive String Matching
+
+#### Results
+
+[naive_string_matching_results](result.py)

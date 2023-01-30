@@ -1,11 +1,14 @@
 import pandas
 
-# TODO json would be much more suitabable for caching
-
+# TODO json would be much more suitable for caching
 # TODO calculate the correct correspondence
 # TODO two variable count and correct
-# precision is found / count
+
+
+
 # TODO add F1 measure
+def F1_measure(df):
+    pass
 
 
 def accuracy(df):
@@ -13,43 +16,40 @@ def accuracy(df):
 
 
 def recall(df):
-    count = 0
+    correspondence_count = 0
     for index, row in df.iterrows():
         if row['wiki_uri'] in row['found_uri']:
-            count += 1
+            correspondence_count += 1
 
-    print(f"Total query: {len(df)} and retrieved {count}")
-    print(f"Recall: {count/len(df)}")
+    print(f"Total query: {len(df)} \nretrieved {correspondence_count}")
+    print(f"Recall: {correspondence_count/len(df)}")
     print(f"\n")
 
 
+# TODO change the word 'found' with 'retrieved'
+# precision = total correct correspondence / total retrieved uri
+# precision = true positive / (true positive + false positive)
 def precision(df):
-    found = 0
-    count = 0
-
-    # TODO number of correct
+    total_retrieved = 0
+    correspondence_count = 0
 
     for index, row in df.iterrows():
+        # if found_uri is empty --> skip count
+        if row['found_uri'] == "[]":
+            continue
         for target in row['found_uri'].split(','):
-            print(target)
-    """
-            if row['wiki_uri'] == target:
-                found += 1
-        if  len(row['found_uri'].split(",")) ==1 :
-            pass
+            total_retrieved += 1
+            if row['wiki_uri'] in target:
+                correspondence_count += 1
 
-    print(f"Total query: {len(df)} and found {count}")
-    print(f"Precision: {count / len(df)}")
+    print(f"Total query: {len(df)}\nTotal retrieved: {total_retrieved}\nCorrect correspondence count: {correspondence_count} ")
+    print(f"Precision: {correspondence_count / total_retrieved}")
     print(f"\n")
-    """
-
-
 
 
 def result(file):
     df = pandas.read_csv(file, sep="\t")
-    print(type(df['found_uri'][0].split(',')))
 
     # accuracy(df)
-    # recall(df)
+    recall(df)
     precision(df)
