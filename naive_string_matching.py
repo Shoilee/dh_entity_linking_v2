@@ -36,18 +36,19 @@ def retrieve_uri_from_label(label):
 
 
 def run(source_file, destination_file):
-    df = read_file(source_file)
+    df = pandas.read_pickle(source_file)
 
-    result_table = pandas.DataFrame(columns=['name_label', 'found_uri'])
+    result_table = pandas.DataFrame(columns=['name_label', 'retrieved_uri'])
     result_list = []
     for label in tqdm(df['name_label']):
-        result_list.append(retrieve_uri_from_label(str(label)))
+        retrieved_uri = retrieve_uri_from_label(str(label))
+        result_list.append(retrieved_uri)
         # df2 = {'name': label, 'wiki_uri': run_query(str(label))}
-        temp_df = pandas.DataFrame([[label, retrieve_uri_from_label(str(label))]], columns=['name_label', 'found_uri'])
+        temp_df = pandas.DataFrame([[label, retrieved_uri]], columns=['name_label', 'retrieved_uri'])
         result_table = pandas.concat([result_table, temp_df], ignore_index=True)
         time.sleep(2)
 
-    # append found_uri to the dataframe
+    # append retrieved_uri to the dataframe
     temp_series = pandas.Series(result_list)
-    df['found_uri'] = temp_series.values
-    df.to_csv(destination_file, sep="\t")
+    df['retrieved_uri'] = temp_series.values
+    df.to_pickle(destination_file)

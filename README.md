@@ -1,6 +1,12 @@
 # ENTITY LINKING ON HISTORICAL DATA
 
-### Data Set-up:
+
+## Data:
+
+### Data dump:
+*write down the data dump steps*
+
+### Ground truth construction:
 
 [Ground_truth_workflow](https://drive.google.com/file/d/1_CWj_Ux45Q6IAAnGwVurQxSnTkOvlVG_/view?usp=sharing)
 

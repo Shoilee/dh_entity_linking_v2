@@ -1,8 +1,11 @@
+import pandas
+
 from data_dump import run as dump, check_constituent, check_constituent_wikidata
 from filter_wiki_human import run as filter_wikidata, count_total_wikidata
 from wikidata_dump import test_run
 from filter_object_by_constituent import run as filter_const
-from ttl2tsv import run as ttl2tsv
+from ttl_to_dataframe import run as ttl2tsv
+import warnings
 from result import result
 from naive_string_matching import run as naive_string_matching
 if __name__ == '__main__':
@@ -27,9 +30,10 @@ if __name__ == '__main__':
 
     # filter_const()
 
-    # ttl2tsv("/Users/sarah_shoilee/PycharmProjects/dh_entity_linking/data/ccrdfconst/wikidata_ccrdfconstQ5_full.ttl", "/Users/sarah_shoilee/PycharmProjects/dh_entity_linking/data/ccrdfconst/wikidata_human_name.tsv" )
+    # TODO RUN THE FOLLOWING THREE FOR ENTIRE DATA
+    # ttl2tsv("data/test/wikidata_ccrdfconstQ5_100l.ttl", "data/test/wikidata_human_name.pkl" )
 
-    # naive_string_matching("data/ccrdfconst/wikidata_human_name.tsv", "results/naive_string_matching.tsv")
+    # naive_string_matching("data/test/wikidata_human_name.pkl", "results/naive_string_matching_test.pkl")
 
-    result("results/naive_string_matching.tsv")
+    result("results/naive_string_matching_test.pkl")
 

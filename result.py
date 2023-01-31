@@ -16,13 +16,13 @@ def accuracy(df):
 
 
 def recall(df):
-    correspondence_count = 0
+    correct_count = 0
     for index, row in df.iterrows():
-        if row['wiki_uri'] in row['found_uri']:
-            correspondence_count += 1
+        if row['wiki_uri'] in row['retrieved_uri']:
+            correct_count += 1
 
-    print(f"Total query: {len(df)} \nretrieved {correspondence_count}")
-    print(f"Recall: {correspondence_count/len(df)}")
+    print(f"Total query: {len(df)} \nretrieved {correct_count}")
+    print(f"Recall: {correct_count/len(df)}")
     print(f"\n")
 
 
@@ -31,24 +31,24 @@ def recall(df):
 # precision = true positive / (true positive + false positive)
 def precision(df):
     total_retrieved = 0
-    correspondence_count = 0
+    correct_count = 0
 
     for index, row in df.iterrows():
-        # if found_uri is empty --> skip count
-        if row['found_uri'] == "[]":
+        # if retrieved_uri is empty --> skip count
+        if row['retrieved_uri'] == "[]":
             continue
-        for target in row['found_uri'].split(','):
+        for target in row['retrieved_uri']:
             total_retrieved += 1
-            if row['wiki_uri'] in target:
-                correspondence_count += 1
+            if row['wiki_uri'] == target:
+                correct_count += 1
 
-    print(f"Total query: {len(df)}\nTotal retrieved: {total_retrieved}\nCorrect correspondence count: {correspondence_count} ")
-    print(f"Precision: {correspondence_count / total_retrieved}")
+    print(f"Total query: {len(df)}\nTotal retrieved: {total_retrieved}\nCorrect correspondence count: {correct_count} ")
+    print(f"Precision: {correct_count / total_retrieved}")
     print(f"\n")
 
 
 def result(file):
-    df = pandas.read_csv(file, sep="\t")
+    df = pandas.read_pickle(file)
 
     # accuracy(df)
     recall(df)
