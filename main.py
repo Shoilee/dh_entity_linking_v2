@@ -5,7 +5,7 @@ from filter_wiki_human import run as filter_wikidata, count_total_wikidata
 from wikidata_dump import test_run
 from filter_object_by_constituent import run as filter_const
 from ttl_to_dataframe import run as ttl2tsv
-import warnings
+from deezy_match_data_construction import construct_deezymatch_data
 from result import result
 from naive_string_matching import run as naive_string_matching
 if __name__ == '__main__':
@@ -22,9 +22,8 @@ if __name__ == '__main__':
     # check_constituent_wikidata("ccrdfconst")
 
     # make a wikidata human filtering dump from all constituent
-    # filter_wikidata(directory="/Users/sarah_shoilee/PycharmProjects/dh_entity_linking/data/test") # pass the FOLDER NAME containing ttl file
-
-    # count_total_wikidata("/Users/sarah_shoilee/PycharmProjects/dh_entity_linking/data/ccrdfconst/const_wiki_filter_log.csv")
+    # filter_wikidata(directory="data/test") # pass the FOLDER NAME containing ttl file
+    # count_total_wikidata("data/ccrdfconst/const_wiki_filter_log.csv")
 
     # test_run()
 
@@ -35,5 +34,8 @@ if __name__ == '__main__':
 
     # naive_string_matching("data/test/wikidata_human_name.pkl", "results/naive_string_matching_test.pkl")
 
-    result("results/naive_string_matching_test.pkl")
+    # result("results/naive_string_matching_test.pkl")
 
+    construct_deezymatch_data('data/test/wikidata_human_name.pkl', 'data/test/dataset-string-matching_finetune.pkl')
+
+    # TODO CONVERT PKL TO TXT
