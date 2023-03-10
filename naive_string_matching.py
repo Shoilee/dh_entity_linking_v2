@@ -10,7 +10,6 @@ def read_file(file):
 
 
 # TODO add more languages; consider the language spoken by dutch colony or just specify I did it for two language
-
 def retrieve_uri_from_label(label):
     g = rdflib.Graph()
 
@@ -36,19 +35,32 @@ def retrieve_uri_from_label(label):
 
 
 def run(source_file, destination_file):
+    name_to_id = pandas.read_pickle('data/deezymatch/name_to_id.pickle')
     df = pandas.read_pickle(source_file)
+    candidate_df = pandas.read_pickle(
+        "/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_candidates_deezymatch.pkl",
+        compression='infer')
 
-    result_table = pandas.DataFrame(columns=['name_label', 'retrieved_uri'])
-    result_list = []
-    for label in tqdm(df['name_label']):
-        retrieved_uri = retrieve_uri_from_label(str(label))
-        result_list.append(retrieved_uri)
-        # df2 = {'name': label, 'wiki_uri': run_query(str(label))}
-        temp_df = pandas.DataFrame([[label, retrieved_uri]], columns=['name_label', 'retrieved_uri'])
-        result_table = pandas.concat([result_table, temp_df], ignore_index=True)
-        time.sleep(2)
+    try:
+        result_table = pandas.DataFrame(columns=['name_label', 'retrieved_uri'])
+        truth_list = []
+        for label in tqdm(candidate_df['query'][:10]):
+            try:
+                retrieved_uri = retrieve_uri_from_label(str(label))
+            except:
+                retrieved_uri = []
 
-    # append retrieved_uri to the dataframe
-    temp_series = pandas.Series(result_list)
-    df['retrieved_uri'] = temp_series.values
-    df.to_pickle(destination_file)
+            try:
+                truth_list.append(name_to_id[label][0])
+            except KeyError:
+                truth_list.append('')
+            # df2 = {'name': label, 'wiki_uri': run_query(str(label))}
+            temp_df = pandas.DataFrame([[label, retrieved_uri]], columns=['name_label', 'retrieved_uri'])
+            result_table = pandas.concat([result_table, temp_df], ignore_index=True)
+            time.sleep(1)
+
+    finally:
+        # append truth_uri to the dataframe
+        temp_series = pandas.Series(truth_list)
+        result_table['wiki_uri'] = temp_series
+        result_table.to_pickle(destination_file)

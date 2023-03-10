@@ -4,10 +4,13 @@ from data_dump import run as dump, check_constituent, check_constituent_wikidata
 from filter_wiki_human import run as filter_wikidata, count_total_wikidata
 from wikidata_dump import test_run
 from filter_object_by_constituent import run as filter_const
-from ttl_to_dataframe import run as ttl2tsv
+from ttl_to_dataframe import run as ttl2dataframe
 from deezy_match_data_construction import construct_deezymatch_data
 from result import result
 from naive_string_matching import run as naive_string_matching
+from data_count import text_file_count
+from fuzzy_string_matching import run as fuzzy_string_matching
+
 if __name__ == '__main__':
     # make data_dump file, pass component for argument
     # Constituent end-point: "ccrdfconst", range: 75000 (last found 16700)
@@ -29,13 +32,24 @@ if __name__ == '__main__':
 
     # filter_const()
 
-    # TODO RUN THE FOLLOWING THREE FOR ENTIRE DATA
-    # ttl2tsv("data/test/wikidata_ccrdfconstQ5_100l.ttl", "data/test/wikidata_human_name.pkl" )
+    # ttl2dataframe("data/ccrdfconst/wikidata_ccrdfconstQ5_full.ttl", "data/ccrdfconst/wikidata_human_name.pkl" )
 
-    # naive_string_matching("data/test/wikidata_human_name.pkl", "results/naive_string_matching_test.pkl")
+    # Conducted on 3rd February
+    # naive_string_matching("data/ccrdfconst/wikidata_human_name.pkl", "results/naive_string_matching_10.pkl")
 
-    # result("results/naive_string_matching_test.pkl")
+    # generating precision and recall
+    # result("results/naive_string_matching_618.pkl")
 
-    construct_deezymatch_data('data/test/wikidata_human_name.pkl', 'data/test/dataset-string-matching_finetune.pkl')
+    # DEEZYMATCH
+    # construct_deezymatch_data('data/ccrdfconst/wikidata_human_name.pkl', 'data/ccrdfconst/dataset-string-matching_all.pkl')
 
-    # TODO CONVERT PKL TO TXT
+    #df = pandas.read_pickle("data/ccrdfconst/dataset-string-matching_finetune.pkl")
+
+    #print(df.head())
+
+    #text_file_count()
+
+    # fuzzy_string_matching('data/ccrdfconst/wikidata_human_name.pkl', 'results/fuzzy_string_matching_618_cosine.pkl')
+    result("results/fuzzy_string_matching_618_cosine.pkl")
+
+
