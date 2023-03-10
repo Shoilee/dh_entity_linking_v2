@@ -29,15 +29,15 @@ We further divide this sample entities in train(90%) and test(10%) set, resultin
 [Result](results/naive_string_matching_618.pkl)
 
 ##### Result
-Total query: 618 
-Correct correspondence count: 309
-Recall: 0.5
+Total query: 618 <br>
+Correct correspondence count: 309 <br>
+Recall: 0.5 <br>
 
 
-Total query: 618
-Total retrieved: 398
-Correct correspondence count: 309 
-Precision: 0.7763819095477387
+Total query: 618 <br>
+Total retrieved: 398 <br>
+Correct correspondence count: 309 <br>
+Precision: 0.7763819095477387 <br>
 
 
 F-measure: 0.6082677165354331
@@ -51,15 +51,30 @@ F-measure: 0.6082677165354331
 *TODO: write a bit about the training data construction. Followed the direction from fuzzy match paper.*
 
 ##### Result
-Total query: 618 
-Correct correspondence count: 396
-Recall: 0.6407766990291263
+Total query: 618 <br>
+Correct correspondence count: 396 <br>
+Recall: 0.6407766990291263 <br>
 
 
-Total query: 618
-Total retrieved: 518
-Correct correspondence count: 396 
-Precision: 0.7644787644787645
+Total query: 618 <br>
+Total retrieved: 518 <br>
+Correct correspondence count: 396 <br>
+Precision: 0.7644787644787645 <br>
 
 
-F-measure: 0.6971830985915494
+F-measure: 0.6971830985915494 <br>
+
+### Result overview
+
+*I intend to complete the following table*
+
+| Method | #Query | #Retrieved URI | #Correctly Retrieved URI | Recall | Precision | F-score | 
+| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | 
+| Exact String Match | 618 | 398 | 309 | 0.5 | 0.78 | 0.61
+| Fuzzy String Match | 
+| DeezyMatch (D:Faiss, C=3)| 618 | 518 | 396 | 0.5 | 0.78 | 0.61
+| DeezyMatch (D:Cosine, C=3)| |  |  |  |  | 
+| DeezyMatch (D:Faiss, C=1)| |  |  |  |  | 
+| DeezyMatch (D:Faiss, C=1)| |  |  |  |  | 
+
+where d means the distance measure used for training and c means number of candidates predicted by the algorithm.
