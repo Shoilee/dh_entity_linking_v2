@@ -36,10 +36,8 @@ def retrieve_uri_from_label(label):
 
 def run(source_file, destination_file):
     name_to_id = pandas.read_pickle('data/deezymatch/name_to_id.pickle')
-    df = pandas.read_pickle(source_file)
-    candidate_df = pandas.read_pickle(
-        "/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_candidates_deezymatch.pkl",
-        compression='infer')
+    # df = pandas.read_pickle(source_file)
+    candidate_df = pandas.read_pickle(source_file, compression='infer')
 
     try:
         result_table = pandas.DataFrame(columns=['name_label', 'retrieved_uri'])

@@ -36,6 +36,7 @@ if __name__ == '__main__':
 
     # Conducted on 3rd February
     # naive_string_matching("data/ccrdfconst/wikidata_human_name.pkl", "results/naive_string_matching_10.pkl")
+    # naive_string_matching("/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_candidates_deezymatch.pkl","results/naive_string_matching.pkl")
 
     # generating precision and recall
     # result("results/naive_string_matching_618.pkl")
@@ -49,7 +50,9 @@ if __name__ == '__main__':
 
     #text_file_count()
 
-    # fuzzy_string_matching('data/ccrdfconst/wikidata_human_name.pkl', 'results/fuzzy_string_matching_618_cosine.pkl')
-    result("results/fuzzy_string_matching_618_cosine.pkl")
+    fuzzy_string_matching("/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_faiss_3_candidates_deezymatch.pkl", 'results/test_faiss_3_candidates_deezymatch.pkl')
+    result("results/test_faiss_3_candidates_deezymatch.pkl")
+
+    pass
 
 
