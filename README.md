@@ -72,7 +72,7 @@ F-measure: 0.6971830985915494 <br>
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | 
 | Exact String Match | 618 | 398 | 309 | 0.5 | 0.78 | 0.61
 | Fuzzy String Match | 
-| DeezyMatch (D:Faiss, C=3)| 618 | 518 | 396 | 0.5 | 0.78 | 0.61
+| DeezyMatch (D:Faiss, C=3)| 618 | 518 | 396 | 0.64 | 0.76 | 0.7
 | DeezyMatch (D:Cosine, C=3)| |  |  |  |  | 
 | DeezyMatch (D:Faiss, C=1)| |  |  |  |  | 
 | DeezyMatch (D:Faiss, C=1)| |  |  |  |  | 
