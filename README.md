@@ -16,10 +16,10 @@ Given a set of persons $\textbf{P} = \{P_1, P_2, ... , P_n\}$ with name $x_1, x_
 
 We have 6178 instance of human entities, we we know the corresponding wikidata URI, therefore consider those human entities as our ground truth. From federated query to wikidata SPARQL endpoint, we also retrieved all the naming variation for corresponding to 6178 human listed on wikidata in different language. [Code](ttl_to_dataframe.py)
 
-`select * where {   
-    SERVICE <https://query.wikidata.org/sparql> {  
-        <"""+var+"""> rdfs:label ?name .  
-    }}`
+<code>select * where { <br>
+    SERVICE <https://query.wikidata.org/sparql> {  <br>
+         <"""+var+"""> rdfs:label ?name .  <br>
+    }}</code>
 
 
 We further divide this sample entities in train(90%) and test(10%) set, resulting a split of 5560 entities for training and 618 entities for test. we will report all our results based on these 618 test samples. 
