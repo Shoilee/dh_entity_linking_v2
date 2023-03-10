@@ -10,9 +10,9 @@
 This section discusses the string match algorithms used for entity matching only from the names of the entities, followed by the results on the given use case.
 
 Given a set of persons $\textbf{P} = \{P_1, P_2, ... , P_n\}$ with name $x_1, x_2, ... , x_n$ respectively, retrieve the corresponding wikidata identifier $Q_1$, $Q_2$, ... , $Q_n$, assuming that one person have only one wikidata instance.
-![[https://drive.google.com/drive/u/2/my-drive]]
 
 ![Task Description](resources/experiment_description.png)
+[edit image](https://drive.google.com/drive/u/2/my-drive)<br>
 
 We have 6178 instance of human entities, we we know the corresponding wikidata URI, therefore consider those human entities as our ground truth. From federated query to wikidata SPARQL endpoint, we also retrieved all the naming variation for corresponding to 6178 human listed on wikidata in different language. [Code](ttl_to_dataframe.py)
 
