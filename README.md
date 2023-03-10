@@ -65,7 +65,7 @@ candidates_pd = \
                      search_size=10, 
                      verbose=False,
                      use_predict=False,
-                     output_path=os.path.join("ranker_results", "test_candidates_deezymatch"), 
+                     output_path=os.path.join("ranker_results", "test01_candidates_deezymatch"), 
                      pretrained_model_path=os.path.join("models", "exp001", "exp001.model"), 
                      pretrained_vocab_path=os.path.join("models", "exp001", "exp001.vocab"))
 ```
@@ -99,7 +99,7 @@ candidates_pd = \
                      search_size=10, 
                      verbose=False,
                      use_predict=False,
-                     output_path=os.path.join("ranker_results", "test01_candidates_deezymatch"), 
+                     output_path=os.path.join("ranker_results", "test02_candidates_deezymatch"), 
                      pretrained_model_path=os.path.join("models", "exp001", "exp001.model"), 
                      pretrained_vocab_path=os.path.join("models", "exp001", "exp001.vocab"))
 ```
@@ -130,7 +130,7 @@ candidates_pd = \
                      search_size=10, 
                      verbose=False,
                      use_predict=False,
-                     output_path=os.path.join("ranker_results", "test02_candidates_deezymatch"), 
+                     output_path=os.path.join("ranker_results", "test03_candidates_deezymatch"), 
                      pretrained_model_path=os.path.join("models", "exp001", "exp001.model"), 
                      pretrained_vocab_path=os.path.join("models", "exp001", "exp001.vocab"))
 ```
@@ -162,7 +162,7 @@ candidates_pd = \
                      search_size=10, 
                      verbose=False,
                      use_predict=False,
-                     output_path=os.path.join("ranker_results", "test03_candidates_deezymatch"), 
+                     output_path=os.path.join("ranker_results", "test04_candidates_deezymatch"), 
                      pretrained_model_path=os.path.join("models", "exp001", "exp001.model"), 
                      pretrained_vocab_path=os.path.join("models", "exp001", "exp001.vocab"))
 ```
