@@ -55,7 +55,7 @@ def run(source_file, destination_file):
             # df2 = {'name': label, 'wiki_uri': run_query(str(label))}
             temp_df = pandas.DataFrame([[label, retrieved_uri]], columns=['name_label', 'retrieved_uri'])
             result_table = pandas.concat([result_table, temp_df], ignore_index=True)
-            time.sleep(1)
+            time.sleep(.5)
 
     finally:
         # append truth_uri to the dataframe

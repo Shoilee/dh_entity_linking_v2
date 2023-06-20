@@ -7,7 +7,7 @@ import random
 from thefuzz import fuzz
 
 
-def construct_deezymatch_data(source_file, destination_file):
+def construct_deezymatch_data(source_file, directory="data/deezymatch/"):
     df = pandas.read_pickle(source_file)
 
     # DICTIONARY MAPS ID TO ALL DIFFERENT NAME VARIANTS
@@ -17,7 +17,7 @@ def construct_deezymatch_data(source_file, destination_file):
         altnames = list(set([row['name_label'].value] + [label.value for label in row["wiki_label"]]))
         id_to_names[id] = altnames
 
-    with open('data/deezymatch/id_to_names.pickle', 'wb') as file:
+    with open(directory+'id_to_names.pickle', 'wb') as file:
         pickle.dump(id_to_names, file, protocol=pickle.HIGHEST_PROTOCOL)
 
     # DICTIONARY MAPS NAME VARIATION TO ITS ID
@@ -29,7 +29,7 @@ def construct_deezymatch_data(source_file, destination_file):
             else:
                 name_to_id[name] = [id]
 
-    with open('data/deezymatch/name_to_id.pickle', 'wb') as file:
+    with open(directory+'name_to_id.pickle', 'wb') as file:
         pickle.dump(name_to_id, file, protocol=pickle.HIGHEST_PROTOCOL)
 
     # GET ALL DIFFERENT NAMES
@@ -81,17 +81,17 @@ def construct_deezymatch_data(source_file, destination_file):
                 negative_matches.append(name1 + "\t" + name2 + "\t" + "FALSE")
 
     # Write string pairs into a file (this is the string matching dataset):
-    with open(os.path.join("data", "deezymatch", "name_pairs.txt"), "w") as fw:
+    with open(directory+"name_pairs.txt", "w") as fw:
         for nm in negative_matches:
             fw.write(nm + "\n")
         for pm in positive_matches:
             fw.write(pm + "\n")
 
     # Shuffle the negative and positive examples
-    lines = open(os.path.join("data", "deezymatch", "name_pairs.txt")).readlines()
+    lines = open(directory+"name_pairs.txt").readlines()
     random.shuffle(lines)
-    open(os.path.join("data", "deezymatch", "name_pairs.txt"), 'w').writelines(lines)
-    open(os.path.join("data", "deezymatch", "dataset-string-matching_all.txt"), 'w').writelines(lines)
+    open(directory+"name_pairs.txt", 'w').writelines(lines)
+    open(directory+"dataset-string-matching_train.txt", 'w').writelines(lines)
 
     # PREPARE THE CANDIDATES DATASET
     # The candidates dataset is created from all toponyms and variations from
@@ -99,7 +99,7 @@ def construct_deezymatch_data(source_file, destination_file):
     candidates = list(name_to_id.keys())
 
     # Store the candidates dataset, with one toponym per line
-    with open(os.path.join("data", "deezymatch", "candidates.txt"), "w") as fw:
+    with open(directory+"candidates.txt", "w") as fw:
         for c in set(candidates):
             fw.write(c + "\n")
 
@@ -107,26 +107,56 @@ def construct_deezymatch_data(source_file, destination_file):
     # all we need is query.txt file where each query text is stored in individual line.
 
     # Store the queries dataset, with one name per line
-    with open(os.path.join("data", "deezymatch", "queries.txt"), "w") as fw:
+    with open(directory+"queries.txt", "w") as fw:
         # chose any random names for query
         # for query in random.choices(df['name_label'], k=100):
         for query in df['name_label']:
             fw.write(query + "\n")
 
-    """
-    # ONLY HARD POSITIVE EXAMPLE
-    df = df.loc[:, ['name_label', 'wiki_label']]
 
-    new_df = pandas.DataFrame(columns=['name_label', 'wiki_label', 'match', 'language'])
+def generate_test_data(source_file, directory):
+    df = pandas.read_pickle(source_file)
 
-    for index, row in df.iterrows():
-        for wiki_label in row['wiki_label']:
-            temp_df = pandas.DataFrame([[row['name_label'], wiki_label.value, 'YES', wiki_label.language]], columns=['name_label', 'wiki_label', 'match', 'language'])
-            new_df = pandas.concat([new_df, temp_df], ignore_index=True)
+    # DICTIONARY MAPS ID TO ALL DIFFERENT NAME VARIANTS
+    id_to_names = dict()
+    for i, row in df.iterrows():
+        id = row['wiki_uri'].toPython()
+        altnames = list(set([row['name_label'].value] + [label.value for label in row["wiki_label"]]))
+        id_to_names[id] = altnames
 
-    new_df.to_pickle(destination_file)
-    new_df.to_csv('data/ccrdfconst/dataset-string-matching_finetune.txt', sep='\t', header=False, index=False)
-    
-    """
+    with open(directory+'id_to_names.pickle', 'wb') as file:
+        pickle.dump(id_to_names, file, protocol=pickle.HIGHEST_PROTOCOL)
+
+    # DICTIONARY MAPS NAME VARIATION TO ITS ID
+    name_to_id = dict()
+    for id in id_to_names:
+        for name in id_to_names[id]:
+            if name in name_to_id:
+                name_to_id[name].append(id)
+            else:
+                name_to_id[name] = [id]
+
+    with open(directory+'name_to_id.pickle', 'wb') as file:
+        pickle.dump(name_to_id, file, protocol=pickle.HIGHEST_PROTOCOL)
+
+    # PREPARE THE CANDIDATES DATASET
+    # The candidates dataset is created from all toponyms and variations from
+    # the country of interest:
+    candidates = list(name_to_id.keys())
+
+    # Store the candidates dataset, with one toponym per line
+    with open(directory+"candidates.txt", "w") as fw:
+        for c in set(candidates):
+            fw.write(c + "\n")
+
+    # PREPARE THE QUERIES DATASET
+    # all we need is query.txt file where each query text is stored in individual line.
+
+    # Store the queries dataset, with one name per line
+    with open(directory+"queries.txt", "w") as fw:
+        # chose any random names for query
+        # for query in random.choices(df['name_label'], k=100):
+        for query in df['name_label']:
+            fw.write(query + "\n")
 
 

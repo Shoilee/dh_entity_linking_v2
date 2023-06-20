@@ -34,8 +34,8 @@ def retrieve_uri_from_label(label):
     return [constituent['human'] for constituent in g.query(wikidata_query)]
 
 
-def run(source_file, destination_file):
-    name_to_id = pandas.read_pickle('data/deezymatch/name_to_id.pickle')
+def run(source_file, destination_file, directory='data/deezymatch/'):
+    name_to_id = pandas.read_pickle(directory+'name_to_id.pickle')
     candidate_df = pandas.read_pickle(source_file, compression='infer')
 
     try:
@@ -57,7 +57,7 @@ def run(source_file, destination_file):
             # df2 = {'name': label, 'wiki_uri': run_query(str(label))}
             temp_df = pandas.DataFrame([[row['query'], retrieved_uri]], columns=['name_label', 'retrieved_uri'])
             result_table = pandas.concat([result_table, temp_df], ignore_index=True)
-            time.sleep(1)
+            time.sleep(.5)
 
     finally:
         # append truth_uri to the dataframe

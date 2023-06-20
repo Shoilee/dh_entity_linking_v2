@@ -21,7 +21,7 @@ def recall(df):
     print(f"Recall: {r}")
     print(f"\n")
 
-    return r
+    return r, len(df)
 
 
 # precision = total correct correspondence / total retrieved uri
@@ -39,15 +39,22 @@ def precision(df):
             if rdflib.term.URIRef(row['wiki_uri']) == target:
                 correct_count += 1
 
-    p = correct_count / total_retrieved
-
+    try:
+        p = correct_count / total_retrieved
+    except ZeroDivisionError:
+        print(f"The total retrieved is: {total_retrieved}!!!!")
+        
     print(f"Total query: {len(df)}\nTotal retrieved: {total_retrieved}\nCorrect correspondence count: {correct_count} ")
     print(f"Precision: {p}")
     print(f"\n")
 
-    return p
+    return p, correct_count, total_retrieved
 
 
 def result(file):
     df = pandas.read_pickle(file)
-    f_measure(recall(df), precision(df))
+    r, total = recall(df)
+    p, correct, retrieved = precision(df)
+    f = f_measure(r, p)
+
+    return total, retrieved, correct, r, p, f

@@ -1,8 +1,7 @@
 # ENTITY LINKING ON HISTORICAL DATA
 
-
 ## How we constructed the ground truth? 
-![Task Description](resources/ground_truth_data_setup.png)
+![Task Description](./resources/ground_truth_data_setup.png)
 
 
 ## What is the task? 
@@ -193,7 +192,7 @@ The result tables shows experiment result while tuning distance [Faiss distance(
 
 | Method | #Query | #Retrieved URI | #Correctly Retrieved URI | Recall | Precision | F-score | 
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | 
-395| Exact String Match | 618 | 398 | 309 | 0.5 | 0.78 | 0.61
+| Exact String Match | 618 | 398 | 309 | 0.5 | 0.78 | 0.61
 | Fuzzy String Match | 
 | DeezyMatch (D=Faiss, C=3)| 618 | 514 | 395 | 0.639 | 0.769 | 0.698
 | DeezyMatch (D=Faiss, C=1)| 618 | 399 | 309 | 0.5 | 0.774 | 0.608
