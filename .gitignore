@@ -2,7 +2,7 @@
 .ipynb_checkpoints/
 aceh_object_linking.ipynb
 __pycache__
-data/
+pm_data/
 entitylinking/
 .DS_Store
 .idea/
