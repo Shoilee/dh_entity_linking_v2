@@ -1,11 +1,11 @@
 import pandas
 
-from data_dump import run as dump, check_constituent, check_constituent_wikidata
-from filter_wiki_human import run as filter_wikidata, count_total_wikidata
-from get_person_name import merge_constituent, count_person, dump_name, construct_name_table, count_type
-from wikidata_dump import test_run
-from filter_object_by_constituent import run as filter_const
-from ttl_to_dataframe import run as ttl2dataframe
+from nmvwdatadump.data_dump import run as dump, check_constituent, check_constituent_wikidata
+from nmvwdatadump.filter_wiki_human import run as filter_wikidata, count_total_wikidata
+from nmvwdatadump.get_person_name import merge_constituent, count_person, dump_name, construct_name_table, count_type
+from nmvwdatadump.wikidata_dump import test_run
+from nmvwdatadump.filter_object_by_constituent import run as filter_const
+from utils.ttl_to_dataframe import run as ttl2dataframe
 from deezy_match_data_construction import construct_deezymatch_data
 from result import result
 from naive_string_matching import run as naive_string_matching
@@ -90,7 +90,7 @@ if __name__ == '__main__':
 
     # FirstNameLastName()
     # NaiveNMVWvsBronbeek()
-    DeezyMatchNMVWvsBronbeek()
+    # DeezyMatchNMVWvsBronbeek()
 
     pass
 

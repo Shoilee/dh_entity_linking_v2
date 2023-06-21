@@ -1,3 +1,0 @@
-06/19/2023_07:28:11
-Current directory: /Users/sarah_shoilee/PycharmProjects/entity_linking
-python /Users/sarah_shoilee/opt/anaconda3/envs/py39deezy/lib/python3.9/site-packages/ipykernel_launcher.py -f /Users/sarah_shoilee/Library/Jupyter/runtime/kernel-8480818c-777e-44be-bc3d-fb2fd59af159.json
