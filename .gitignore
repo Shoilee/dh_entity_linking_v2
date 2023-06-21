@@ -1,3 +1,5 @@
+queries/
+candidates/
 __pycache__
 pm_data/
 entitylinking/
