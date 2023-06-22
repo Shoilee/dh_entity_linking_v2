@@ -5,7 +5,7 @@ entity_linking
 |   README.md
 |   main.py
 |   result.py
-└───datadump
+└───nmvwdatadump
 |   |   data_count.py
 |   |   data_dump.py
 |   |   filter_object_by_constituent.py
