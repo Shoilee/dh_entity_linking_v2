@@ -6,6 +6,7 @@ import os, logger
 from utils.utils import get_URL_response, convert_xmlTottl, replace_triples, response_to_file
 
 # TODO CHECK WHETHER IT PROPERLY DETECTS EMPTY RETURN
+# TODO place the directory variable in signature
 
 
 def test_url():
@@ -28,7 +29,7 @@ def run(component, highest_value, range, start_limit=1):
     :param range: (int) URL request range
     :return: store the downloaded file in desired directory
     """
-    directory = "data/" + component
+    directory = "nmvw_data/" + component
     print(directory)
     # make new directory for current component
     if not os.path.exists(directory):
@@ -68,15 +69,15 @@ def run(component, highest_value, range, start_limit=1):
                 replace_triples(destination_file, baseIRI)
             except Exception as e:
                 if type(e) == EmptyGraphError:
-                    with open("data/" + component + "/empty_graph_error.txt", "a+") as f:
+                    with open("nmvw_data/" + component + "/empty_graph_error.txt", "a+") as f:
                         f.write(f"{url}\n")
                         f.write(f"{str(e)}\n")
-                with open("data/" + component + "/conversion_error.txt", "a+") as f:
+                with open("nmvw_data/" + component + "/conversion_error.txt", "a+") as f:
                     f.write(f"{url}\n")
                     f.write(f"{str(e)}\n")
 
         else:
-            with open("data/"+component+"/check_error.txt", "a+") as f:
+            with open("nmvw_data/"+component+"/check_error.txt", "a+") as f:
                 f.write(f"range: {start_limit}-{end_limit}\n")
 
         start_limit = end_limit + 1
@@ -84,8 +85,8 @@ def run(component, highest_value, range, start_limit=1):
     return
 
 
-def check_constituent(component):
-    directory = "data/"+component
+def count_all_constituents(component):
+    directory = "nmvw_data/"+component
 
     def count_graph(file):
         g = rdflib.Graph().parse(file)
@@ -125,8 +126,8 @@ def check_constituent(component):
         print(log_table['const_len'].sum())
 
 
-def check_constituent_wikidata(component):
-    directory = "data/"+component
+def count_all_constituent_with_wikidata(component):
+    directory = "nmvw_data/"+component
 
     def count_graph(file):
         g = rdflib.Graph().parse(file)
