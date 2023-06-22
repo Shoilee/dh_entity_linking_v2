@@ -75,7 +75,7 @@ def run(directory):
                 # time.sleep(60)
     finally:
         # store the newly constructed graph in one file
-        new_graph.serialize(destination=os.path.join(directory, "..", "wikidata_ccrdfconstQ5_100l.ttl"))
+        new_graph.serialize(destination=os.path.join(directory, "..", "wikidata_ccrdfconstQ5_full.ttl"))
         # show dataframe
         print(log_table.to_string())
         log_table.to_csv(path_or_buf=os.path.join(directory, "..", "const_wiki_filter_log.csv"), sep=',')

@@ -1,10 +1,12 @@
 import pandas
 
-from nmvwdatadump.data_dump import run as dump, check_constituent, check_constituent_wikidata
+from nmvwdatadump.data_dump import run as dump, count_all_constituents, count_all_constituent_with_wikidata
 from nmvwdatadump.filter_wiki_human import run as filter_wikidata, count_total_wikidata
 from nmvwdatadump.get_person_name import merge_constituent, count_person, dump_name, construct_name_table, count_type
 from nmvwdatadump.wikidata_dump import test_run
 from nmvwdatadump.filter_object_by_constituent import run as filter_const
+# TODO rename ttl2dataframe to "buildgroundtruthfromwikidata"
+# TODO change it from utils to exp100 folder
 from utils.ttl_to_dataframe import run as ttl2dataframe
 from deezymatch.deezy_match_data_construction import construct_deezymatch_data
 from result import result
@@ -16,6 +18,7 @@ from exp100.k_fold_validation import k_fold_validation
 from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
 
 if __name__ == '__main__':
+    """CODE FOR NMVW DATA DUMP GIVEN URI= """""
     # make data_dump file, pass component for argument
     # Constituent end-point: "ccrdfconst", range: 75000 (last found 16700)
     # Object core end-point: ccrdf, range: 529407
@@ -25,13 +28,27 @@ if __name__ == '__main__':
     # Terms/thesaurus: "ccrdfthes", range:12000
     # dump("ccrdfconst", 58000, range=20)
 
-    # check_constituent("ccrdfconst")
-    # check_constituent_wikidata("ccrdfconst")
+    # count_all_constituents("ccrdfconst") # 51909 @ 22 Jun, 2023 ; see ../nmvw_data/ccrdfconst/const_stat.csv
+    # count_all_constituent_with_wikidata("ccrdfconst") # 6165 @ 22 Jun, 2023 ; see ../nmvw_data/ccrdfconst/const_wikidata_human_stat.csv
 
-    # make a wikidata human filtering dump from all constituent
-    # filter_wikidata(directory="data/test") # pass the FOLDER NAME containing ttl file
-    # count_total_wikidata("data/ccrdfconst/const_wiki_filter_log.csv")
+    # exp100
+    # Building ground truth
+    #   Step-1: Filter constituent with wikidata identifier (format: .ttl)
+    #   Step-2: Extract all possible name label from wikidata (format: .pkl)
 
+    # new(filtered and merged) graph destination=os.path.join(directory, "..", "wikidata_ccrdfconstQ5_full.ttl")
+    # filter_wikidata(directory="nmvw_data/ccrdfconst") # pass the FOLDER NAME containing ttl file;
+    # count_total_wikidata("nmvw_data/const_wiki_filter_log.csv") # 6165 @ 22 Jun, 2023
+
+    # TODO rename "exp100/data/wikidata_human_name.pkl" to "exp100/data/ground_truth.pkl"
+    # TODO rename ttl2dataframe to "buildgroundtruthfromwikidata"
+    ttl2dataframe("exp100/data/wikidata_ccrdfconstQ5_full.ttl", "exp100/data/wikidata_human_name.pkl")
+
+    df = pandas.read_pickle("exp100/data/wikidata_human_name.pkl")
+    print(df.head(10))
+
+    # To get all the names of nmvw constituent
+    """
     # filter_person(directory="data/ccrdfconst") # pass the FOLDER NAME containing ttl file
     # dump_name('data/ccrdfconst_all.ttl')
     # count_person("data/const_person_filter_log.csv")
@@ -44,9 +61,7 @@ if __name__ == '__main__':
     # test_run()
 
     # filter_const()
-
-    # TODO: check why I took "data/ccrdfconst/wikidata_ccrdfconstQ5_full.ttl" and not 'data/ccrdfconst_all.ttl'; which one is the correct one
-    # ttl2dataframe("data/ccrdfconst/wikidata_ccrdfconstQ5_full.ttl", "data/ccrdfconst/wikidata_human_name.pkl" )
+    """
 
     # Conducted on 3rd February
     # naive_string_matching("data/ccrdfconst/wikidata_human_name.pkl", "results/naive_string_matching_10.pkl")
