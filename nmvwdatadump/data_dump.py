@@ -1,9 +1,9 @@
 import pandas
 import rdflib
 import requests
-from utils import EmptyGraphError
+from utils.utils import EmptyGraphError
 import os, logger
-from utils import get_URL_response, convert_xmlTottl, replace_triples, response_to_file
+from utils.utils import get_URL_response, convert_xmlTottl, replace_triples, response_to_file
 
 # TODO CHECK WHETHER IT PROPERLY DETECTS EMPTY RETURN
 
