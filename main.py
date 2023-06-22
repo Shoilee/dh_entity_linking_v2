@@ -6,14 +6,14 @@ from nmvwdatadump.get_person_name import merge_constituent, count_person, dump_n
 from nmvwdatadump.wikidata_dump import test_run
 from nmvwdatadump.filter_object_by_constituent import run as filter_const
 from utils.ttl_to_dataframe import run as ttl2dataframe
-from deezy_match_data_construction import construct_deezymatch_data
+from deezymatch.deezy_match_data_construction import construct_deezymatch_data
 from result import result
-from naive_string_matching import run as naive_string_matching
-from naive_string_matching_all import run as naive_string_matching_all
-from data_count import text_file_count
-from fuzzy_string_matching import run as fuzzy_string_matching
-from k_fold_validation import k_fold_validation
-from bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
+from naive.naive_string_matching import run as naive_string_matching
+from naive.naive_string_matching_all import run as naive_string_matching_all
+from deezymatch.line_count_text_file import text_file_count
+from deezymatch.fuzzy_string_matching import run as fuzzy_string_matching
+from exp100.k_fold_validation import k_fold_validation
+from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
 
 if __name__ == '__main__':
     # make data_dump file, pass component for argument
