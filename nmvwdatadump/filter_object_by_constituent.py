@@ -1,5 +1,3 @@
-"""FILTER OBJECT BY CONSTITUENT"""
-
 import pandas
 import rdflib
 import glob, os, time
