@@ -5,18 +5,14 @@ entity_linking
 |   README.md
 |   main.py
 |   result.py
-└───nmvwdatadump
+└───nmvwdatadump: NMVW DATA PROCESSING
 |   |   data_dump.py
-|   |   ~~filter_object_by_constituent.py~~
-|   |   ~~filter_wiki_human_old.py~~
 |   |   filter_wiki_human.py
-|   |   ~~get_person_name.py~~
-|   |   ~~wikidata_dump.py~~
-└───naive
+└───naive: WIKIDATA IDENTIFIER RETRIVAL USING NAIVE(EXACT) STRING MATCHING GIVEN INDIVIDUAL'S NAME
 |   |   naive_string_matching.py
 |   |   ~~naive_string_matching_all.py~~
 |   |   ~~naive_string_matching_old.py~~
-└───dezzymatch
+└───dezzymatch: WIKIDATA IDENTIFIER RETRIVAL USING FUZZY STRING MATCHING GIVEN INDIVIDUAL'S NAME
 |   └───ranker_results
 |   └───candidates
 |   └───combined
@@ -30,11 +26,13 @@ entity_linking
 |   |   deezymatch.ipynb
 └───utils
 |   |   utils.py
+|   |   result.py
 └───exp100
 |   └───data
 |   └───results
 |   └───k_fold_validation
-|   |   k_fold_validation.ipynb
+|   |   construct_ground_truth.py
+|   |   exp100.ipynb
 |   |   README.md
 └───exp200
 |   └───data
