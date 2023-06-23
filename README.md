@@ -13,12 +13,10 @@ entity_linking
 |   |   ~~get_person_name.py~~
 |   |   ~~wikidata_dump.py~~
 └───naive
-|   |   preprocessing.py
 |   |   naive_string_matching.py
-|   |   naive_string_matching_all.py
-|   |   naive_string_matching_old.py
+|   |   ~~naive_string_matching_all.py~~
+|   |   ~~naive_string_matching_old.py~~
 └───dezzymatch
-|   |   preprocessingg.py
 |   |   candidates
 |   |   combined
 |   |   deezy_match_data_construction.py
@@ -28,7 +26,6 @@ entity_linking
 |   |   ranker_results
 └───utils
 |   |   utils.py
-|   |   ttl_to_dataframe.py
 └───exp100
 |   └───data
 |   └───results
