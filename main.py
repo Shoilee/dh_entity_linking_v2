@@ -5,9 +5,7 @@ from nmvwdatadump.filter_wiki_human import run as filter_wikidata, count_total_w
 from nmvwdatadump.get_person_name import merge_constituent, count_person, dump_name, construct_name_table, count_type
 from nmvwdatadump.wikidata_dump import test_run
 from nmvwdatadump.filter_object_by_constituent import run as filter_const
-# TODO rename ttl2dataframe to "buildgroundtruthfromwikidata"
-# TODO change it from utils to exp100 folder
-from utils.ttl_to_dataframe import run as ttl2dataframe
+from exp100.construct_ground_truth import run as constructgroundtruthfromwikidata
 from deezymatch.deezy_match_data_construction import construct_deezymatch_data
 from result import result
 from naive.naive_string_matching import run as naive_string_matching
@@ -41,11 +39,11 @@ if __name__ == '__main__':
     # count_total_wikidata("nmvw_data/const_wiki_filter_log.csv") # 6165 @ 22 Jun, 2023
 
     # TODO rename "exp100/data/wikidata_human_name.pkl" to "exp100/data/ground_truth.pkl"
-    # TODO rename ttl2dataframe to "buildgroundtruthfromwikidata"
-    ttl2dataframe("exp100/data/wikidata_ccrdfconstQ5_full.ttl", "exp100/data/wikidata_human_name.pkl")
+    # TODO rename constructgroundtruthfromwikidata to "buildgroundtruthfromwikidata"
+    constructgroundtruthfromwikidata("exp100/data/wikidata_ccrdfconstQ5_full.ttl", "exp100/data/ground_truth.pkl")
 
-    df = pandas.read_pickle("exp100/data/wikidata_human_name.pkl")
-    print(df.head(10))
+    # df = pandas.read_pickle("exp100/data/wikidata_human_name.pkl")
+    # print(df.head(10))
 
     # To get all the names of nmvw constituent
     """
@@ -64,7 +62,7 @@ if __name__ == '__main__':
     """
 
     # Conducted on 3rd February
-    # naive_string_matching("data/ccrdfconst/wikidata_human_name.pkl", "results/naive_string_matching_10.pkl")
+    naive_string_matching("exp100/data/wikidata_human_name.pkl", "exp100/results/naive_string_matching.pkl")
     # naive_string_matching("/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_candidates_deezymatch.pkl","results/naive_string_matching.pkl")
     # naive_string_matching_all('data/ccrdfconst/person_names.pkl', 'results/naive_string_matching_all.pkl')
 
