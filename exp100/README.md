@@ -21,8 +21,9 @@ count_total_wikidata("nmvw_data/ccrdfconst/const_wiki_filter_log.csv")
 ```
 
 ###Step-3: Build ground truth
+
 ```python
-from utils.ttl_to_dataframe import run as ttl2dataframe
+from exp100.construct_ground_truth import run as ttl2dataframe
 
 ttl2dataframe("data/wikidata_ccrdfconstQ5_full.ttl", "data/wikidata_human_name.pkl")
 ```

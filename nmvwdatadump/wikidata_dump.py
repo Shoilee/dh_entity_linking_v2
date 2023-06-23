@@ -11,11 +11,11 @@ def run_query(file, new_graph):
         # https: // www.wikidata.org / wiki / Special: EntityData / Q18644475.json
         # wikidata_id = "https://www.wikidata.org/entity/Q4115175"
 
-        # TODO filter the Q-number
+        # filter the Q-number
         # q_number = wikidata_id.split("/").strip()
-        # TODO construct the dump url
+        # construct the dump url
         # json_url = "https://www.wikidata.org/wiki/Special:EntityData/" + q_number +".json"
-        # TODO save the json file
+        # save the json file
         # response = requests.get(json_url)  # (your url)
         # data = response.json()
         # with open("wiki/" + q_number+'.json', 'w') as f:

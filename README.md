@@ -6,13 +6,12 @@ entity_linking
 |   main.py
 |   result.py
 └───nmvwdatadump
-|   |   data_count.py
 |   |   data_dump.py
-|   |   filter_object_by_constituent.py
-|   |   filter_wiki_human_old.py
+|   |   ~~filter_object_by_constituent.py~~
+|   |   ~~filter_wiki_human_old.py~~
 |   |   filter_wiki_human.py
-|   |   get_person_name.py
-|   |   wikidata_dump.py
+|   |   ~~get_person_name.py~~
+|   |   ~~wikidata_dump.py~~
 └───naive
 |   |   preprocessing.py
 |   |   naive_string_matching.py
@@ -31,28 +30,16 @@ entity_linking
 |   |   utils.py
 |   |   ttl_to_dataframe.py
 └───exp100
+|   └───data
+|   └───results
+|   |   README.md
 |   └───k_fold_validation
-|   |   |   candidates.txt
-|   |   |   dataset-string-matching_all.txt
-|   |   |   dataset-string-matching_train.txt
-|   |   |   id_to_names.pickle
-|   |   |   naive_string_matching.pkl
-|   |   |   name_pairs.txt
-|   |   |   name_to_id.pickle
-|   |   |   queries.txt
-|   |   |   randon_person_names_1236.pkl
-|   |   |   result_faiss_3.pkl
-|   |   |   result.pkl
-|   |   |   resultDict_cosine_1.pickle
-|   |   |   resultDict_cosine_3.pickle
-|   |   |   resultDict_faiss_1.pickle
-|   |   |   resultDict_faiss_3.pickle
-|   |   |   test_sample.pkl
-|   |   |   training_sample.pkl
 |   |   k_fold_validation.ipynb
 |   |   k_fold_validation.py
-|   |   README.md
 └───exp200
+|   └───data
+|   └───results
+|   |   README.md
 |   |   bronbeek_const_data_processing.py
 |   |   bronbeekDeezyMatchExp.ipynb
 ```

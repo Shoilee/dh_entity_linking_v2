@@ -3,10 +3,13 @@ import rdflib
 
 
 def f_measure(recall, precision):
-    f = 2 * (precision * recall)/(precision + recall)
-    print(f"F-measure: {f}\n")
-
-    return f
+    try:
+        f = 2 * (precision * recall)/(precision + recall)
+        print(f"F-measure: {f}\n")
+        return f
+    except ZeroDivisionError:
+        print(f"Both precision is {precision} and recall is {recall}!!!")
+        return 0
 
 
 def recall(df):
