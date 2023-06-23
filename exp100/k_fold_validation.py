@@ -1,5 +1,5 @@
 import pandas
-from deezy_match_data_construction import construct_deezymatch_data, generate_test_data
+from deezymatch.deezy_match_data_construction import construct_deezymatch_data, generate_test_data
 from DeezyMatch import train as dm_train
 import os
 

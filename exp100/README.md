@@ -1,8 +1,31 @@
 # ENTITY LINKING ON HISTORICAL DATA
 
-## How we constructed the ground truth? 
+## How did we construct the ground truth? 
 ![Ground truth](../resources/ground_truth_data_setup.png)
 
+###Step-1: NMVW Data Dump
+```python 
+from nmvwdatadump.data_dump import run as dump, count_all_constituents, count_all_constituent_with_wikidata
+
+dump("ccrdfconst", 58000, range=20)
+count_all_constituents("ccrdfconst") 
+count_all_constituent_with_wikidata("ccrdfconst") 
+```
+
+###Step-2: Filter wikidata constituents
+```python 
+from nmvwdatadump.filter_wiki_human import run as filter_wikidata, count_total_wikidata
+
+filter_wikidata(directory="nmvw_data/ccrdfconst") # pass the FOLDER NAME containing ttl file
+count_total_wikidata("nmvw_data/ccrdfconst/const_wiki_filter_log.csv")
+```
+
+###Step-3: Build ground truth
+```python
+from utils.ttl_to_dataframe import run as ttl2dataframe
+
+ttl2dataframe("data/wikidata_ccrdfconstQ5_full.ttl", "data/wikidata_human_name.pkl")
+```
 
 ## What is the task? 
 
@@ -10,14 +33,16 @@ This section discusses the string match algorithms used for entity matching only
 
 Given a set of persons $\textbf{P} = \{P_1, P_2, ... , P_n\}$ with name $x_1, x_2, ... , x_n$ respectively, retrieve the corresponding wikidata identifier $Q_1$, $Q_2$, ... , $Q_n$, assuming that one person have only one wikidata instance.
 ![Task Description](../resources/experiment_description.png)
-[edit image](https://drive.google.com/drive/u/2/my-drive)<br>
+[edit image](https://drive.google.com/drive/u/2/my-drive)
 
 We have 6178 instance of human entities, where we know the corresponding wikidata URI, therefore consider those human entities as our ground truth. From federated query to wikidata SPARQL endpoint, we also retrieved all the naming variation(different language, spelling and format) for corresponding to 6178 human listed on wikidata in different language. [Code](ttl_to_dataframe.py)
 
-<code>select * where { <br>
-    SERVICE <https://query.wikidata.org/sparql> {  <br>
-         <"""+var+"""> rdfs:label ?name .  <br>
-    }}</code>
+```
+select * where {
+    SERVICE <https://query.wikidata.org/sparql> {  
+         <"""+var+"""> rdfs:label ?name .  
+    }}
+```
 
 
 We further divide this sample entities in train(90%) and test(10%) set, resulting a split of 5560 entities for training and 618 entities for test. we will report all our results based on these 618 test samples. 
