@@ -4,7 +4,6 @@
 entity_linking
 |   README.md
 |   main.py
-|   result.py
 └───nmvwdatadump: NMVW DATA PROCESSING
 |   |   data_dump.py
 |   |   filter_wiki_human.py
