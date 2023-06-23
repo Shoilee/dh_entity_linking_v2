@@ -35,7 +35,6 @@ entity_linking
 |   └───results
 |   └───k_fold_validation
 |   |   k_fold_validation.ipynb
-|   |   k_fold_validation.py
 |   |   README.md
 └───exp200
 |   └───data
@@ -49,5 +48,5 @@ entity_linking
 
 | Experiment no. | Data1 | Data2 | Sample size | Algorithm1 | Algorithm2 | Evaluation | File | 
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------| ----------- |
-| exp100 | NMVW | Wikidata |  6178 | Naive | DeezyMatch | Based on Ground Truth | ![File](exp100) | 
-| exp200 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Naive | DeezyMatch |  Based human evaluation | ![File](exp200) | 
+| exp100 | NMVW | Wikidata |  6178 | Naive | DeezyMatch | Based on Ground Truth | [File](exp100) | 
+| exp200 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Naive | DeezyMatch |  Based human evaluation | [File](exp200) | 

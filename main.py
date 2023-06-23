@@ -7,16 +7,15 @@ from nmvwdatadump.wikidata_dump import test_run
 from nmvwdatadump.filter_object_by_constituent import run as filter_const
 from exp100.construct_ground_truth import run as constructgroundtruthfromwikidata
 from deezymatch.deezy_match_data_construction import construct_deezymatch_data
-from result import result
+from utils.result import result
 from naive.naive_string_matching import run as naive_string_matching
 from naive.naive_string_matching_all import run as naive_string_matching_all
 from deezymatch.line_count_text_file import text_file_count
 from deezymatch.fuzzy_string_matching import run as fuzzy_string_matching
-from exp100.k_fold_validation import k_fold_validation
 from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
 
 if __name__ == '__main__':
-    """CODE FOR NMVW DATA DUMP GIVEN URI= """""
+    """CODE FOR NMVW DATA DUMP GIVEN HTTP URI"""
     # make data_dump file, pass component for argument
     # Constituent end-point: "ccrdfconst", range: 75000 (last found 16700)
     # Object core end-point: ccrdf, range: 529407
@@ -27,7 +26,8 @@ if __name__ == '__main__':
     # dump("ccrdfconst", 58000, range=20)
 
     # count_all_constituents("ccrdfconst") # 51909 @ 22 Jun, 2023 ; see ../nmvw_data/ccrdfconst/const_stat.csv
-    # count_all_constituent_with_wikidata("ccrdfconst") # 6165 @ 22 Jun, 2023 ; see ../nmvw_data/ccrdfconst/const_wikidata_human_stat.csv
+    # count_all_constituent_with_wikidata("ccrdfconst")
+    # 6165 @ 22 Jun, 2023 ; see ../nmvw_data/ccrdfconst/const_wikidata_human_stat.csv
 
     # exp100
     # Building ground truth
@@ -38,9 +38,7 @@ if __name__ == '__main__':
     # filter_wikidata(directory="nmvw_data/ccrdfconst") # pass the FOLDER NAME containing ttl file;
     # count_total_wikidata("nmvw_data/const_wiki_filter_log.csv") # 6165 @ 22 Jun, 2023
 
-    # TODO rename "exp100/data/wikidata_human_name.pkl" to "exp100/data/ground_truth.pkl"
-    # TODO rename constructgroundtruthfromwikidata to "buildgroundtruthfromwikidata"
-    constructgroundtruthfromwikidata("exp100/data/wikidata_ccrdfconstQ5_full.ttl", "exp100/data/ground_truth.pkl")
+    # constructgroundtruthfromwikidata("exp100/data/wikidata_ccrdfconstQ5_full.ttl", "exp100/data/ground_truth.pkl")
 
     # df = pandas.read_pickle("exp100/data/wikidata_human_name.pkl")
     # print(df.head(10))
@@ -61,8 +59,8 @@ if __name__ == '__main__':
     # filter_const()
     """
 
-    # Conducted on 3rd February
-    naive_string_matching("exp100/data/wikidata_human_name.pkl", "exp100/results/naive_string_matching.pkl")
+    # NAIVE STRING MATCH ON GROUND TRUTH DATA
+    # naive_string_matching("exp100/data/ground_truth.pkl", "exp100/results/naive_string_matching.pkl")
     # naive_string_matching("/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_candidates_deezymatch.pkl","results/naive_string_matching.pkl")
     # naive_string_matching_all('data/ccrdfconst/person_names.pkl', 'results/naive_string_matching_all.pkl')
 
@@ -70,21 +68,20 @@ if __name__ == '__main__':
     # print(df[df['retrieved_uri'].apply(lambda x: len(x)) > 0])
 
     # generating precision and recall
-    # result("results/naive_string_matching_618.pkl")
+    # result("exp100/results/naive_string_matching.pkl")
 
     # DEEZYMATCH
-    # construct_deezymatch_data('data/ccrdfconst/wikidata_human_name.pkl', 'data/ccrdfconst/dataset-string-matching_all.pkl')
+    # construct_deezymatch_data('exp100/data/ground_truth.pkl', 'exp100/data/dataset-string-matching_all.pkl') # TODO what 'exp100/data/dataset-string-matching_all.pkl' stores and why
 
+    # TODO maybe we do not need the following three lines
+    """
     #df = pandas.read_pickle("data/ccrdfconst/dataset-string-matching_finetune.pkl")
-
     #print(df.head())
-
     #text_file_count()
+    """
 
     # fuzzy_string_matching("/Users/sarah_shoilee/PycharmProjects/DeezyMatch4Const/ranker_results/test_faiss_3_candidates_deezymatch.pkl", 'results/test_faiss_3_candidates_deezymatch.pkl')
     # result("results/test_faiss_3_candidates_deezymatch.pkl")
-
-    # k_fold_validation()
 
     # df = pandas.read_pickle("pm_data/ccrdfconst/wikidata_human_name.pkl")
     # df_random_1236 = df.sample(n=1236)
