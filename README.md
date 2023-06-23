@@ -17,22 +17,26 @@ entity_linking
 |   |   ~~naive_string_matching_all.py~~
 |   |   ~~naive_string_matching_old.py~~
 └───dezzymatch
-|   |   candidates
-|   |   combined
+|   └───ranker_results
+|   └───candidates
+|   └───combined
+|   └───data
+|   └───inputs
+|   └───models
+|   └───queries
 |   |   deezy_match_data_construction.py
 |   |   fuzzy_string_matching.py
-|   |   models
-|   |   queries
-|   |   ranker_results
+|   |   line_count_text_file.py
+|   |   deezymatch.ipynb
 └───utils
 |   |   utils.py
 └───exp100
 |   └───data
 |   └───results
-|   |   README.md
 |   └───k_fold_validation
 |   |   k_fold_validation.ipynb
 |   |   k_fold_validation.py
+|   |   README.md
 └───exp200
 |   └───data
 |   └───results
