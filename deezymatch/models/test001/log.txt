@@ -1,0 +1,20 @@
+# 06/23/2023_10:25:07
+# Current directory: /Users/sarah_shoilee/PycharmProjects/entity_linking/deezymatch
+# ------------------
+# Arguments:
+# input_file_path: /Users/sarah_shoilee/PycharmProjects/entity_linking/deezymatch/inputs/input_dfm.yaml
+# dataset_path: /Users/sarah_shoilee/PycharmProjects/entity_linking/deezymatch/data/dataset-string-matching_train.txt
+# model_name: test001
+# n_train_examples: None
+# ------------------
+06/23/2023_10:38:32 -- Epoch: 1/5; Train; loss: 0.196; acc: 0.916; precision: 0.904, recall: 0.931, macrof1: 0.916, weightedf1: 0.916
+06/23/2023_10:38:50 -- Epoch: 1/5; Valid; loss: 0.095; acc: 0.965; precision: 0.963, recall: 0.967, macrof1: 0.965, weightedf1: 0.965
+06/23/2023_10:51:50 -- Epoch: 2/5; Train; loss: 0.065; acc: 0.977; precision: 0.974, recall: 0.980, macrof1: 0.977, weightedf1: 0.977
+06/23/2023_10:52:09 -- Epoch: 2/5; Valid; loss: 0.104; acc: 0.963; precision: 0.958, recall: 0.969, macrof1: 0.963, weightedf1: 0.963
+06/23/2023_11:05:12 -- Epoch: 3/5; Train; loss: 0.034; acc: 0.988; precision: 0.987, recall: 0.990, macrof1: 0.988, weightedf1: 0.988
+06/23/2023_11:05:32 -- Epoch: 3/5; Valid; loss: 0.082; acc: 0.974; precision: 0.975, recall: 0.973, macrof1: 0.974, weightedf1: 0.974
+06/23/2023_11:18:30 -- Epoch: 4/5; Train; loss: 0.025; acc: 0.992; precision: 0.991, recall: 0.993, macrof1: 0.992, weightedf1: 0.992
+06/23/2023_11:18:49 -- Epoch: 4/5; Valid; loss: 0.070; acc: 0.978; precision: 0.975, recall: 0.982, macrof1: 0.978, weightedf1: 0.978
+06/23/2023_11:31:54 -- Epoch: 5/5; Train; loss: 0.017; acc: 0.994; precision: 0.993, recall: 0.995, macrof1: 0.994, weightedf1: 0.994
+06/23/2023_11:32:12 -- Epoch: 5/5; Valid; loss: 0.079; acc: 0.978; precision: 0.975, recall: 0.981, macrof1: 0.978, weightedf1: 0.978
+06/23/2023_11:46:00 -- Epoch: 0/0; Test; loss: 0.031; acc: 0.990; precision: 0.990, recall: 0.991, macrof1: 0.990, weightedf1: 0.990

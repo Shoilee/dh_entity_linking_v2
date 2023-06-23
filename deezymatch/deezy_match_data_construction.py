@@ -7,7 +7,7 @@ import random
 from thefuzz import fuzz
 
 
-def construct_deezymatch_data(source_file, directory="data/deezymatch/"):
+def construct_deezymatch_data(source_file, directory="deezymatch/data/"):
     df = pandas.read_pickle(source_file)
 
     # DICTIONARY MAPS ID TO ALL DIFFERENT NAME VARIANTS
