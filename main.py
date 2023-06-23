@@ -7,7 +7,7 @@ from nmvwdatadump.wikidata_dump import test_run
 from nmvwdatadump.filter_object_by_constituent import run as filter_const
 from exp100.construct_ground_truth import run as constructgroundtruthfromwikidata
 from deezymatch.deezy_match_data_construction import construct_deezymatch_data
-from utils.result import result
+from utils.calculate_result import result
 from naive.naive_string_matching import run as naive_string_matching
 from naive.naive_string_matching_all import run as naive_string_matching_all
 from deezymatch.line_count_text_file import text_file_count
