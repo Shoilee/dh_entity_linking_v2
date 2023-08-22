@@ -13,6 +13,7 @@ from naive.naive_string_matching_all import run as naive_string_matching_all
 from deezymatch.line_count_text_file import text_file_count
 from deezymatch.fuzzy_string_matching import run as fuzzy_string_matching
 from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
+from matchsurname.match_surname import matchLastName
 
 if __name__ == '__main__':
     """CODE FOR NMVW DATA DUMP GIVEN HTTP URI"""
@@ -101,6 +102,8 @@ if __name__ == '__main__':
     # FirstNameLastName()
     # NaiveNMVWvsBronbeek()
     # DeezyMatchNMVWvsBronbeek()
+
+    matchLastName()
 
     pass
 
