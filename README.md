@@ -45,6 +45,7 @@ Given two (or more) Knowledge Graph, the task is to find the corresponding links
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------| ----------- |
 | exp100 | NMVW | Wikidata |  6178 | Naive | DeezyMatch | Based on Ground Truth | [File](exp100) | 
 | exp200 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Naive | DeezyMatch |  Based human evaluation | [File](exp200) | 
+| exp201 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Surname Match | - |  Based human evaluation | [File](./exp201/exp201.ipynb) | 
 
 ## Evaluation 
 Report on Recall, Precision and F-score [code](utils/calculate_result.py)
