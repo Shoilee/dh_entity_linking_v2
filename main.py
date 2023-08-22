@@ -1,4 +1,4 @@
-import pandas
+import pandas, pickle
 
 from nmvwdatadump.data_dump import run as dump, count_all_constituents, count_all_constituent_with_wikidata
 from nmvwdatadump.filter_wiki_human import run as filter_wikidata, count_total_wikidata
@@ -103,8 +103,14 @@ if __name__ == '__main__':
     # NaiveNMVWvsBronbeek()
     # DeezyMatchNMVWvsBronbeek()
 
-    matchLastName()
+    # result = matchLastName(df1=pandas.read_pickle("nmvw_data/ccrdfconst/person_names.pkl"),
+                           # df2=pandas.read_csv("/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"))
 
+    # with open("bronbeekToNmvwSurnameMatchResults.pkl", "wb") as handle:
+        # pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    df = pandas.read_pickle("bronbeekToNmvwSurnameMatchResults.pkl")
+    print(len(df.loc[df["MATCH"] == "YES"]))
     pass
 
 
