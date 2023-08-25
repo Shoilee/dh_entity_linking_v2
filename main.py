@@ -15,6 +15,7 @@ from deezymatch.fuzzy_string_matching import run as fuzzy_string_matching
 from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
 from matchsurname.match_surname import matchLastName
 from matchwithabbreviation.match_with_abbreviation import match_with_abbreviation
+from matchfuzzystring.match_fuzzy_string import match_fuzzy_string
 
 if __name__ == '__main__':
     """CODE FOR NMVW DATA DUMP GIVEN HTTP URI"""
@@ -108,10 +109,10 @@ if __name__ == '__main__':
     # result = matchLastName(df1=pandas.read_pickle("nmvw_data/ccrdfconst/person_names.pkl"),
                            # df2=pandas.read_csv("/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"))
 
-    # with open("bronbeekToNmvwSurnameMatchResults.pkl", "wb") as handle:
+    # with open("results/bronbeekToNmvwSurnameMatchResults.pkl", "wb") as handle:
         # pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-    # df = pandas.read_pickle("bronbeekToNmvwSurnameMatchResults.pkl")
+    # df = pandas.read_pickle("results/bronbeekToNmvwSurnameMatchResults.pkl")
     # print(len(df.loc[df["MATCH"] == "YES"]))
 
     """
@@ -119,12 +120,21 @@ if __name__ == '__main__':
     result = match_with_abbreviation(df1=pandas.read_pickle("nmvw_data/ccrdfconst/person_names.pkl"),
                             df2=pandas.read_csv("/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"))
 
-    with open("bronbeekToNmvwAbbreviationMatchResults.pkl", "wb") as handle:
+    with open("results/bronbeekToNmvwAbbreviationMatchResults.pkl", "wb") as handle:
         pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-    df = pandas.read_pickle("bronbeekToNmvwAbbreviationMatchResults.pkl")
+    df = pandas.read_pickle("results/bronbeekToNmvwAbbreviationMatchResults.pkl")
     print(len(df.index))
     """
+
+    result = match_fuzzy_string(df1=pandas.read_pickle("nmvw_data/ccrdfconst/person_names.pkl"),
+                                df2=pandas.read_csv("/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"))
+
+    with open("results/bronbeekToNmvwFuzzyNameMatchResults.pkl", "wb") as handle:
+        pickle.dump(result, handle, protocol=pickle.HIGHEST_PROTOCOL)
+
+    df = pandas.read_pickle("results/bronbeekToNmvwFuzzyNameMatchResults.pkl")
+    print(len(df.loc[df["MATCH"] == "YES"]))
 
     pass
 
