@@ -1,4 +1,7 @@
 import pandas
+from thefuzz import fuzz, process
+from tqdm import tqdm
+
 
 def exact_string_match(df, candidate_list):
     match = ["NO" for i in range(len(df.index))]
@@ -38,7 +41,6 @@ def match_lastName(df, candidate_list):
 
 
 def match_with_abbreviation(df, candidate_list):
-    print("I am here!")
     def get_initials(name):
         if len(name.split(" ")) < 1:
             print(name)
@@ -48,7 +50,8 @@ def match_with_abbreviation(df, candidate_list):
         try:
             return ' '.join([f"{n[0]}." for n in names])
         except Exception as e:
-            print(f'{name} has {str(e)} error')
+            # print(f'{name} has {str(e)} error')
+            pass
 
     abbreviation_list = list()
     for i, row in df.iterrows():
@@ -67,9 +70,9 @@ def match_with_abbreviation(df, candidate_list):
     for item in candidate_list:
         firstnames = get_initials(" ".join(str(item).split(" ")[:-1]))
         if firstnames:
-            initial_and_surname = firstnames + " " + str(row).split(" ")[-1]
+            initial_and_surname = firstnames + " " + str(item).split(" ")[-1]
         else:
-            initial_and_surname = str(row).split(" ")[-1]
+            initial_and_surname = str(item).split(" ")[-1]
         abbrv_candidate_list.append(initial_and_surname)
 
     match = ["NO" for i in range(len(df.index))]
@@ -87,3 +90,23 @@ def match_with_abbreviation(df, candidate_list):
     result_table = pandas.concat([df, temp_df], axis=1)
 
     return result_table
+
+
+def match_fuzzy_string(df, candidate_list, ratio=fuzz.partial_token_sort_ratio, max_score=75, candidate_size=3):
+    match = ["NO" for i in range(len(df.index))]
+    match_results = []
+
+    for i, row in tqdm(df.iterrows()):
+        row_match_results = list()
+        row_match_results = process.extractBests(str(row['name_label']), candidate_list,
+                                                 scorer=ratio, score_cutoff=max_score, limit=candidate_size)
+        if len(row_match_results) > 0:
+            match[i] = "YES"
+            row_match_results = [item[0] for item in row_match_results]
+        match_results.append(row_match_results)
+
+    temp_df = pandas.DataFrame({'retrieved_names': match_results, 'match':match})
+    result_table = pandas.concat([df, temp_df], axis=1)
+
+    return result_table
+
