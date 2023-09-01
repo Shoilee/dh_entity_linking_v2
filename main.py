@@ -16,6 +16,7 @@ from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvs
 from matchsurname.match_surname import matchLastName
 from matchwithabbreviation.match_with_abbreviation import match_with_abbreviation
 from matchfuzzystring.match_fuzzy_string import match_fuzzy_string
+from nmvwdatadump.print_stat import print_stat
 
 if __name__ == '__main__':
     """CODE FOR NMVW DATA DUMP GIVEN HTTP URI"""
@@ -127,6 +128,7 @@ if __name__ == '__main__':
     print(len(df.index))
     """
 
+    """
     result = match_fuzzy_string(df1=pandas.read_pickle("nmvw_data/ccrdfconst/person_names.pkl"),
                                 df2=pandas.read_csv("/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"))
 
@@ -135,6 +137,9 @@ if __name__ == '__main__':
 
     df = pandas.read_pickle("results/bronbeekToNmvwFuzzyNameMatchResults.pkl")
     print(len(df.loc[df["MATCH"] == "YES"]))
+    """
+
+    print(print_stat('nmvw_data/ccrdfconst', ["crm:E21_Person", "crm:E39_Actor", "crm:E74_Group" ]))
 
     pass
 
