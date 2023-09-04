@@ -8,8 +8,8 @@ from nmvwdatadump.filter_object_by_constituent import run as filter_const
 from exp100.construct_ground_truth import run as constructgroundtruthfromwikidata
 from deezymatch.deezy_match_data_construction import construct_deezymatch_data
 from utils.calculate_result import result
-from naive.naive_string_matching import run as naive_string_matching
-from naive.naive_string_matching_all import run as naive_string_matching_all
+from naivematchwikidataretrival.naive_string_matching import run as naive_string_matching
+from naivematchwikidataretrival.naive_string_matching_all import run as naive_string_matching_all
 from deezymatch.line_count_text_file import text_file_count
 from deezymatch.fuzzy_string_matching import run as fuzzy_string_matching
 from exp200.bronbeek_const_data_processing import FirstNameLastName, NaiveNMVWvsBronbeek, DeezyMatchNMVWvsBronbeek
@@ -139,7 +139,7 @@ if __name__ == '__main__':
     print(len(df.loc[df["MATCH"] == "YES"]))
     """
 
-    print(print_stat('nmvw_data/ccrdfconst', ["crm:E21_Person", "crm:E39_Actor", "crm:E74_Group" ]))
+    # print(print_stat('nmvw_data/ccrdfconst', ["crm:E21_Person", "crm:E39_Actor", "crm:E74_Group" ]))
 
     pass
 

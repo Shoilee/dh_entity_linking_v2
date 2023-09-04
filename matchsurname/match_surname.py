@@ -45,7 +45,7 @@ def matchLastName(df1, df2):
         row_match_results = list()
         for name in listOfName:
             if str(row['LastName']) == list(str(name).split(" "))[-1]:
-                print(f"{row['LastName']}, {str(name)} is a match!")
+                # print(f"{row['LastName']}, {str(name)} is a match!")
                 row_match_results.append(str(name))
                 match[i] = "YES"
 

@@ -60,7 +60,8 @@ def match_with_abbreviation(df1, df2):
         try:
             return ' '.join([f"{n[0]}." for n in names])
         except Exception as e:
-            print(f'{name} has {str(e)} error')
+            # print(f'{name} has {str(e)} error')
+            pass
 
     abbreviation_list = list()
     for i, row in df1.iterrows():
@@ -82,10 +83,10 @@ def match_with_abbreviation(df1, df2):
     abbreviation_list = list()
     for i, row in df2.iterrows():
         firstnames = get_initials(str(row['FirstName']))
-        if firstnames :
+        if firstnames:
             initial_and_surname = firstnames + " " + str(row['LastName'])
         else:
-            initial_and_surname = row['LastName']
+            initial_and_surname = str(row['LastName'])
         # print(f"{str(row['FirstName'])} {str(row['LastName'])}--> {initial_and_surname}")
         abbreviation_list.append(initial_and_surname)
 
