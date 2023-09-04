@@ -41,12 +41,12 @@ Given two (or more) Knowledge Graph, the task is to find the corresponding links
 [edit_image](https://app.diagrams.net/#G1ZMdnviCDEguLUWB5kzItnAMo7Y3TQBse)
 ## Experiment Look-up Table
 
-| Experiment no. | Data1 | Data2 | Sample size | Algorithms |  Evaluation | Task/ Description | File | 
+| Experiment no. | Data | Query size | Candidate size | Algorithms |  Evaluation | Task/ Description | File | 
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------| ----------- |
-| exp100 | NMVW | Wikidata |  6178 | Naive, DeezyMatch | Based on Ground Truth | Retrieve wikidata identifier based on generated candidate| [File](exp100) | 
-| exp300 | NMVW | Wikidata | 6178 | Naive, Abbrv. Match, Surname Match, Fuzzy String, Match |  Based human evaluation | Match X to corresponding Y| [File](exp300/exp300.ipynb) | 
-| exp200 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Naive, DeezyMatch |  Based human evaluation | Match X to corresponding Y| [File](exp200) | 
-| exp201 | NMVW | Bronbeek | (num of NMVW) - (num of Bronbeek) | Surname Match |  Based human evaluation | Match X to corresponding Y| [File](./exp201/exp201.ipynb) | 
+| exp100 | NMVW-Wikidata |  6178 | -(all wikidata person instance) | Naive, DeezyMatch | Based on Ground Truth | Retrieve wikidata identifier based on generated candidate| [File](exp100) | 
+| exp300 | NMVW-Wikidata | 6178 | 11501 | Naive, Abbrv. Match, Surname Match, Fuzzy String, Match |  Based on human evaluation | Match X to corresponding Y| [File](exp300/exp300.ipynb) | 
+| ~~exp200~~ | ~~NMVW-Bronbeek~~ | - |~~(num of NMVW) - (num of Bronbeek)~~ | ~~Naive, DeezyMatch~~ |  ~~Based on human evaluation~~ | ~~Match X to corresponding Y~~| [~~File~~](exp200/exp200) | 
+| exp201 | Bronbeek-NMVW | 15382 (num of Bronbeek)| 39567 (num of NMVW)| Naive, Abbrv. Match, Surname Match, Fuzzy String, Match |  Based on human evaluation | Match X to corresponding Y| [File](./exp201/exp201.ipynb) | 
 
 ## Evaluation 
 Report on Recall, Precision and F-score [code](utils/calculate_result.py)
