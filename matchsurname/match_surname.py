@@ -1,5 +1,22 @@
-import pandas, numpy
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
+import pandas
+import numpy as np
+import multiprocessing as mp
 from tqdm import tqdm
+
+
+def find_match(data_tuple):
+    df1, df2 = data_tuple
+    result_table = pandas.DataFrame(columns=df1.columns.tolist() + df2.columns.tolist())
+
+    for index_1, row_1 in df1.iterrows():
+        for index_2, row_2 in tqdm(df2.iterrows()):
+            if str(row_1['pref_label']).split(" ")[-1] == str(row_2['LastName']):
+                row = row_1.append(row_2)
+                result_table = result_table.append(row, ignore_index=True)
+
+    return result_table
 
 
 def matchLastName(df1, df2):
@@ -36,22 +53,17 @@ def matchLastName(df1, df2):
     # print(f"Shape of NMVW constinuent: {df1.shape}")
     # print(f"Shape of Bronbeek constinuent: {df2.shape}")
 
-    listOfName = df1['name_label'].tolist()
+    n_workers = int(mp.cpu_count() * 2)
+    print(f"{n_workers} workers are available")
 
-    match = ["NO" for i in range(len(df2.index))]
-    match_results = []
+    def parallelize_dataframe(big_df, small_df, func, n_cores):
+        df_split = np.array_split(big_df, n_cores)
+        pool = mp.Pool(n_cores)
+        const_data = [small_df for _ in range(n_cores)]
+        df = pandas.concat(pool.map(func, zip(df_split, const_data)))
+        pool.close()
+        pool.join()
+        return df
 
-    for i, row in tqdm(df2.iterrows()):
-        row_match_results = list()
-        for name in listOfName:
-            if str(row['LastName']) == list(str(name).split(" "))[-1]:
-                # print(f"{row['LastName']}, {str(name)} is a match!")
-                row_match_results.append(str(name))
-                match[i] = "YES"
-
-        match_results.append(row_match_results)
-
-    temp_df = pandas.DataFrame({'RetrievedNames': match_results, 'MATCH':match})
-    result_table = pandas.concat([df2, temp_df], axis=1)
-    #print(result_table[['LastName', 'DisplayName', 'RetrievedNames', 'MATCH']])
+    result_table = parallelize_dataframe(df1, df2, find_match, n_workers)
     return result_table
