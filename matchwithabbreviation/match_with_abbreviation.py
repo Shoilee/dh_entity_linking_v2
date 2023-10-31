@@ -5,6 +5,7 @@ import numpy as np
 import multiprocessing as mp
 from tqdm import tqdm
 
+
 def get_initials(name):
     if len(name.split(" ")) < 1:
         print(name)
@@ -80,56 +81,6 @@ def match_with_abbreviation(df1, df2):
         +----+--------------+--------------+---------------+--------------+---------------+
         """
 
-
-    """
-    
-    abbreviation_list = list()
-    for i, row in df1.iterrows():
-        firstnames = get_initials(" ".join(str(row['pref_label']).split(" ")[:-1]))
-        if firstnames:
-            initial_and_surname = firstnames + " " + str(row['pref_label']).split(" ")[-1]
-        else:
-            initial_and_surname = str(row['pref_label']).split(" ")[-1]
-        # print(f"{str(row['pref_label'])} --> {initial_and_surname}")
-        abbreviation_list.append(initial_and_surname)
-
-    temp_df = pandas.DataFrame({'Abbreviations': abbreviation_list})
-    df1 = pandas.concat([df1, temp_df], axis=1)
-
-    # print(df1[['pref_label', 'Abbreviations']])
-
-    # print("#######################################################################")
-
-    abbreviation_list = list()
-    for i, row in df2.iterrows():
-        firstnames = get_initials(str(row['FirstName']))
-        if firstnames:
-            initial_and_surname = firstnames + " " + str(row['LastName'])
-        else:
-            initial_and_surname = str(row['LastName'])
-        # print(f"{str(row['FirstName'])} {str(row['LastName'])}--> {initial_and_surname}")
-        abbreviation_list.append(initial_and_surname)
-
-    temp_df = pandas.DataFrame({'Abbreviations': abbreviation_list})
-    df2 = pandas.concat([df2, temp_df], axis=1)
-
-    # print(df2[['FirstName', 'LastName', 'Abbreviations']])
-    """
-    """
-    match = ["NO" for i in range(len(df2.index))]
-    match_results = []
-    for i, row_df2 in tqdm(df2.iterrows()):
-        row_match_results = list()
-        for j, row_df1 in df1.iterrows():
-            if str(row_df2['Abbreviations']) == str(row_df1['Abbreviations']):
-                row_match_results.append(str(row_df1['pref_label']))
-                match[i] = "YES"
-        match_results.append(row_match_results)
-
-    temp_df = pandas.DataFrame({'RetrievedNames': match_results, 'MATCH': match})
-    result_table = pandas.concat([df2, temp_df], axis=1)
-    # print(result_table[['FirstName', 'LastName', 'RetrievedNames', 'MATCH']])
-    """
     n_workers = int(mp.cpu_count() * 2)
     print(f"{n_workers} workers are available")
     pool = mp.Pool(n_workers)
@@ -139,5 +90,5 @@ def match_with_abbreviation(df1, df2):
 
     # result_table = df2.join(df1, lsuffix="_left", rsuffix="_right")
     result_table = pandas.merge(df1, df2, on='Abbreviation')
-    return result_table
+    return result_table.drop_duplicates()
 

@@ -48,6 +48,7 @@ if __name__ == '__main__':
     # print(df.head(10))
 
     # To get all the names of nmvw constituent
+
     """
     # filter_person(directory="data/ccrdfconst") # pass the FOLDER NAME containing ttl file
     # dump_name('data/ccrdfconst_all.ttl')
@@ -77,7 +78,7 @@ if __name__ == '__main__':
     # DEEZYMATCH
     # construct_deezymatch_data('exp100/data/ground_truth.pkl', 'exp100/data/dataset-string-matching_all.pkl') # TODO what 'exp100/data/dataset-string-matching_all.pkl' stores and why
 
-    # TODO maybe we do not need the following three lines
+    #TODO maybe we do not need the following three lines
     """
     #df = pandas.read_pickle("data/ccrdfconst/dataset-string-matching_finetune.pkl")
     #print(df.head())

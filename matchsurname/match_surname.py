@@ -10,8 +10,8 @@ def find_match(data_tuple):
     df1, df2 = data_tuple
     result_table = pandas.DataFrame(columns=df1.columns.tolist() + df2.columns.tolist())
 
-    for index_1, row_1 in df1.iterrows():
-        for index_2, row_2 in tqdm(df2.iterrows()):
+    for index_1, row_1 in tqdm(df1.iterrows()):
+        for index_2, row_2 in df2.iterrows():
             if str(row_1['pref_label']).split(" ")[-1] == str(row_2['LastName']):
                 row = row_1.append(row_2)
                 result_table = result_table.append(row, ignore_index=True)
@@ -66,4 +66,4 @@ def matchLastName(df1, df2):
         return df
 
     result_table = parallelize_dataframe(df1, df2, find_match, n_workers)
-    return result_table
+    return result_table.drop_duplicates()
