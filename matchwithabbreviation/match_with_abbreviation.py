@@ -47,7 +47,6 @@ def get_initials(name):
         return "".join(name.split(' ')[:-1])
 
     if len(name.split(" ")) < 1:
-        print(name)
         return
 
     names = name.split(' ')
@@ -119,10 +118,7 @@ def match_with_abbreviation(df1, df2):
     print(f"{n_workers} workers are available")
     pool = mp.Pool(n_workers)
     df1['Abbreviation'] = pool.map(get_abbreviation, df1['pref_label'])
-    print(df1[['pref_label', 'Abbreviation']])
-
     df2['Abbreviation'] = pool.map(get_abbreviation, df2['FullName'])
-    print(df2[['FullName', 'Abbreviation']])
 
     # result_table = df2.join(df1, lsuffix="_left", rsuffix="_right")
     result_table = pandas.merge(df1, df2, on='Abbreviation')
