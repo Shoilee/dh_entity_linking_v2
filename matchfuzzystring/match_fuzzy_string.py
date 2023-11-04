@@ -20,8 +20,9 @@ def find_match(data_tuple):
     for index_1, row_1 in tqdm(df1.iterrows()):
         for index_2, row_2 in df2.iterrows():
             score = fuzz.partial_token_sort_ratio(str(row_1['pref_label']), str(row_2['LastName']))
+            # print(f"{}, {}: {score}")
             # filter out names that have 4 or less character in it and score
-            if score > 75 and len(str(row_1['pref_label'])) > 4:
+            if score > 70 and len(str(row_1['pref_label'])) > 4:
                 row_1['score'] = score
                 row = row_1.append(row_2)
                 result_table = result_table.append(row, ignore_index=True)
