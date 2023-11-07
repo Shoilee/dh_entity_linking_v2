@@ -43,7 +43,7 @@ def NaiveNMVWvsBronbeek(data1="pm_data/ccrdfconst/person_names.pkl", data2="/Use
             print(f"{i} matches")
         print(f"Bronbeek name: {i}, random NMVW name: {df1['name_label'][random.randint(0, 30000)]}")
 
-    # TODO implement result section with calculating precision, recall and f-score
+    # TODO implement result section with calculating p, r and f-score
 
 
 def DeezyMatchNMVWvsBronbeek(data1="pm_data/ccrdfconst/person_names.pkl", data2="/Users/sarah_shoilee/Desktop/Sarah/Bronbeek_Data/csv_dump/Constituents.csv"):
