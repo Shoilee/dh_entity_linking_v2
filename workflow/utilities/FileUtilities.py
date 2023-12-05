@@ -27,8 +27,7 @@ class FileUtilities:
     @staticmethod
     def check_if_directory_exists(path: str) -> bool:
         if path is not None:
-            file = os.path.dirname(path)
-            if file.isdir():
+            if os.path.isdir(path):
                 return True
             else:
                 FileUtilities.LOG.log_error("check_if_directory_exists", "Specified path is not a directory")
