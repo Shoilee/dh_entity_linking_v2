@@ -16,8 +16,8 @@ def recall(df):
     return r, len(df)
 
 
-# precision = total correct correspondence / total retrieved uri
-# precision = true positive / (true positive + false positive)
+# p = total correct correspondence / total retrieved uri
+# p = true positive / (true positive + false positive)
 def precision(df):
     total_retrieved = 0
     correct_count = 0
