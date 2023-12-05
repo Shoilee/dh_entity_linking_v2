@@ -17,6 +17,7 @@ from matchsurname.match_surname import matchLastName
 from matchwithabbreviation.match_with_abbreviation import match_with_abbreviation
 from matchfuzzystring.match_fuzzy_string import match_fuzzy_string
 from nmvwdatadump.print_stat import print_stat
+from exp202.calculate_result import calculate_result
 
 if __name__ == '__main__':
     """CODE FOR NMVW DATA DUMP GIVEN HTTP URI"""
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     # df = pandas.read_pickle('results/naive_string_matching_all.pkl')
     # print(df[df['retrieved_uri'].apply(lambda x: len(x)) > 0])
 
-    # generating precision and recall
+    # generating p and r
     # result("exp100/results/naive_string_matching.pkl")
 
     # DEEZYMATCH
