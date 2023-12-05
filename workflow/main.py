@@ -13,11 +13,6 @@ class App:
         self.function = None
         self.input_data = None
         self.output_dir = None
-        self.max_lev = 4
-        self.fixed_lev = False
-        self.ignore_date = False
-        self.ignore_block = False
-        self.single_ind = False
         self.format = "CSV"
         self.help = False
         self.debug = "error"
@@ -30,11 +25,6 @@ class App:
         parser.add_argument("--function", dest="function")
         parser.add_argument("--inputData", dest="input_data")
         parser.add_argument("--outputDir", dest="output_dir")
-        parser.add_argument("--maxLev", dest="max_lev", type=int, default=4)
-        parser.add_argument("--fixedLev", dest="fixed_lev", action="store_true")
-        parser.add_argument("--ignoreDate", dest="ignore_date", action="store_true")
-        parser.add_argument("--ignoreBlock", dest="ignore_block", action="store_true")
-        parser.add_argument("--singleInd", dest="single_ind", action="store_true")
         parser.add_argument("--format", dest="format", default="CSV")
         parser.add_argument("--help", dest="help", action="store_true")
         parser.add_argument("--debug", dest="debug", default="error")
@@ -44,11 +34,6 @@ class App:
         self.function = args.function
         self.input_data = args.input_data
         self.output_dir = args.output_dir
-        self.max_lev = args.max_lev
-        self.fixed_lev = args.fixed_lev
-        self.ignore_date = args.ignore_date
-        self.ignore_block = args.ignore_block
-        self.single_ind = args.single_ind
         self.format = args.format
         self.help = args.help
         self.debug = args.debug
@@ -56,16 +41,13 @@ class App:
     def run(self):
         self.LOG.output_console("")
         self.LOG.output_console("=======================")
-        self.LOG.output_console("Welcome to burgerLinker")
+        self.LOG.output_console("Welcome to Entity Linking")
         self.LOG.output_console("=======================")
         self.LOG.output_console("")
         start_time = time.time()
 
         # Set logging level
         logging.basicConfig(level=logging.ERROR)
-        # TODO: find out what the following two line of code was supposed to do
-        # logging.getLogger("com.github.liblevenshtein").setLevel(logging.OFF)
-        # logging.getLogger("com.github.liblevenshtein.transducer.factory.TransducerBuilder").setLevel(logging.OFF)
 
         if not self.help:
             if self.debug == "warn":
@@ -73,10 +55,8 @@ class App:
             elif self.debug == "all":
                 logging.basicConfig(level=logging.DEBUG)
 
-            # TODO: works up-to this
             # TODO: fix the controller file
-            cntrl = Controller(self.function, self.input_data, self.output_dir, self.format, self.max_lev, self.fixed_lev, self.ignore_date, self.ignore_block,
-                               self.single_ind)
+            cntrl = Controller(self.function, self.input_data, self.output_dir, self.format)
             cntrl.run_program()
         else:
             # Display help message
@@ -102,7 +82,7 @@ class App:
         # TODO: check if LOG class is operating correctly
         self.LOG.output_console("")
         self.LOG.output_console("=====================")
-        self.LOG.output_total_runtime("burgerLinker", start_time, True)
+        self.LOG.output_total_runtime("Entity Linking", start_time, True)
         self.LOG.output_console("=====================")
         self.LOG.output_console("")
 

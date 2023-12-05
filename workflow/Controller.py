@@ -5,37 +5,14 @@ import logging
 from processes import Closure
 from utilities.LoggingUtilities import LoggingUtilities
 from utilities.FileUtilities import FileUtilities
-    #MyHDT
-
-
-#from iisg.amsterdam.burgerlinker.Properties import (
-#    TYPE_BIRTH_EVENT,
-#    TYPE_MARRIAGE_EVENT,
-#    TYPE_DEATH_EVENT,
-#    TYPE_PERSON,
-#    DIRECTORY_NAME_DICTIONARY,
-#    DIRECTORY_NAME_DATABASE,
-#    DIRECTORY_NAME_RESULTS,
-#)
 
 
 class Controller:
-    FUNCTIONS_not_implemented = [
-            "within_m_d",
-            "within_b_b",
-            "within_m_m",
-            "within_d_d",
-            "within_b_m",
-            "between_b_m",
-            "between_m_m",
-            "between_d_m",
-            "between_b_d"
-        ]
     FUNCTIONS = [
             "showdatasetstats",
-            "converttohdt",
+            "converttordf",
             "closure",
-            "within_b_d",
+            "linkconstituents",
         ]
 
     outputFormatCSV = True
@@ -45,14 +22,8 @@ class Controller:
     FILE_UTILS = FileUtilities()
 
     # TODO: introduce the log operation as in the line 25-27 on the original java file
-    def __init__(self, function, inputDataset, outputDirectory, outputFormat="CSV",
-                 maxLev=0, fixedLev=False, ignoreDate=False, ignoreBlock=False, singleInd=False):
+    def __init__(self, function, inputDataset, outputDirectory, outputFormat="CSV"):
         self.function = function
-        self.maxLev = maxLev
-        self.fixedLev = fixedLev
-        self.ignoreDate = ignoreDate
-        self.ignoreBlock = ignoreBlock
-        self.singleInd = singleInd
         self.inputDataset = inputDataset
         self.outputDirectory = outputDirectory
         self.outputFormat = outputFormat
@@ -64,15 +35,16 @@ class Controller:
             function_name = self.function.lower()
             if function_name == "showdatasetstats":
                 if self._check_input_dataset():
-                    # TODO: we are here
+                    pass
+                    # TODO: implement how to show statistics
                     self.output_dataset_statistics()
-            elif function_name == "converttohdt":
+            elif function_name == "converttordf":
                 if self._check_input_directory():
-                    # TODO: maybe do convert_to_hdt first
-                    self.convert_to_hdt(self.inputDataset)
-            elif function_name == "within_b_d":
+                    self.convert_to_rdf(self.inputDataset)
+            elif function_name == "linkconstituents":
                 if self._check_all_user_inputs():
                     start_time = time.time()
+                    # TODO: implement the following functions
                     self.lg.info(f"START: {self.function}")
                     getattr(self, function_name)()
                     Controller.LOG.output_total_runtime(self.function, start_time, True)
@@ -120,21 +92,6 @@ class Controller:
                 "check_input_function",
                 "Incorrect user input for parameter: --function",
                 f"Choose one of the following options: {Controller.FUNCTIONS}",
-            )
-            return False
-
-    def _check_input_max_levenshtein(self):
-        if 0 <= self.maxLev <= 4:
-            Controller.LOG.log_debug(
-                "check_input_max_levenshtein",
-                f"User has chosen max Levenshtein distance: {self.maxLev}",
-            )
-            return True
-        else:
-            Controller.LOG.log_error(
-                "check_input_max_levenshtein",
-                "Invalid user input for parameter: --maxlev",
-                "Specify a 'maximum Levenshtein distance' between 0 and 4",
             )
             return False
 
@@ -195,3 +152,21 @@ class Controller:
         else:
             Controller.LOG.log_debug("check_output_format_csv", "Output format is set as RDF")
         return self.outputFormatCSV
+
+    def convert_to_rdf(self, input_file):
+        from cow_csvw.csvw_tool import COW
+        from rdflib import ConjunctiveGraph
+
+        print(os.getcwd())
+        # TODO: check if it is possible to manipulate the metadata for URI
+        # now URIs are created based on _row_id, it should be based on ConstituentID
+        COW(mode='build', files=[input_file], base='http://example.org/'+os.path.basename(self.inputDataset))
+        COW(mode='convert', files=[input_file], processes=4, chunksize=100, base='http://example.org/'+os.path.basename(self.inputDataset), gzipped=False)
+
+        # converting nquads to ttl
+        g = ConjunctiveGraph()
+        g.parse(os.path.join(os.path.dirname(input_file),
+                             os.path.basename(input_file)+".nq"), format="nquads")
+
+        g.serialize(destination=os.path.join(os.path.dirname(input_file),
+                                             os.path.basename(input_file) + ".ttl"))
