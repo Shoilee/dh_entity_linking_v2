@@ -8,7 +8,6 @@ import multiprocessing as mp
 from tqdm import tqdm
 
 from thefuzz import fuzz
-from thefuzz import process
 
 
 def find_match(data_tuple):
