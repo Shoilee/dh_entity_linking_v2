@@ -2,8 +2,7 @@ import os
 import re
 import glob
 import logging
-from typing import List
-from utilities.LoggingUtilities import LoggingUtilities
+from .LoggingUtilities import LoggingUtilities
 
 
 class FileUtilities:
