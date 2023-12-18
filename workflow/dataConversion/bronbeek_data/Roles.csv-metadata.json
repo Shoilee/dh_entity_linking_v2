@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "http://example.org/Roles.csv/"
+   "@base": "https://example.com/id/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -35,8 +35,8 @@
    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
    "schema": "http://schema.org/",
    "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
-   "sdr": "http://example.org/Roles.csv/",
-   "sdv": "http://example.org/Roles.csv/vocab/",
+   "sdr": "https://example.com/id/",
+   "sdv": "https://example.com/id/vocab/",
    "sem": "http://semanticweb.cs.vu.nl/2009/11/sem/",
    "skos": "http://www.w3.org/2004/02/skos/core#",
    "time": "http://www.w3.org/2006/time#",
@@ -48,52 +48,52 @@
  ],
  "tableSchema": {
   "aboutUrl": "{_row}",
-  "primaryKey": "",
+  "primaryKey": "RowIndex",
   "columns": [
    {
-    "name": "",
+    "name": "RowIndex",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/"
+    "@id": "https://example.com/id/Roles.csv/column/RowIndex"
    },
    {
     "name": "RoleID",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/RoleID"
+    "@id": "https://example.com/id/Roles.csv/column/RoleID"
    },
    {
     "name": "RoleTypeID",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/RoleTypeID"
+    "@id": "https://example.com/id/Roles.csv/column/RoleTypeID"
    },
    {
     "name": "Role",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/Role"
+    "@id": "https://example.com/id/Roles.csv/column/Role"
    },
    {
     "name": "Prepositional",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/Prepositional"
+    "@id": "https://example.com/id/Roles.csv/column/Prepositional"
    },
    {
     "name": "LoginID",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/LoginID"
+    "@id": "https://example.com/id/Roles.csv/column/LoginID"
    },
    {
     "name": "EnteredDate",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/EnteredDate"
+    "@id": "https://example.com/id/Roles.csv/column/EnteredDate"
    },
    {
     "name": "SysTimeStamp",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/SysTimeStamp"
+    "@id": "https://example.com/id/Roles.csv/column/SysTimeStamp"
    },
    {
     "name": "AnonymousNameID",
     "datatype": "string",
-    "@id": "http://example.org/Roles.csv/Roles.csv/column/AnonymousNameID"
+    "@id": "https://example.com/id/Roles.csv/column/AnonymousNameID"
    }
   ]
  },
@@ -118,5 +118,5 @@
   "@value": "2023-12-18",
   "@type": "xsd:date"
  },
- "@id": "http://example.org/Roles.csv/Roles.csv"
+ "@id": "https://example.com/id/Roles.csv"
 }
