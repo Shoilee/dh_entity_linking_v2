@@ -18,7 +18,10 @@ def find_match(data_tuple):
     return result_table
 
 
-def matchExactString(df1, df2):
+def matchExactString(data_tuple):
+    df1 = data_tuple[0]
+    df2 = data_tuple[1]
+
     n_workers = int(mp.cpu_count()*2)
     print(f"{n_workers} workers are available")
 
