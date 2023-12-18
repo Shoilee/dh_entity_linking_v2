@@ -1,4 +1,4 @@
-;RoleID;RoleTypeID;Role;Prepositional;LoginID;EnteredDate;SysTimeStamp;AnonymousNameID
+RowID;RoleID;RoleTypeID;Role;Prepositional;LoginID;EnteredDate;SysTimeStamp;AnonymousNameID
 0;0;0;[not specified];;sa/CIS;1997-10-20 16:32:12.093;7A0EA1;-1
 1;1;1;drukker;gedrukt door;sa/CIS;1997-10-20 16:32:12.170;7A0EA2;-1
 2;2;2;bruikleengever;bruikleen van;sa/CIS;1997-10-20 16:32:12.233;7A0EA3;-1
