@@ -2,7 +2,12 @@ import os
 import sys
 import time
 import logging
-from processes import Closure
+
+from algorithms.match_exact_string import matchExactString as exact
+from algorithms.match_with_abbreviation import match_with_abbreviation as initial
+from algorithms.match_surname import matchLastName as surname
+from algorithms.match_fuzzy_string import match_fuzzy_string as fuzzy
+
 from utilities.LoggingUtilities import LoggingUtilities
 from utilities.FileUtilities import FileUtilities
 
@@ -15,20 +20,23 @@ class Controller:
             "linkconstituents",
         ]
 
+    # list all the supported entity linking algorithms
+    ALGORITHMS = ['exact', 'initial', 'surname', 'fuzzy']
+
     outputFormatCSV = True
 
     lg = logging.getLogger(__name__)
     LOG = LoggingUtilities(lg)
     FILE_UTILS = FileUtilities()
 
-    # TODO: introduce the log operation as in the line 25-27 on the original java file
-    def __init__(self, function, inputDataset, outputDirectory, outputFormat="CSV"):
+    def __init__(self, function, inputDataset, outputDirectory, outputFormat="CSV", algorithm="exact"):
         self.function = function
         self.inputDataset = inputDataset
         self.outputDirectory = outputDirectory
         self.outputFormat = outputFormat
         if not outputFormat.__eq__("CSV"):
             Controller.outputFormatCSV = False
+        self.algorithm = algorithm
 
     def run_program(self):
         if self._check_input_function():
@@ -37,17 +45,18 @@ class Controller:
                 if self._check_input_dataset():
                     pass
                     # TODO: implement how to show statistics
-                    self.output_dataset_statistics()
+                    # self.output_dataset_statistics()
             elif function_name == "converttordf":
                 if self._check_input_directory():
-                    self.convert_to_rdf(self.inputDataset)
+                    self.convert_csv_to_rdf(self.inputDataset)
             elif function_name == "linkconstituents":
                 if self._check_all_user_inputs():
+                    # TODO: convert rdf to dataframe
                     start_time = time.time()
                     # TODO: implement the following functions
                     self.lg.info(f"START: {self.function}")
-                    getattr(self, function_name)()
-                    Controller.LOG.output_total_runtime(self.function, start_time, True)
+                    getattr(self, self.algorithm)()
+                    Controller.LOG.output_total_runtime(self.algorithm, start_time, True)
             elif function_name == "closure":
                 if self._check_input_dataset() and self._check_input_directory_contents():
                     start_time = time.time()
@@ -67,7 +76,6 @@ class Controller:
         valid_inputs = True
         valid_inputs &= self._check_input_dataset()
         valid_inputs &= self._check_input_directory()
-        valid_inputs &= self._check_input_max_levenshtein()
         self._check_output_format_rdf()
         return valid_inputs
 
@@ -149,16 +157,18 @@ class Controller:
     def _check_output_format_rdf(self):
         if self.outputFormatCSV:
             Controller.LOG.log_debug("check_output_format_csv", "Output format is set as CSV")
+            Controller.LOG.output_console("converting csv file to rdf")
+
         else:
             Controller.LOG.log_debug("check_output_format_csv", "Output format is set as RDF")
         return self.outputFormatCSV
 
-    def convert_to_rdf(self, input_file):
+    def convert_csv_to_rdf(self, input_file):
         from cow_csvw.csvw_tool import COW
         from rdflib import ConjunctiveGraph
 
         print(os.getcwd())
-        # TODO: check if it is possible to manipulate the metadata for URI
+
         # now URIs are created based on _row_id, it should be based on ConstituentID
         COW(mode='build', files=[input_file], base='http://example.org/'+os.path.basename(self.inputDataset))
         COW(mode='convert', files=[input_file], processes=4, chunksize=100, base='http://example.org/'+os.path.basename(self.inputDataset), gzipped=False)
