@@ -1,0 +1,975 @@
+@prefix ns1: <http://example.org/Roles.csv/vocab/> .
+@prefix ns2: <http://www.w3.org/ns/csvw#> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://schema.org/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/Roles.csv/0> ns1: "0"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.093"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Role "[not specified]"^^xsd:string ;
+    ns1:RoleID "0"^^xsd:string ;
+    ns1:RoleTypeID "0"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA1"^^xsd:string .
+
+<http://example.org/Roles.csv/1> ns1: "1"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.170"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "gedrukt door"^^xsd:string ;
+    ns1:Role "drukker"^^xsd:string ;
+    ns1:RoleID "1"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA2"^^xsd:string .
+
+<http://example.org/Roles.csv/10> ns1: "10"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:39:23.810"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "aangekocht van"^^xsd:string ;
+    ns1:Role "handelaar"^^xsd:string ;
+    ns1:RoleID "10"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB3"^^xsd:string .
+
+<http://example.org/Roles.csv/11> ns1: "11"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:39:23.920"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "legaat van"^^xsd:string ;
+    ns1:Role "legator"^^xsd:string ;
+    ns1:RoleID "11"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB4"^^xsd:string .
+
+<http://example.org/Roles.csv/12> ns1: "12"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:39:23.990"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "geschonken door"^^xsd:string ;
+    ns1:Role "schenker"^^xsd:string ;
+    ns1:RoleID "12"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB5"^^xsd:string .
+
+<http://example.org/Roles.csv/13> ns1: "13"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:40:44.957"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "samengesteld door"^^xsd:string ;
+    ns1:Role "samensteller"^^xsd:string ;
+    ns1:RoleID "13"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB7"^^xsd:string .
+
+<http://example.org/Roles.csv/14> ns1: "14"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:40:45.027"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "uitgegeven door"^^xsd:string ;
+    ns1:Role "uitgever"^^xsd:string ;
+    ns1:RoleID "14"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB8"^^xsd:string .
+
+<http://example.org/Roles.csv/15> ns1: "15"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:42:31.030"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "vormgeving"^^xsd:string ;
+    ns1:Role "vormgever"^^xsd:string ;
+    ns1:RoleID "15"^^xsd:string ;
+    ns1:RoleTypeID "3"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB6"^^xsd:string .
+
+<http://example.org/Roles.csv/16> ns1: "16"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:43:36.613"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "kunstenaar"^^xsd:string ;
+    ns1:Role "kunstenaar"^^xsd:string ;
+    ns1:RoleID "17"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB1"^^xsd:string .
+
+<http://example.org/Roles.csv/17> ns1: "17"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-16 09:43:36.723"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W016"^^xsd:string ;
+    ns1:Prepositional "vervaardigd door"^^xsd:string ;
+    ns1:Role "vervaardiger"^^xsd:string ;
+    ns1:RoleID "18"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB2"^^xsd:string .
+
+<http://example.org/Roles.csv/18> ns1: "18"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-08-06 11:22:43.690"^^xsd:string ;
+    ns1:LoginID "sa/KTOMB_W12"^^xsd:string ;
+    ns1:Prepositional "portret van"^^xsd:string ;
+    ns1:Role "geportretteerde"^^xsd:string ;
+    ns1:RoleID "19"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAB"^^xsd:string .
+
+<http://example.org/Roles.csv/19> ns1: "19"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-08-10 13:53:45.610"^^xsd:string ;
+    ns1:LoginID "sa/KTOMB_W12"^^xsd:string ;
+    ns1:Prepositional "nieuwe eigenaar"^^xsd:string ;
+    ns1:Role "nieuwe eigenaar"^^xsd:string ;
+    ns1:RoleID "21"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAC"^^xsd:string .
+
+<http://example.org/Roles.csv/2> ns1: "2"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.233"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "bruikleen van"^^xsd:string ;
+    ns1:Role "bruikleengever"^^xsd:string ;
+    ns1:RoleID "2"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA3"^^xsd:string .
+
+<http://example.org/Roles.csv/20> ns1: "20"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-08-10 14:11:06.800"^^xsd:string ;
+    ns1:LoginID "sa/KTOMB_W12"^^xsd:string ;
+    ns1:Prepositional "in ruil ontvangen van"^^xsd:string ;
+    ns1:Role "ruiler"^^xsd:string ;
+    ns1:RoleID "22"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAE"^^xsd:string .
+
+<http://example.org/Roles.csv/21> ns1: "21"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-09-15 15:52:06.167"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W075"^^xsd:string ;
+    ns1:Prepositional "verworven via"^^xsd:string ;
+    ns1:Role "tussenpersoon"^^xsd:string ;
+    ns1:RoleID "23"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBC"^^xsd:string .
+
+<http://example.org/Roles.csv/22> ns1: "22"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-10-06 14:46:03.520"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W075"^^xsd:string ;
+    ns1:Prepositional "afbeelding van"^^xsd:string ;
+    ns1:Role "afgebeelde persoon"^^xsd:string ;
+    ns1:RoleID "24"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB9"^^xsd:string .
+
+<http://example.org/Roles.csv/23> ns1: "23"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-10-28 12:18:01.073"^^xsd:string ;
+    ns1:LoginID "sa/KTOMB_W12"^^xsd:string ;
+    ns1:Prepositional "gerestaureerd door"^^xsd:string ;
+    ns1:Role "restaurator"^^xsd:string ;
+    ns1:RoleID "25"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAD"^^xsd:string .
+
+<http://example.org/Roles.csv/24> ns1: "24"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-11-03 11:58:04.430"^^xsd:string ;
+    ns1:LoginID "sa/KTOMB_W12"^^xsd:string ;
+    ns1:Prepositional "geruild met"^^xsd:string ;
+    ns1:Role "ontvanger"^^xsd:string ;
+    ns1:RoleID "26"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAF"^^xsd:string .
+
+<http://example.org/Roles.csv/25> ns1: "25"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-11-09 11:08:20.107"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W075"^^xsd:string ;
+    ns1:Prepositional "afbeelding van"^^xsd:string ;
+    ns1:Role "afbeelding van"^^xsd:string ;
+    ns1:RoleID "28"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBA"^^xsd:string .
+
+<http://example.org/Roles.csv/26> ns1: "26"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-11-11 11:12:26.123"^^xsd:string ;
+    ns1:LoginID "SantenC/KTOMB_W075"^^xsd:string ;
+    ns1:Prepositional "verzameld door"^^xsd:string ;
+    ns1:Role "verzamelaar"^^xsd:string ;
+    ns1:RoleID "29"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBB"^^xsd:string .
+
+<http://example.org/Roles.csv/27> ns1: "27"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-11-26 09:16:52.660"^^xsd:string ;
+    ns1:LoginID "SantenC"^^xsd:string ;
+    ns1:Role "object-gerelateerde"^^xsd:string ;
+    ns1:RoleID "30"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EB0"^^xsd:string .
+
+<http://example.org/Roles.csv/28> ns1: "28"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1999-02-15 16:08:38.233"^^xsd:string ;
+    ns1:LoginID "verhoevenp"^^xsd:string ;
+    ns1:Prepositional "in bruikleen afgestaan aan"^^xsd:string ;
+    ns1:Role "bruikleennemer"^^xsd:string ;
+    ns1:RoleID "31"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EC2"^^xsd:string .
+
+<http://example.org/Roles.csv/29> ns1: "29"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1999-10-25 11:35:42.877"^^xsd:string ;
+    ns1:LoginID "verhoevenp"^^xsd:string ;
+    ns1:Prepositional "gefotografeerd door"^^xsd:string ;
+    ns1:Role "fotograaf"^^xsd:string ;
+    ns1:RoleID "32"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EC3"^^xsd:string .
+
+<http://example.org/Roles.csv/3> ns1: "3"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.297"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "samengesteld door"^^xsd:string ;
+    ns1:Role "samensteller"^^xsd:string ;
+    ns1:RoleID "3"^^xsd:string ;
+    ns1:RoleTypeID "3"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA4"^^xsd:string .
+
+<http://example.org/Roles.csv/30> ns1: "30"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2001-09-03 16:35:21.150"^^xsd:string ;
+    ns1:LoginID "verhoevenp"^^xsd:string ;
+    ns1:Prepositional "uitgegeven door"^^xsd:string ;
+    ns1:Role "uitgever"^^xsd:string ;
+    ns1:RoleID "33"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EC4"^^xsd:string .
+
+<http://example.org/Roles.csv/31> ns1: "31"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:20:37.060"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Prepositional "gefotografeerd door"^^xsd:string ;
+    ns1:Role "Fotograaf"^^xsd:string ;
+    ns1:RoleID "34"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E93"^^xsd:string .
+
+<http://example.org/Roles.csv/32> ns1: "32"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:20:37.077"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Role "Bron fotomateriaal"^^xsd:string ;
+    ns1:RoleID "35"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E94"^^xsd:string .
+
+<http://example.org/Roles.csv/33> ns1: "33"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:20:53.483"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Prepositional "Transporteur"^^xsd:string ;
+    ns1:Role "Transporteur"^^xsd:string ;
+    ns1:RoleID "36"^^xsd:string ;
+    ns1:RoleTypeID "12"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9A"^^xsd:string .
+
+<http://example.org/Roles.csv/34> ns1: "34"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:20:53.500"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Prepositional "Koerier"^^xsd:string ;
+    ns1:Role "Koerier"^^xsd:string ;
+    ns1:RoleID "37"^^xsd:string ;
+    ns1:RoleTypeID "12"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9B"^^xsd:string .
+
+<http://example.org/Roles.csv/35> ns1: "35"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:24:52.857"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Role "Contact"^^xsd:string ;
+    ns1:RoleID "38"^^xsd:string ;
+    ns1:RoleTypeID "17"^^xsd:string ;
+    ns1:SysTimeStamp "7ECC5F"^^xsd:string .
+
+<http://example.org/Roles.csv/36> ns1: "36"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:24:52.887"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Prepositional "Photographed by"^^xsd:string ;
+    ns1:Role "Photographer"^^xsd:string ;
+    ns1:RoleID "39"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E96"^^xsd:string .
+
+<http://example.org/Roles.csv/37> ns1: "37"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:24:52.903"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Role "Shipper"^^xsd:string ;
+    ns1:RoleID "40"^^xsd:string ;
+    ns1:RoleTypeID "12"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E97"^^xsd:string .
+
+<http://example.org/Roles.csv/38> ns1: "38"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:24:52.920"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Role "Author"^^xsd:string ;
+    ns1:RoleID "41"^^xsd:string ;
+    ns1:RoleTypeID "13"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E98"^^xsd:string .
+
+<http://example.org/Roles.csv/39> ns1: "39"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 14:24:52.950"^^xsd:string ;
+    ns1:LoginID "APU0QSVC"^^xsd:string ;
+    ns1:Role "Shipper"^^xsd:string ;
+    ns1:RoleID "42"^^xsd:string ;
+    ns1:RoleTypeID "14"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E99"^^xsd:string .
+
+<http://example.org/Roles.csv/4> ns1: "4"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.360"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "geschreven door"^^xsd:string ;
+    ns1:Role "auteur"^^xsd:string ;
+    ns1:RoleID "4"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA5"^^xsd:string .
+
+<http://example.org/Roles.csv/40> ns1: "40"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-04-25 16:28:07.673"^^xsd:string ;
+    ns1:LoginID "Oleg"^^xsd:string ;
+    ns1:Role "Insurer"^^xsd:string ;
+    ns1:RoleID "43"^^xsd:string ;
+    ns1:RoleTypeID "15"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA0"^^xsd:string .
+
+<http://example.org/Roles.csv/41> ns1: "41"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2002-11-05 08:50:35.410"^^xsd:string ;
+    ns1:LoginID "G6810028"^^xsd:string ;
+    ns1:Prepositional "geleverd door"^^xsd:string ;
+    ns1:Role "leverancier"^^xsd:string ;
+    ns1:RoleID "45"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9D"^^xsd:string .
+
+<http://example.org/Roles.csv/42> ns1: "42"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2003-10-23 12:40:12.977"^^xsd:string ;
+    ns1:LoginID "G6810009"^^xsd:string ;
+    ns1:Prepositional "gescand door"^^xsd:string ;
+    ns1:Role "Leverancier scan"^^xsd:string ;
+    ns1:RoleID "47"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9C"^^xsd:string .
+
+<http://example.org/Roles.csv/43> ns1: "43"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2005-11-11 11:30:11.610"^^xsd:string ;
+    ns1:LoginID "GS"^^xsd:string ;
+    ns1:Prepositional "Examined by"^^xsd:string ;
+    ns1:Role "Examiner"^^xsd:string ;
+    ns1:RoleID "49"^^xsd:string ;
+    ns1:RoleTypeID "16"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9E"^^xsd:string .
+
+<http://example.org/Roles.csv/44> ns1: "44"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2007-03-30 21:29:30.570"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Role "Embargo"^^xsd:string ;
+    ns1:RoleID "50"^^xsd:string ;
+    ns1:RoleTypeID "0"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBD"^^xsd:string .
+
+<http://example.org/Roles.csv/45> ns1: "45"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2009-02-12 23:15:46.540"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Role "Gerelateerd persoon"^^xsd:string ;
+    ns1:RoleID "51"^^xsd:string ;
+    ns1:RoleTypeID "9"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBE"^^xsd:string .
+
+<http://example.org/Roles.csv/46> ns1: "46"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2011-01-24 09:13:38.097"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Prepositional "gerelateerd"^^xsd:string ;
+    ns1:Role "Gerelateerde persoon/instelling"^^xsd:string ;
+    ns1:RoleID "52"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EBF"^^xsd:string .
+
+<http://example.org/Roles.csv/47> ns1: "47"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2011-01-24 09:13:38.127"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Prepositional "Geschonken door"^^xsd:string ;
+    ns1:Role "herkomst"^^xsd:string ;
+    ns1:RoleID "53"^^xsd:string ;
+    ns1:RoleTypeID "11"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EC0"^^xsd:string .
+
+<http://example.org/Roles.csv/48> ns1: "48"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2011-08-17 11:45:27.147"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Role "auteur"^^xsd:string ;
+    ns1:RoleID "54"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EC1"^^xsd:string .
+
+<http://example.org/Roles.csv/49> ns1: "49"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 14:57:47.340"^^xsd:string ;
+    ns1:LoginID "GS"^^xsd:string ;
+    ns1:Role "Rights Holder"^^xsd:string ;
+    ns1:RoleID "55"^^xsd:string ;
+    ns1:RoleTypeID "19"^^xsd:string ;
+    ns1:SysTimeStamp "7A0E9F"^^xsd:string .
+
+<http://example.org/Roles.csv/5> ns1: "5"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.420"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "oorspronkelijk bezit van"^^xsd:string ;
+    ns1:Role "vroegere eigenaar"^^xsd:string ;
+    ns1:RoleID "5"^^xsd:string ;
+    ns1:RoleTypeID "5"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA6"^^xsd:string .
+
+<http://example.org/Roles.csv/50> ns1: "50"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 14:57:59.810"^^xsd:string ;
+    ns1:LoginID "GS"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Contact"^^xsd:string ;
+    ns1:RoleID "56"^^xsd:string ;
+    ns1:RoleTypeID "20"^^xsd:string ;
+    ns1:SysTimeStamp "7CEDF8"^^xsd:string .
+
+<http://example.org/Roles.csv/51> ns1: "51"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 14:57:59.813"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Lender"^^xsd:string ;
+    ns1:RoleID "57"^^xsd:string ;
+    ns1:RoleTypeID "17"^^xsd:string ;
+    ns1:SysTimeStamp "7CEDFA"^^xsd:string .
+
+<http://example.org/Roles.csv/52> ns1: "52"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 14:57:59.817"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Borrower"^^xsd:string ;
+    ns1:RoleID "58"^^xsd:string ;
+    ns1:RoleTypeID "18"^^xsd:string ;
+    ns1:SysTimeStamp "7CEDFC"^^xsd:string .
+
+<http://example.org/Roles.csv/53> ns1: "53"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 14:58:09.093"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Role "Contact"^^xsd:string ;
+    ns1:RoleID "59"^^xsd:string ;
+    ns1:RoleTypeID "18"^^xsd:string ;
+    ns1:SysTimeStamp "7ECC60"^^xsd:string .
+
+<http://example.org/Roles.csv/54> ns1: "54"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 16:20:30.203"^^xsd:string ;
+    ns1:LoginID "GS"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Source"^^xsd:string ;
+    ns1:RoleID "60"^^xsd:string ;
+    ns1:RoleTypeID "21"^^xsd:string ;
+    ns1:SysTimeStamp "839C7A"^^xsd:string .
+
+<http://example.org/Roles.csv/55> ns1: "55"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 16:20:30.207"^^xsd:string ;
+    ns1:LoginID "GS"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Donor"^^xsd:string ;
+    ns1:RoleID "61"^^xsd:string ;
+    ns1:RoleTypeID "22"^^xsd:string ;
+    ns1:SysTimeStamp "839C7B"^^xsd:string .
+
+<http://example.org/Roles.csv/56> ns1: "56"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2015-07-01 17:04:51.120"^^xsd:string ;
+    ns1:LoginID "DMU"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Venue"^^xsd:string ;
+    ns1:RoleID "62"^^xsd:string ;
+    ns1:RoleTypeID "20"^^xsd:string ;
+    ns1:SysTimeStamp "88D3F2"^^xsd:string .
+
+<http://example.org/Roles.csv/57> ns1: "57"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2017-02-07 16:45:56.610"^^xsd:string ;
+    ns1:LoginID "u00f7m8"^^xsd:string ;
+    ns1:Prepositional "medewerker"^^xsd:string ;
+    ns1:Role "restaurator"^^xsd:string ;
+    ns1:RoleID "63"^^xsd:string ;
+    ns1:RoleTypeID "3"^^xsd:string ;
+    ns1:SysTimeStamp "128FAD6"^^xsd:string .
+
+<http://example.org/Roles.csv/58> ns1: "58"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.987"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Atelier"^^xsd:string ;
+    ns1:RoleID "64"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E2"^^xsd:string .
+
+<http://example.org/Roles.csv/59> ns1: "59"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.987"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Betrokkene"^^xsd:string ;
+    ns1:RoleID "65"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E3"^^xsd:string .
+
+<http://example.org/Roles.csv/6> ns1: "6"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.467"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "gerestaureerd door"^^xsd:string ;
+    ns1:Role "restaurator"^^xsd:string ;
+    ns1:RoleID "6"^^xsd:string ;
+    ns1:RoleTypeID "6"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA7"^^xsd:string .
+
+<http://example.org/Roles.csv/60> ns1: "60"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.990"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Etser"^^xsd:string ;
+    ns1:RoleID "66"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E4"^^xsd:string .
+
+<http://example.org/Roles.csv/61> ns1: "61"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.990"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Fabrikant"^^xsd:string ;
+    ns1:RoleID "67"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E5"^^xsd:string .
+
+<http://example.org/Roles.csv/62> ns1: "62"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.990"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Filmer"^^xsd:string ;
+    ns1:RoleID "68"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E6"^^xsd:string .
+
+<http://example.org/Roles.csv/63> ns1: "63"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.993"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Illustrator"^^xsd:string ;
+    ns1:RoleID "69"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E7"^^xsd:string .
+
+<http://example.org/Roles.csv/64> ns1: "64"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.993"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Lithograaf"^^xsd:string ;
+    ns1:RoleID "70"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E8"^^xsd:string .
+
+<http://example.org/Roles.csv/65> ns1: "65"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:45.997"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Naar een gravure van"^^xsd:string ;
+    ns1:RoleID "71"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667E9"^^xsd:string .
+
+<http://example.org/Roles.csv/66> ns1: "66"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.000"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Naar een schilderij van"^^xsd:string ;
+    ns1:RoleID "72"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667EA"^^xsd:string .
+
+<http://example.org/Roles.csv/67> ns1: "67"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.000"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Naar een tekening van"^^xsd:string ;
+    ns1:RoleID "73"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667EB"^^xsd:string .
+
+<http://example.org/Roles.csv/68> ns1: "68"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.000"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Onderwerp"^^xsd:string ;
+    ns1:RoleID "74"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667EC"^^xsd:string .
+
+<http://example.org/Roles.csv/69> ns1: "69"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.003"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Ontwerper"^^xsd:string ;
+    ns1:RoleID "75"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667ED"^^xsd:string .
+
+<http://example.org/Roles.csv/7> ns1: "7"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1997-10-20 16:32:12.530"^^xsd:string ;
+    ns1:LoginID "sa/CIS"^^xsd:string ;
+    ns1:Prepositional "getaxeerd door"^^xsd:string ;
+    ns1:Role "taxateur"^^xsd:string ;
+    ns1:RoleID "7"^^xsd:string ;
+    ns1:RoleTypeID "7"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA8"^^xsd:string .
+
+<http://example.org/Roles.csv/70> ns1: "70"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.003"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Opdrachtgever"^^xsd:string ;
+    ns1:RoleID "76"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667EE"^^xsd:string .
+
+<http://example.org/Roles.csv/71> ns1: "71"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.007"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Schilder"^^xsd:string ;
+    ns1:RoleID "77"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "15667EF"^^xsd:string .
+
+<http://example.org/Roles.csv/72> ns1: "72"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.007"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Tekenaar"^^xsd:string ;
+    ns1:RoleID "78"^^xsd:string ;
+    ns1:RoleTypeID "1"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F0"^^xsd:string .
+
+<http://example.org/Roles.csv/73> ns1: "73"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.010"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Aankoop"^^xsd:string ;
+    ns1:RoleID "79"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F1"^^xsd:string .
+
+<http://example.org/Roles.csv/74> ns1: "74"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.010"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Beeldmateriaal geleverd door"^^xsd:string ;
+    ns1:RoleID "80"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F2"^^xsd:string .
+
+<http://example.org/Roles.csv/75> ns1: "75"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.010"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Bemiddeling"^^xsd:string ;
+    ns1:RoleID "81"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F3"^^xsd:string .
+
+<http://example.org/Roles.csv/76> ns1: "76"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.013"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Bruikleen"^^xsd:string ;
+    ns1:RoleID "82"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F4"^^xsd:string .
+
+<http://example.org/Roles.csv/77> ns1: "77"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.013"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Collectie"^^xsd:string ;
+    ns1:RoleID "83"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F5"^^xsd:string .
+
+<http://example.org/Roles.csv/78> ns1: "78"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.013"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Overdracht"^^xsd:string ;
+    ns1:RoleID "84"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F6"^^xsd:string .
+
+<http://example.org/Roles.csv/79> ns1: "79"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.017"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Veiling"^^xsd:string ;
+    ns1:RoleID "85"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F7"^^xsd:string .
+
+<http://example.org/Roles.csv/8> ns1: "8"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-14 02:45:30.353"^^xsd:string ;
+    ns1:LoginID "sa/COMP6"^^xsd:string ;
+    ns1:Role "Researcher"^^xsd:string ;
+    ns1:RoleID "8"^^xsd:string ;
+    ns1:RoleTypeID "8"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EA9"^^xsd:string .
+
+<http://example.org/Roles.csv/80> ns1: "80"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2018-12-14 15:03:46.017"^^xsd:string ;
+    ns1:LoginID "Frans"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "Verwerving"^^xsd:string ;
+    ns1:RoleID "86"^^xsd:string ;
+    ns1:RoleTypeID "2"^^xsd:string ;
+    ns1:SysTimeStamp "0x00000000015667F8"^^xsd:string .
+
+<http://example.org/Roles.csv/81> ns1: "81"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-09-18 14:58:58.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "onderwerp"^^xsd:string ;
+    ns1:RoleID "87"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "1657A5B"^^xsd:string .
+
+<http://example.org/Roles.csv/82> ns1: "82"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-09-18 14:58:58.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "redacteur"^^xsd:string ;
+    ns1:RoleID "88"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "1657A5C"^^xsd:string .
+
+<http://example.org/Roles.csv/83> ns1: "83"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:36.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "drukker"^^xsd:string ;
+    ns1:RoleID "89"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "1657A5D"^^xsd:string .
+
+<http://example.org/Roles.csv/84> ns1: "84"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "fotograaf"^^xsd:string ;
+    ns1:RoleID "90"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "1657A5E"^^xsd:string .
+
+<http://example.org/Roles.csv/85> ns1: "85"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "illustrator"^^xsd:string ;
+    ns1:RoleID "91"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "1657A5F"^^xsd:string .
+
+<http://example.org/Roles.csv/86> ns1: "86"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "ex-collectie"^^xsd:string ;
+    ns1:RoleID "92"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A60"^^xsd:string .
+
+<http://example.org/Roles.csv/87> ns1: "87"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "auteur (inleiding)"^^xsd:string ;
+    ns1:RoleID "93"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A61"^^xsd:string .
+
+<http://example.org/Roles.csv/88> ns1: "88"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "plaats van handeling"^^xsd:string ;
+    ns1:RoleID "94"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A62"^^xsd:string .
+
+<http://example.org/Roles.csv/89> ns1: "89"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2008-11-03 10:46:37.000"^^xsd:string ;
+    ns1:LoginID "mbeumer"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "schenker"^^xsd:string ;
+    ns1:RoleID "95"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A63"^^xsd:string .
+
+<http://example.org/Roles.csv/9> ns1: "9"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "1998-07-14 02:45:30.383"^^xsd:string ;
+    ns1:LoginID "sa/COMP6"^^xsd:string ;
+    ns1:Prepositional "Made by"^^xsd:string ;
+    ns1:Role "Associated"^^xsd:string ;
+    ns1:RoleID "9"^^xsd:string ;
+    ns1:RoleTypeID "9"^^xsd:string ;
+    ns1:SysTimeStamp "7A0EAA"^^xsd:string .
+
+<http://example.org/Roles.csv/90> ns1: "90"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2004-07-01 12:03:25.000"^^xsd:string ;
+    ns1:LoginID "mschoemaker"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "inleiding"^^xsd:string ;
+    ns1:RoleID "96"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A64"^^xsd:string .
+
+<http://example.org/Roles.csv/91> ns1: "91"^^xsd:string ;
+    ns1:AnonymousNameID "-1"^^xsd:string ;
+    ns1:EnteredDate "2010-08-17 09:55:05.727"^^xsd:string ;
+    ns1:LoginID "nschaap"^^xsd:string ;
+    ns1:Prepositional " "^^xsd:string ;
+    ns1:Role "opdrachtgever"^^xsd:string ;
+    ns1:RoleID "97"^^xsd:string ;
+    ns1:RoleTypeID "4"^^xsd:string ;
+    ns1:SysTimeStamp "0x0000000001657A65"^^xsd:string .
+
+<http://example.org/Roles.csv/Roles/nanopublication/7a15576e/2023-12-18T13:03> a ns3:Nanopublication ;
+    ns3:hasAssertion <http://example.org/Roles.csv/Roles/assertion/7a15576e/2023-12-18T13:03> ;
+    ns3:hasProvenance <http://example.org/Roles.csv/Roles/provenance/7a15576e/2023-12-18T13:03> ;
+    ns3:hasPublicationInfo <http://example.org/Roles.csv/Roles/pubinfo/7a15576e/2023-12-18T13:03> ;
+    ns5:generatedAtTime "2023-12-18T13:03:00"^^xsd:dateTime ;
+    ns5:wasGeneratedBy <https://github.com/CLARIAH/wp4-converters> .
+
+<http://example.org/Roles.csv/7a15576e27cfca29b05394bf2a19da8abe834628> ns1:path "dataconversion/data/Roles.csv"^^xsd:string ;
+    ns1:sha1_hash "7a15576e27cfca29b05394bf2a19da8abe834628"^^xsd:string .
+
+<http://example.org/Roles.csv/Roles.csv> ns4:license <http://opendefinition.org/licenses/cc-by/> ;
+    ns4:modified "2023-12-18"^^xsd:date ;
+    ns4:publisher [ ns6:name "CLARIAH Structured Data Hub - Datalegend"@en ;
+            ns6:url <http://datalegend.net/> ] ;
+    ns4:title "Roles.csv"@en ;
+    ns2:dialect [ ns2:delimiter ";" ;
+            ns2:encoding "ascii" ;
+            ns2:quoteChar "\"" ] ;
+    ns2:tableSchema [ ns2:aboutUrl <http://example.org/Roles.csv/__row_> ;
+            ns2:column ( <http://example.org/Roles.csv/Roles.csv/column/> <http://example.org/Roles.csv/Roles.csv/column/RoleID> <http://example.org/Roles.csv/Roles.csv/column/RoleTypeID> <http://example.org/Roles.csv/Roles.csv/column/Role> <http://example.org/Roles.csv/Roles.csv/column/Prepositional> <http://example.org/Roles.csv/Roles.csv/column/LoginID> <http://example.org/Roles.csv/Roles.csv/column/EnteredDate> <http://example.org/Roles.csv/Roles.csv/column/SysTimeStamp> <http://example.org/Roles.csv/Roles.csv/column/AnonymousNameID> ) ;
+            ns2:primaryKey "" ] ;
+    ns2:url "Roles.csv"^^xsd:anyURI .
+
+<http://example.org/Roles.csv/Roles.csv/column/> ns2:datatype xsd:string ;
+    ns2:name "" .
+
+<http://example.org/Roles.csv/Roles.csv/column/AnonymousNameID> ns2:datatype xsd:string ;
+    ns2:name "AnonymousNameID" .
+
+<http://example.org/Roles.csv/Roles.csv/column/EnteredDate> ns2:datatype xsd:string ;
+    ns2:name "EnteredDate" .
+
+<http://example.org/Roles.csv/Roles.csv/column/LoginID> ns2:datatype xsd:string ;
+    ns2:name "LoginID" .
+
+<http://example.org/Roles.csv/Roles.csv/column/Prepositional> ns2:datatype xsd:string ;
+    ns2:name "Prepositional" .
+
+<http://example.org/Roles.csv/Roles.csv/column/Role> ns2:datatype xsd:string ;
+    ns2:name "Role" .
+
+<http://example.org/Roles.csv/Roles.csv/column/RoleID> ns2:datatype xsd:string ;
+    ns2:name "RoleID" .
+
+<http://example.org/Roles.csv/Roles.csv/column/RoleTypeID> ns2:datatype xsd:string ;
+    ns2:name "RoleTypeID" .
+
+<http://example.org/Roles.csv/Roles.csv/column/SysTimeStamp> ns2:datatype xsd:string ;
+    ns2:name "SysTimeStamp" .
+
+<http://example.org/Roles.csv/Roles/assertion/7a15576e/2023-12-18T13:03> a ns3:Assertion ;
+    ns5:generatedAtTime "2023-12-18T13:03:00"^^xsd:dateTime ;
+    ns5:wasDerivedFrom <http://example.org/Roles.csv/7a15576e27cfca29b05394bf2a19da8abe834628>,
+        <http://example.org/Roles.csv/Roles.csv> .
+
+<http://example.org/Roles.csv/Roles/provenance/7a15576e/2023-12-18T13:03> a ns3:Provenance .
+
+<http://example.org/Roles.csv/Roles/pubinfo/7a15576e/2023-12-18T13:03> a ns3:PublicationInfo .
+
+<http://example.org/Roles.csv/__row_> ns5:wasDerivedFrom "http://example.org/Roles.csv/{_row}"^^xsd:string .

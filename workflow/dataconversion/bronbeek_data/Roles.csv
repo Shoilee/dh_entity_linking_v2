@@ -1,0 +1,93 @@
+;RoleID;RoleTypeID;Role;Prepositional;LoginID;EnteredDate;SysTimeStamp;AnonymousNameID
+0;0;0;[not specified];;sa/CIS;1997-10-20 16:32:12.093;7A0EA1;-1
+1;1;1;drukker;gedrukt door;sa/CIS;1997-10-20 16:32:12.170;7A0EA2;-1
+2;2;2;bruikleengever;bruikleen van;sa/CIS;1997-10-20 16:32:12.233;7A0EA3;-1
+3;3;3;samensteller;samengesteld door;sa/CIS;1997-10-20 16:32:12.297;7A0EA4;-1
+4;4;4;auteur;geschreven door;sa/CIS;1997-10-20 16:32:12.360;7A0EA5;-1
+5;5;5;vroegere eigenaar;oorspronkelijk bezit van;sa/CIS;1997-10-20 16:32:12.420;7A0EA6;-1
+6;6;6;restaurator;gerestaureerd door;sa/CIS;1997-10-20 16:32:12.467;7A0EA7;-1
+7;7;7;taxateur;getaxeerd door;sa/CIS;1997-10-20 16:32:12.530;7A0EA8;-1
+8;8;8;Researcher;;sa/COMP6;1998-07-14 02:45:30.353;7A0EA9;-1
+9;9;9;Associated;Made by;sa/COMP6;1998-07-14 02:45:30.383;7A0EAA;-1
+10;10;2;handelaar;aangekocht van;SantenC/KTOMB_W016;1998-07-16 09:39:23.810;7A0EB3;-1
+11;11;2;legator;legaat van;SantenC/KTOMB_W016;1998-07-16 09:39:23.920;7A0EB4;-1
+12;12;2;schenker;geschonken door;SantenC/KTOMB_W016;1998-07-16 09:39:23.990;7A0EB5;-1
+13;13;4;samensteller;samengesteld door;SantenC/KTOMB_W016;1998-07-16 09:40:44.957;7A0EB7;-1
+14;14;4;uitgever;uitgegeven door;SantenC/KTOMB_W016;1998-07-16 09:40:45.027;7A0EB8;-1
+15;15;3;vormgever;vormgeving;SantenC/KTOMB_W016;1998-07-16 09:42:31.030;7A0EB6;-1
+16;17;1;kunstenaar;kunstenaar;SantenC/KTOMB_W016;1998-07-16 09:43:36.613;7A0EB1;-1
+17;18;1;vervaardiger;vervaardigd door;SantenC/KTOMB_W016;1998-07-16 09:43:36.723;7A0EB2;-1
+18;19;1;geportretteerde;portret van;sa/KTOMB_W12;1998-08-06 11:22:43.690;7A0EAB;-1
+19;21;1;nieuwe eigenaar;nieuwe eigenaar;sa/KTOMB_W12;1998-08-10 13:53:45.610;7A0EAC;-1
+20;22;2;ruiler;in ruil ontvangen van;sa/KTOMB_W12;1998-08-10 14:11:06.800;7A0EAE;-1
+21;23;2;tussenpersoon;verworven via;SantenC/KTOMB_W075;1998-09-15 15:52:06.167;7A0EBC;-1
+22;24;1;afgebeelde persoon;afbeelding van;SantenC/KTOMB_W075;1998-10-06 14:46:03.520;7A0EB9;-1
+23;25;1;restaurator;gerestaureerd door;sa/KTOMB_W12;1998-10-28 12:18:01.073;7A0EAD;-1
+24;26;2;ontvanger;geruild met;sa/KTOMB_W12;1998-11-03 11:58:04.430;7A0EAF;-1
+25;28;1;afbeelding van;afbeelding van;SantenC/KTOMB_W075;1998-11-09 11:08:20.107;7A0EBA;-1
+26;29;1;verzamelaar;verzameld door;SantenC/KTOMB_W075;1998-11-11 11:12:26.123;7A0EBB;-1
+27;30;1;object-gerelateerde;;SantenC;1998-11-26 09:16:52.660;7A0EB0;-1
+28;31;1;bruikleennemer;in bruikleen afgestaan aan;verhoevenp;1999-02-15 16:08:38.233;7A0EC2;-1
+29;32;1;fotograaf;gefotografeerd door;verhoevenp;1999-10-25 11:35:42.877;7A0EC3;-1
+30;33;1;uitgever;uitgegeven door;verhoevenp;2001-09-03 16:35:21.150;7A0EC4;-1
+31;34;11;Fotograaf;gefotografeerd door;APU0QSVC;2002-04-25 14:20:37.060;7A0E93;-1
+32;35;11;Bron fotomateriaal;;APU0QSVC;2002-04-25 14:20:37.077;7A0E94;-1
+33;36;12;Transporteur;Transporteur;DMU;2002-04-25 14:20:53.483;7A0E9A;-1
+34;37;12;Koerier;Koerier;DMU;2002-04-25 14:20:53.500;7A0E9B;-1
+35;38;17;Contact;;APU0QSVC;2002-04-25 14:24:52.857;7ECC5F;-1
+36;39;11;Photographer;Photographed by;APU0QSVC;2002-04-25 14:24:52.887;7A0E96;-1
+37;40;12;Shipper;;APU0QSVC;2002-04-25 14:24:52.903;7A0E97;-1
+38;41;13;Author;;APU0QSVC;2002-04-25 14:24:52.920;7A0E98;-1
+39;42;14;Shipper;;APU0QSVC;2002-04-25 14:24:52.950;7A0E99;-1
+40;43;15;Insurer;;Oleg;2002-04-25 16:28:07.673;7A0EA0;-1
+41;45;1;leverancier;geleverd door;G6810028;2002-11-05 08:50:35.410;7A0E9D;-1
+42;47;11;Leverancier scan;gescand door;G6810009;2003-10-23 12:40:12.977;7A0E9C;-1
+43;49;16;Examiner;Examined by;GS;2005-11-11 11:30:11.610;7A0E9E;-1
+44;50;0;Embargo;;u00f7m8;2007-03-30 21:29:30.570;7A0EBD;-1
+45;51;9;Gerelateerd persoon;;u00f7m8;2009-02-12 23:15:46.540;7A0EBE;-1
+46;52;11;Gerelateerde persoon/instelling;gerelateerd;u00f7m8;2011-01-24 09:13:38.097;7A0EBF;-1
+47;53;11;herkomst;Geschonken door;u00f7m8;2011-01-24 09:13:38.127;7A0EC0;-1
+48;54;1;auteur;;u00f7m8;2011-08-17 11:45:27.147;7A0EC1;-1
+49;55;19;Rights Holder;;GS;2015-07-01 14:57:47.340;7A0E9F;-1
+50;56;20;Contact; ;GS;2015-07-01 14:57:59.810;7CEDF8;-1
+51;57;17;Lender; ;DMU;2015-07-01 14:57:59.813;7CEDFA;-1
+52;58;18;Borrower; ;DMU;2015-07-01 14:57:59.817;7CEDFC;-1
+53;59;18;Contact;;DMU;2015-07-01 14:58:09.093;7ECC60;-1
+54;60;21;Source; ;GS;2015-07-01 16:20:30.203;839C7A;-1
+55;61;22;Donor; ;GS;2015-07-01 16:20:30.207;839C7B;-1
+56;62;20;Venue; ;DMU;2015-07-01 17:04:51.120;88D3F2;-1
+57;63;3;restaurator;medewerker;u00f7m8;2017-02-07 16:45:56.610;128FAD6;-1
+58;64;1;Atelier; ;Frans;2018-12-14 15:03:45.987;0x00000000015667E2;-1
+59;65;1;Betrokkene; ;Frans;2018-12-14 15:03:45.987;0x00000000015667E3;-1
+60;66;1;Etser; ;Frans;2018-12-14 15:03:45.990;0x00000000015667E4;-1
+61;67;1;Fabrikant; ;Frans;2018-12-14 15:03:45.990;0x00000000015667E5;-1
+62;68;1;Filmer; ;Frans;2018-12-14 15:03:45.990;0x00000000015667E6;-1
+63;69;1;Illustrator; ;Frans;2018-12-14 15:03:45.993;0x00000000015667E7;-1
+64;70;1;Lithograaf; ;Frans;2018-12-14 15:03:45.993;0x00000000015667E8;-1
+65;71;1;Naar een gravure van; ;Frans;2018-12-14 15:03:45.997;0x00000000015667E9;-1
+66;72;1;Naar een schilderij van; ;Frans;2018-12-14 15:03:46.000;15667EA;-1
+67;73;1;Naar een tekening van; ;Frans;2018-12-14 15:03:46.000;15667EB;-1
+68;74;1;Onderwerp; ;Frans;2018-12-14 15:03:46.000;15667EC;-1
+69;75;1;Ontwerper; ;Frans;2018-12-14 15:03:46.003;15667ED;-1
+70;76;1;Opdrachtgever; ;Frans;2018-12-14 15:03:46.003;15667EE;-1
+71;77;1;Schilder; ;Frans;2018-12-14 15:03:46.007;15667EF;-1
+72;78;1;Tekenaar; ;Frans;2018-12-14 15:03:46.007;0x00000000015667F0;-1
+73;79;2;Aankoop; ;Frans;2018-12-14 15:03:46.010;0x00000000015667F1;-1
+74;80;2;Beeldmateriaal geleverd door; ;Frans;2018-12-14 15:03:46.010;0x00000000015667F2;-1
+75;81;2;Bemiddeling; ;Frans;2018-12-14 15:03:46.010;0x00000000015667F3;-1
+76;82;2;Bruikleen; ;Frans;2018-12-14 15:03:46.013;0x00000000015667F4;-1
+77;83;2;Collectie; ;Frans;2018-12-14 15:03:46.013;0x00000000015667F5;-1
+78;84;2;Overdracht; ;Frans;2018-12-14 15:03:46.013;0x00000000015667F6;-1
+79;85;2;Veiling; ;Frans;2018-12-14 15:03:46.017;0x00000000015667F7;-1
+80;86;2;Verwerving; ;Frans;2018-12-14 15:03:46.017;0x00000000015667F8;-1
+81;87;4;onderwerp; ;mbeumer;2008-09-18 14:58:58.000;1657A5B;-1
+82;88;4;redacteur; ;mbeumer;2008-09-18 14:58:58.000;1657A5C;-1
+83;89;4;drukker; ;mbeumer;2008-11-03 10:46:36.000;1657A5D;-1
+84;90;4;fotograaf; ;mbeumer;2008-11-03 10:46:37.000;1657A5E;-1
+85;91;4;illustrator; ;mbeumer;2008-11-03 10:46:37.000;1657A5F;-1
+86;92;4;ex-collectie; ;mbeumer;2008-11-03 10:46:37.000;0x0000000001657A60;-1
+87;93;4;auteur (inleiding); ;mbeumer;2008-11-03 10:46:37.000;0x0000000001657A61;-1
+88;94;4;plaats van handeling; ;mbeumer;2008-11-03 10:46:37.000;0x0000000001657A62;-1
+89;95;4;schenker; ;mbeumer;2008-11-03 10:46:37.000;0x0000000001657A63;-1
+90;96;4;inleiding; ;mschoemaker;2004-07-01 12:03:25.000;0x0000000001657A64;-1
+91;97;4;opdrachtgever; ;nschaap;2010-08-17 09:55:05.727;0x0000000001657A65;-1
