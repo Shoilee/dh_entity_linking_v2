@@ -167,7 +167,7 @@ class Controller:
         from cow_csvw.csvw_tool import COW
         from rdflib import ConjunctiveGraph
 
-        print(os.getcwd())
+        # print(os.getcwd())
 
         # now URIs are created based on _row_id, it should be based on ConstituentID
         COW(mode='build', files=[input_file], base='http://example.org/'+os.path.basename(self.inputDataset))
