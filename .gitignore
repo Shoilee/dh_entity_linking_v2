@@ -18,3 +18,4 @@ workflow/test_workflow
 workflow/dataDirectory/nmvw_constituents.ttl
 workflow/nmvw_objects/*.ttl
 workflow/Bronbeek_Data
+workflow/objects_from_15_const.ttl
