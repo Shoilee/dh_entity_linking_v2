@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/id/"
+   "@base": "https://example.com/id/Roles/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
