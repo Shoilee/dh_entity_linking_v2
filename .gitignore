@@ -17,3 +17,4 @@ entitylinking/
 workflow/test_workflow
 workflow/dataDirectory/nmvw_constituents.ttl
 workflow/nmvw_objects/*.ttl
+workflow/Bronbeek_Data
