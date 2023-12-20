@@ -67,18 +67,13 @@
    {
     "name": "Role",
     "datatype": "string",
-    "propertyUrl": "Role",
+    "propertyUrl": "skos:prefLabel",
     "@id": "https://example.com/id/Roles.csv/column/Role"
    },
    {
     "name": "Prepositional",
     "datatype": "string",
     "@id": "https://example.com/id/Roles.csv/column/Prepositional"
-   },
-   {
-    "name": "LoginID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/LoginID"
    },
    {
     "name": "EnteredDate",
