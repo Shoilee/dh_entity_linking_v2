@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/id/Roles/"
+   "@base": "https://example.com/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -47,7 +47,7 @@
   }
  ],
  "tableSchema": {
-  "aboutUrl": "{RoleID}",
+  "aboutUrl": "Roles/{RoleID}",
   "columns": [
    {
     "name": "RowIndex",
