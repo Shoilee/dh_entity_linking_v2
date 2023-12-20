@@ -48,7 +48,6 @@
  ],
  "tableSchema": {
   "aboutUrl": "{RoleID}",
-  "primaryKey": "RowIndex",
   "columns": [
    {
     "name": "RowIndex",
