@@ -61,21 +61,6 @@
     "@id": "https://example.com/id/RoleTypes.csv/column/RoleType"
    },
    {
-    "name": "LoginID",
-    "datatype": "string",
-    "@id": "https://example.com/id/RoleTypes.csv/column/LoginID"
-   },
-   {
-    "name": "EnteredDate",
-    "datatype": "string",
-    "@id": "https://example.com/id/RoleTypes.csv/column/EnteredDate"
-   },
-   {
-    "name": "SysTimeStamp",
-    "datatype": "string",
-    "@id": "https://example.com/id/RoleTypes.csv/column/SysTimeStamp"
-   },
-   {
     "name": "DefaultRoleID",
     "datatype": "string",
     "@id": "https://example.com/id/RoleTypes.csv/column/DefaultRoleID"
@@ -84,11 +69,6 @@
     "name": "PrimaryRoleID",
     "datatype": "string",
     "@id": "https://example.com/id/RoleTypes.csv/column/PrimaryRoleID"
-   },
-   {
-    "name": "AllowsAnonymousAccess",
-    "datatype": "string",
-    "@id": "https://example.com/id/RoleTypes.csv/column/AllowsAnonymousAccess"
    }
   ]
  },
