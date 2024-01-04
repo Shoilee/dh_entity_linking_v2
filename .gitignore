@@ -17,7 +17,9 @@ entitylinking/
 workflow/test_workflow
 workflow/dataDirectory/nmvw_constituents.ttl
 workflow/nmvw_objects/*.ttl
-workflow/Bronbeek_Data
+workflow/Bronbeek_Data/*.csv
+workflow/Bronbeek_Data/*.nq
+workflow/Bronbeek_Data/*.ttl
 workflow/objects_from_15_const.ttl
 workflow/dataConversion/bronbeek_data/Roles.csv.nq
 workflow/dataConversion/bronbeek_data/sorted_Roles.csv.nq
