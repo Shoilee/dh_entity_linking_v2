@@ -51,13 +51,8 @@
   "primaryKey": "RoleID",
   "columns": [
    {
-    "name": "RoleID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/RoleID"
-   },
-   {
     "name": "RoleTypeID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Roles.csv/column/RoleTypeID"
    },
    {
