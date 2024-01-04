@@ -54,7 +54,7 @@
     "name": "RoleTypeID",
     "titles": ["RoleTypeID"],
     "propertyUrl": "vocab/RoleTypeID",
-    "valueUrl": "https://example.com/Roles/{RoleTypeID}",
+    "valueUrl": "https://example.com/RoleTypes/{RoleTypeID}",
     "@id": "https://example.com/id/Roles.csv/column/RoleTypeID"
    },
    {
