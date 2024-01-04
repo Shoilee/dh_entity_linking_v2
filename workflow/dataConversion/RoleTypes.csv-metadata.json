@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/id/"
+   "@base": "https://example.com/RoleTypes/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -47,27 +47,28 @@
   }
  ],
  "tableSchema": {
-  "aboutUrl": "{_row}",
+  "aboutUrl": "{RoleTypeID}",
   "primaryKey": "RoleTypeID",
   "columns": [
    {
-    "name": "RoleTypeID",
-    "datatype": "string",
-    "@id": "https://example.com/id/RoleTypes.csv/column/RoleTypeID"
-   },
-   {
     "name": "RoleType",
     "datatype": "string",
+    "propertyUrl": "skos:prefLabel",
+    "csvw:value": "{RoleType}@nl",
     "@id": "https://example.com/id/RoleTypes.csv/column/RoleType"
    },
    {
     "name": "DefaultRoleID",
-    "datatype": "string",
+    "datatype": "integer",
+    "propertyUrl": "vocab/DefaultRoleID",
+    "csvw:value": "{DefaultRoleID}",
     "@id": "https://example.com/id/RoleTypes.csv/column/DefaultRoleID"
    },
    {
     "name": "PrimaryRoleID",
-    "datatype": "string",
+    "datatype": "integer",
+    "propertyUrl": "vocab/PrimaryRoleID",
+    "csvw:value": "{PrimaryRoleID}",
     "@id": "https://example.com/id/RoleTypes.csv/column/PrimaryRoleID"
    }
   ]
