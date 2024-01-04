@@ -53,16 +53,23 @@
    {
     "name": "RoleTypeID",
     "datatype": "integer",
+    "titles": ["RoleTypeID"],
+    "propertyUrl": "vocab/RoleTypeID",
+    "csvw:value": "{RoleTypeID}",
     "@id": "https://example.com/id/Roles.csv/column/RoleTypeID"
    },
    {
     "name": "Role",
     "datatype": "string",
+    "propertyUrl": "skos:prefLabel",
+    "csvw:value": "{Role}",
     "@id": "https://example.com/id/Roles.csv/column/Role"
    },
    {
     "name": "Prepositional",
     "datatype": "string",
+    "propertyUrl": "skos:altLabel",
+    "csvw:value": "{Prepositional}",
     "@id": "https://example.com/id/Roles.csv/column/Prepositional"
    }
   ]
