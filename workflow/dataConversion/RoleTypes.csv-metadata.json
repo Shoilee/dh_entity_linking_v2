@@ -54,7 +54,7 @@
     "name": "RoleType",
     "datatype": "string",
     "propertyUrl": "skos:prefLabel",
-    "csvw:value": "{RoleType}@nl",
+    "csvw:value": "{RoleType}",
     "@id": "https://example.com/id/RoleTypes.csv/column/RoleType"
    },
    {
