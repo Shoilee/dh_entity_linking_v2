@@ -1,0 +1,278 @@
+{
+ "@context": [
+  "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
+  {
+   "@language": "en",
+   "@base": "https://example.com/Constituents/"
+  },
+  {
+   "aat": "http://vocab.getty.edu/aat/",
+   "bibo": "http://purl.org/ontology/bibo/",
+   "bio": "http://purl.org/vocab/bio/0.1/",
+   "cidoc": "http://www.cidoc-crm.org/cidoc-crm/",
+   "civ": "https://iisg.amsterdam/id/civ/",
+   "csvw": "http://www.w3.org/ns/csvw#",
+   "dbo": "http://dbpedia.org/ontology/",
+   "dc": "http://purl.org/dc/terms/",
+   "dc11": "http://purl.org/dc/elements/1.1/",
+   "dcterms": "http://purl.org/dc/terms/",
+   "ecpo": "http://purl.org/ontology/ecpo#",
+   "foaf": "http://xmlns.com/foaf/0.1/",
+   "frbr": "http://purl.org/spar/frbr/core#",
+   "geo": "http://www.opengis.net/ont/geosparql#",
+   "geonames": "http://www.geonames.org/ontology#",
+   "gvp": "http://vocab.getty.edu/ontology#",
+   "juso": "http://http://rdfs.co/juso/",
+   "la": "https://linked.art/ns/terms/" ,
+   "lemon": "http://lemon-model.net/lemon#",
+   "midi": "http://purl.org/midi-ld/midi#",
+   "np": "http://www.nanopub.org/nschema#",
+   "owl": "http://www.w3.org/2002/07/owl#",
+   "periodo": "http://n2t.net/ark:/99152/p0v#",
+   "pnv": "https://www.lodewijkpetram.nl/vocab/pnv/doc/",
+   "prov": "http://www.w3.org/ns/prov#",
+   "qb": "http://purl.org/linked-data/cube#",
+   "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+   "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+   "schema": "http://schema.org/",
+   "sdmx-concept": "http://purl.org/linked-data/sdmx/2009/concept#",
+   "sdr": "https://example.com/id/",
+   "sdv": "https://example.com/id/vocab/",
+   "sem": "http://semanticweb.cs.vu.nl/2009/11/sem/",
+   "skos": "http://www.w3.org/2004/02/skos/core#",
+   "time": "http://www.w3.org/2006/time#",
+   "ulan": "http://vocab.getty.edu/ulan/",
+   "wgs84": "http://www.w3.org/2003/01/geo/wgs84_pos#",
+   "xml": "http://www.w3.org/XML/1998/namespace/",
+   "xsd": "http://www.w3.org/2001/XMLSchema#"
+  }
+ ],
+ "tableSchema": {
+  "aboutUrl": "{ConstituentID}",
+  "primaryKey": "ConstituentID",
+  "columns": [
+   {
+    "name": "ConstituentID",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/ConstituentID"
+   },
+   {
+    "name": "ConstituentTypeID",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/ConstituentTypeID"
+   },
+   {
+    "name": "Active",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Active"
+   },
+   {
+    "name": "AlphaSort",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/AlphaSort"
+   },
+   {
+    "name": "LastName",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/LastName"
+   },
+   {
+    "name": "FirstName",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/FirstName"
+   },
+   {
+    "name": "NameTitle",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/NameTitle"
+   },
+   {
+    "name": "Institution",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Institution"
+   },
+   {
+    "name": "LastSoundEx",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/LastSoundEx"
+   },
+   {
+    "name": "FirstSoundEx",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/FirstSoundEx"
+   },
+   {
+    "name": "InstitutionSoundEx",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/InstitutionSoundEx"
+   },
+   {
+    "name": "DisplayName",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/DisplayName"
+   },
+   {
+    "name": "BeginDate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/BeginDate"
+   },
+   {
+    "name": "EndDate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/EndDate"
+   },
+   {
+    "name": "DisplayDate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/DisplayDate"
+   },
+   {
+    "name": "Biography",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Biography"
+   },
+   {
+    "name": "Code",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Code"
+   },
+   {
+    "name": "Nationality",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Nationality"
+   },
+   {
+    "name": "School",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/School"
+   },
+   {
+    "name": "LoginID",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/LoginID"
+   },
+   {
+    "name": "EnteredDate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/EnteredDate"
+   },
+   {
+    "name": "SysTimeStamp",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/SysTimeStamp"
+   },
+   {
+    "name": "PublicAccessOld",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/PublicAccessOld"
+   },
+   {
+    "name": "Remarks",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Remarks"
+   },
+   {
+    "name": "Position",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Position"
+   },
+   {
+    "name": "MiddleName",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/MiddleName"
+   },
+   {
+    "name": "Suffix",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Suffix"
+   },
+   {
+    "name": "CultureGroup",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/CultureGroup"
+   },
+   {
+    "name": "N_DisplayName",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/N_DisplayName"
+   },
+   {
+    "name": "N_DisplayDate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/N_DisplayDate"
+   },
+   {
+    "name": "salutation",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/salutation"
+   },
+   {
+    "name": "Approved",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/Approved"
+   },
+   {
+    "name": "PublicAccess",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/PublicAccess"
+   },
+   {
+    "name": "IsPrivate",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/IsPrivate"
+   },
+   {
+    "name": "DefaultNameID",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/DefaultNameID"
+   },
+   {
+    "name": "SystemFlag",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/SystemFlag"
+   },
+   {
+    "name": "InternalStatus",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/InternalStatus"
+   },
+   {
+    "name": "DefaultDisplayBioID",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/DefaultDisplayBioID"
+   },
+   {
+    "name": "BeginDateISO",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/BeginDateISO"
+   },
+   {
+    "name": "EndDateISO",
+    "datatype": "string",
+    "@id": "https://example.com/id/Constituents.csv/column/EndDateISO"
+   }
+  ]
+ },
+ "url": "Constituents.csv",
+ "dialect": {
+  "delimiter": ",",
+  "encoding": "utf-8",
+  "quoteChar": "\""
+ },
+ "dc:title": "Constituents.csv",
+ "dcat:keyword": [],
+ "dc:publisher": {
+  "schema:name": "CLARIAH Structured Data Hub - Datalegend",
+  "schema:url": {
+   "@id": "http://datalegend.net"
+  }
+ },
+ "dc:license": {
+  "@id": "http://opendefinition.org/licenses/cc-by/"
+ },
+ "dc:modified": {
+  "@value": "2024-01-04",
+  "@type": "xsd:date"
+ },
+ "@id": "https://example.com/id/Constituents.csv"
+}
