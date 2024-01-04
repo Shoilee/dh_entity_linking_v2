@@ -36,4 +36,12 @@
             "CSVW:value": "{{Dienstboden|replace(',', '.')}}",
             "@id": "https://iisg.amsterdam/buurt.csv/column/Dienstboden"
          ```
+4. run cow_tool convert --> <filename>.nq file is created
+   ```
+   cow_tool convert myfile.csv
+   ```
+5. sort <filename>csv.nq > <filename>_sorted.csv.nq
+
+
+Roles.csv conversion
 
