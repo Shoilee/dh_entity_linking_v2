@@ -69,26 +69,6 @@
     "name": "Prepositional",
     "datatype": "string",
     "@id": "https://example.com/id/Roles.csv/column/Prepositional"
-   },
-   {
-    "name": "LoginID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/LoginID"
-   },
-   {
-    "name": "EnteredDate",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/EnteredDate"
-   },
-   {
-    "name": "SysTimeStamp",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/SysTimeStamp"
-   },
-   {
-    "name": "AnonymousNameID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Roles.csv/column/AnonymousNameID"
    }
   ]
  },
