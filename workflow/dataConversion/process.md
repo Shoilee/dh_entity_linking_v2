@@ -41,7 +41,3 @@
    cow_tool convert myfile.csv
    ```
 5. sort <filename>csv.nq > <filename>_sorted.csv.nq
-
-
-Roles.csv conversion
-
