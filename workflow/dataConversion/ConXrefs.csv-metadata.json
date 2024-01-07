@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/id/"
+   "@base": "https://example.com/ConXrefs/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -47,48 +47,25 @@
   }
  ],
  "tableSchema": {
-  "aboutUrl": "{_row}",
+  "aboutUrl": "{ConXrefID}",
   "primaryKey": "ConXrefID",
   "columns": [
    {
-    "name": "ConXrefID",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/ConXrefID"
-   },
-   {
     "name": "ID",
-    "datatype": "string",
+    "datatype": "integer",
+    "dc:description": "Possibly this value indicates to corresponding object ID",
     "@id": "https://example.com/id/ConXrefs.csv/column/ID"
    },
    {
     "name": "RoleID",
-    "datatype": "string",
+    "datatype": "integer",
+    "valueUrl": "https://example.com/Roles/{RoleID}",
     "@id": "https://example.com/id/ConXrefs.csv/column/RoleID"
    },
    {
     "name": "TableID",
-    "datatype": "string",
+    "datatype": "interger",
     "@id": "https://example.com/id/ConXrefs.csv/column/TableID"
-   },
-   {
-    "name": "LoginID",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/LoginID"
-   },
-   {
-    "name": "EnteredDate",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/EnteredDate"
-   },
-   {
-    "name": "DisplayOrder",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/DisplayOrder"
-   },
-   {
-    "name": "Displayed",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/Displayed"
    },
    {
     "name": "Active",
@@ -97,7 +74,8 @@
    },
    {
     "name": "RoleTypeID",
-    "datatype": "string",
+    "datatype": "integer",
+    "valueUrl": "https://example.com/RoleTypes/{RoleTypeID}",
     "@id": "https://example.com/id/ConXrefs.csv/column/RoleTypeID"
    },
    {
@@ -109,11 +87,6 @@
     "name": "IsDefaultDisplayBio",
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefs.csv/column/IsDefaultDisplayBio"
-   },
-   {
-    "name": "sysTimeStamp",
-    "datatype": "string",
-    "@id": "https://example.com/id/ConXrefs.csv/column/sysTimeStamp"
    }
   ]
  },
