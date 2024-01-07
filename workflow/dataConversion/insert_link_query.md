@@ -1,14 +1,8 @@
 ###### Quuery to insert owl:sameAS links
 ```SPARQL
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX aat: <http://vocab.getty.edu/aat/>
-PREFIX pr: <http://purl.org/ontology/prv/core#>
-PREFIX pro: <http://purl.org/hpi/patchr#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT *
+CONSTRUCT {?s skos:related ?object}
 WHERE{
   Graph <https://example.com/ConXrefs/ConXrefs/assertion/d8c707c2/2024-01-07T17:23>{
     ?s <https://example.com/ConXrefs/vocab/ID> ?ID .
@@ -21,5 +15,5 @@ WHERE{
   Graph <https://example.com/Objects/Objects/assertion/bad21d24/2024-01-07T20:54>{
     ?object <https://example.com/Objects/vocab/ObjectID> ?ID .
   }
-} LIMIT 40
+}
 ```
