@@ -52,24 +52,24 @@
   "columns": [
    {
     "name": "ConXrefID",
-    "datatype": "string",
+    "datatype": "integer",
     "valueUrl": "https://example.com/ConXrefs/{ConXrefID}",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/ConXrefID"
    },
    {
     "name": "RoleTypeID",
-    "datatype": "string",
+    "datatype": "integer",
     "valueUrl": "https://example.com/RoleTypes/{RoleTypeID}",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/RoleTypeID"
    },
    {
     "name": "NameID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/NameID"
    },
    {
     "name": "ConstituentID",
-    "datatype": "string",
+    "datatype": "integer",
     "valueUrl": "https://example.com/Constituents/{ConstituentID}",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/ConstituentID"
    },
@@ -115,7 +115,7 @@
    },
    {
     "name": "DepartmentID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/DepartmentID"
    },
    {
