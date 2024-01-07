@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/id/"
+   "@base": "https://example.com/Objects/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -47,12 +47,12 @@
   }
  ],
  "tableSchema": {
-  "aboutUrl": "{_row}",
+  "aboutUrl": "{ObjectID}",
   "primaryKey": "ObjectID",
   "columns": [
    {
     "name": "ObjectID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ObjectID"
    },
    {
@@ -67,38 +67,23 @@
    },
    {
     "name": "ObjectCount",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ObjectCount"
    },
    {
     "name": "DepartmentID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/DepartmentID"
    },
    {
     "name": "ObjectStatusID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ObjectStatusID"
    },
    {
     "name": "ClassificationID",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ClassificationID"
-   },
-   {
-    "name": "SubClassID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/SubClassID"
-   },
-   {
-    "name": "Type",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Type"
-   },
-   {
-    "name": "LoanClassID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/LoanClassID"
    },
    {
     "name": "DateBegin",
@@ -232,17 +217,17 @@
    },
    {
     "name": "PublicAccess",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/PublicAccess"
    },
    {
     "name": "CuratorApproved",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/CuratorApproved"
    },
    {
     "name": "OnView",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/OnView"
    },
    {
@@ -251,64 +236,14 @@
     "@id": "https://example.com/id/Objects.csv/column/TextSearchID"
    },
    {
-    "name": "LoginID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/LoginID"
-   },
-   {
-    "name": "EnteredDate",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/EnteredDate"
-   },
-   {
-    "name": "SysTimeStamp",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/SysTimeStamp"
-   },
-   {
     "name": "Accountability",
-    "datatype": "string",
+    "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/Accountability"
    },
    {
     "name": "PaperFileRef",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/PaperFileRef"
-   },
-   {
-    "name": "ObjectLevelID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectLevelID"
-   },
-   {
-    "name": "ObjectTypeID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectTypeID"
-   },
-   {
-    "name": "ObjectScreenID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectScreenID"
-   },
-   {
-    "name": "UserNumber1",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserNumber1"
-   },
-   {
-    "name": "UserNumber2",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserNumber2"
-   },
-   {
-    "name": "UserNumber3",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserNumber3"
-   },
-   {
-    "name": "UserNumber4",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserNumber4"
    },
    {
     "name": "ObjectNameID",
@@ -321,34 +256,9 @@
     "@id": "https://example.com/id/Objects.csv/column/ObjectNameAltID"
    },
    {
-    "name": "UserDate1",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserDate1"
-   },
-   {
-    "name": "UserDate2",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserDate2"
-   },
-   {
-    "name": "UserDate3",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserDate3"
-   },
-   {
-    "name": "UserDate4",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/UserDate4"
-   },
-   {
     "name": "State",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/State"
-   },
-   {
-    "name": "CatRais",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/CatRais"
    },
    {
     "name": "HistAttributions",
@@ -359,11 +269,6 @@
     "name": "Bibliography",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Bibliography"
-   },
-   {
-    "name": "Negative",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Negative"
    },
    {
     "name": "LoanClass",
@@ -381,19 +286,9 @@
     "@id": "https://example.com/id/Objects.csv/column/Cataloguer"
    },
    {
-    "name": "CatalogueDateOld",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/CatalogueDateOld"
-   },
-   {
     "name": "Curator",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Curator"
-   },
-   {
-    "name": "CuratorRevDateOld",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/CuratorRevDateOld"
    },
    {
     "name": "ObjectDiamCMOLD",
@@ -421,16 +316,6 @@
     "@id": "https://example.com/id/Objects.csv/column/CuratorRevISODate"
    },
    {
-    "name": "IsTemplate",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/IsTemplate"
-   },
-   {
-    "name": "ObjectNumber2",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectNumber2"
-   },
-   {
     "name": "SortNumber2",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/SortNumber2"
@@ -439,16 +324,6 @@
     "name": "DateRemarks",
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/DateRemarks"
-   },
-   {
-    "name": "DateEffectiveISODate",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/DateEffectiveISODate"
-   },
-   {
-    "name": "PhysicalParentID",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/PhysicalParentID"
    },
    {
     "name": "InJurisdiction",
