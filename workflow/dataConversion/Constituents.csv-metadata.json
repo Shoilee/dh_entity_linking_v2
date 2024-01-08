@@ -63,97 +63,116 @@
    },
    {
     "name": "AlphaSort",
+    "null": ["NULL"],
     "datatype": "string",
     "propertyURL": "rdfs:label",
     "@id": "https://example.com/id/Constituents.csv/column/AlphaSort"
    },
    {
     "name": "LastName",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/LastName"
    },
    {
     "name": "FirstName",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/FirstName"
    },
    {
     "name": "NameTitle",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/NameTitle"
    },
    {
     "name": "Institution",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Institution"
    },
    {
     "name": "DisplayName",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/DisplayName"
    },
    {
     "name": "BeginDate",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/BeginDate"
    },
    {
     "name": "EndDate",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/EndDate"
    },
    {
     "name": "DisplayDate",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/DisplayDate"
    },
    {
     "name": "Biography",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Biography"
    },
    {
     "name": "Code",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Code"
    },
    {
     "name": "Nationality",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Nationality"
    },
    {
     "name": "School",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/School"
    },
    {
     "name": "Remarks",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Remarks"
    },
    {
     "name": "Position",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Position"
    },
    {
     "name": "MiddleName",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/MiddleName"
    },
    {
     "name": "Suffix",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/Suffix"
    },
    {
     "name": "CultureGroup",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/CultureGroup"
    },
    {
     "name": "salutation",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/salutation"
    },
@@ -179,11 +198,13 @@
    },
    {
     "name": "BeginDateISO",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/BeginDateISO"
    },
    {
     "name": "EndDateISO",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Constituents.csv/column/EndDateISO"
    }
