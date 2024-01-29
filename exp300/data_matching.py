@@ -92,7 +92,7 @@ def match_with_abbreviation(df, candidate_list):
     return result_table
 
 
-def match_fuzzy_string(df, candidate_list, ratio=fuzz.partial_token_sort_ratio, max_score=75, candidate_size=3):
+def match_fuzzy_string(df, candidate_list, ratio=fuzz.partial_token_sort_ratio, max_score=70, candidate_size=3):
     match = ["NO" for i in range(len(df.index))]
     match_results = []
 
