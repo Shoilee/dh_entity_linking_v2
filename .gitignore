@@ -15,3 +15,10 @@ entitylinking/
 .DS_Store
 .idea/
 workflow/nmvw_objects/*
+workflow/*.ttl
+workflow/dataDirectory/*.ttl
+
+workflow/test_workflow/constituents_15.ttl
+workflow/test_workflow/constituents_links.ttl
+workflow/test_workflow/constituents.ttl
+workflow/test_workflow/nmvw_objects_related_to_15_constituents.nt
