@@ -66,25 +66,30 @@ def match_with_abbreviation(df, candidate_list):
     temp_df = pandas.DataFrame({'abbreviations': abbreviation_list})
     df = pandas.concat([df, temp_df], axis=1)
 
-    abbrv_candidate_list = list()
+    abbrv_candidate_dict = dict()
     for item in candidate_list:
         firstnames = get_initials(" ".join(str(item).split(" ")[:-1]))
         if firstnames:
             initial_and_surname = firstnames + " " + str(item).split(" ")[-1]
         else:
             initial_and_surname = str(item).split(" ")[-1]
-        abbrv_candidate_list.append(initial_and_surname)
+        abbrv_candidate_dict[initial_and_surname] = item
 
     match = ["NO" for i in range(len(df.index))]
     match_results = []
     # matching
     for i, row in df.iterrows():
         row_match_results = list()
-        row_match_results = list(set([str(row['abbreviations'])]).intersection(set(abbrv_candidate_list)))
+        row_match_results = list(set([str(row['abbreviations'])]).intersection(set(abbrv_candidate_dict.keys())))
         if len(row_match_results) > 0:
             match[i] = "YES"
+            # print(len(row_match_results))
+            match_results.append([abbrv_candidate_dict[row_match_results[0]]])
+        else:
+            match_results.append([])
+            
+    # print(f"len of match_results:{len(match_results)}\nlen of match:{len(match)}")
 
-        match_results.append(row_match_results)
 
     temp_df = pandas.DataFrame({'retrieved_names': match_results, 'match': match})
     result_table = pandas.concat([df, temp_df], axis=1)
