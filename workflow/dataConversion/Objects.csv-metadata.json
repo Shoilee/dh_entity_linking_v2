@@ -62,276 +62,331 @@
    },
    {
     "name": "SortNumber",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/SortNumber"
    },
    {
     "name": "ObjectCount",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ObjectCount"
    },
    {
     "name": "DepartmentID",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/DepartmentID"
    },
    {
     "name": "ObjectStatusID",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ObjectStatusID"
    },
    {
     "name": "ClassificationID",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/ClassificationID"
    },
    {
     "name": "DateBegin",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/DateBegin"
    },
    {
     "name": "DateEnd",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/DateEnd"
    },
    {
     "name": "ObjectName",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectName"
    },
    {
     "name": "Dated",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Dated"
    },
    {
     "name": "Title",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Title"
    },
    {
     "name": "Medium",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Medium"
    },
    {
     "name": "Dimensions",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Dimensions"
    },
    {
     "name": "Signed",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Signed"
    },
    {
     "name": "Inscribed",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Inscribed"
    },
    {
     "name": "Markings",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Markings"
    },
    {
     "name": "CreditLine",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/CreditLine"
    },
    {
     "name": "Chat",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Chat"
    },
    {
     "name": "DimensionRemarks",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/DimensionRemarks"
    },
    {
     "name": "Description",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Description"
    },
    {
     "name": "Exhibitions",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Exhibitions"
    },
    {
     "name": "Provenance",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Provenance"
    },
    {
     "name": "PubReferences",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/PubReferences"
    },
    {
     "name": "Notes",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Notes"
    },
    {
     "name": "CuratorialRemarks",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/CuratorialRemarks"
    },
    {
     "name": "RelatedWorks",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/RelatedWorks"
    },
    {
     "name": "Portfolio",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Portfolio"
    },
    {
     "name": "ObjectHeightCMOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectHeightCMOLD"
    },
    {
     "name": "ObjectWidthCMOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectWidthCMOLD"
    },
    {
     "name": "ObjectDepthCMOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectDepthCMOLD"
    },
    {
     "name": "ObjectDiameterCMOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectDiameterCMOLD"
    },
    {
     "name": "ObjectWeightKGOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectWeightKGOLD"
    },
    {
     "name": "PublicAccess",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/PublicAccess"
    },
    {
     "name": "CuratorApproved",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/CuratorApproved"
    },
    {
     "name": "OnView",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/OnView"
    },
    {
     "name": "TextSearchID",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/TextSearchID"
    },
    {
     "name": "Accountability",
+    "null": ["NULL"],
     "datatype": "integer",
     "@id": "https://example.com/id/Objects.csv/column/Accountability"
    },
    {
     "name": "PaperFileRef",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/PaperFileRef"
    },
    {
     "name": "ObjectNameID",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectNameID"
    },
    {
     "name": "ObjectNameAltID",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectNameAltID"
    },
    {
     "name": "State",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/State"
    },
    {
     "name": "HistAttributions",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/HistAttributions"
    },
    {
     "name": "Bibliography",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Bibliography"
    },
    {
     "name": "LoanClass",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/LoanClass"
    },
    {
     "name": "Edition",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Edition"
    },
    {
     "name": "Cataloguer",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Cataloguer"
    },
    {
     "name": "Curator",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Curator"
    },
    {
     "name": "ObjectDiamCMOLD",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/ObjectDiamCMOLD"
    },
    {
     "name": "PaperSupport",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/PaperSupport"
    },
    {
     "name": "IsVirtual",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/IsVirtual"
    },
    {
     "name": "CatalogueISODate",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/CatalogueISODate"
    },
    {
     "name": "CuratorRevISODate",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/CuratorRevISODate"
    },
    {
     "name": "SortNumber2",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/SortNumber2"
    },
    {
     "name": "DateRemarks",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/DateRemarks"
    },
    {
     "name": "InJurisdiction",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/InJurisdiction"
    },
    {
     "name": "SearchObjectNumber",
+    "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/SearchObjectNumber"
    }
