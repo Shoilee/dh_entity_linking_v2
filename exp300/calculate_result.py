@@ -21,7 +21,19 @@ def recall(df):
 def precision(df):
     total_retrieved = 0
     correct_count = 0
+    false_count = 0
 
+    import numpy as np
+
+    for index, row in df.iterrows():
+        if len(set(row['retrieved_names']).intersection(set([str(item) for item in row['wiki_label']]))) > 0:
+            correct_count += 1
+        for name in row['retrieved_names']:
+            if name not in row['wiki_label']:
+                false_count += 1
+        total_retrieved = correct_count + false_count
+
+    """
     for index, row in df.iterrows():
         # if retrieved_names is empty --> skip count
         if row['retrieved_names'] == "[]":
@@ -30,6 +42,7 @@ def precision(df):
             total_retrieved += 1
             if target in [str(item) for item in row['wiki_label']]:
                 correct_count += 1
+    """
 
     try:
         p = correct_count / total_retrieved
