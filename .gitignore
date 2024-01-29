@@ -1,7 +1,7 @@
 exp202/results/*
 exp202/results/
 burgerLinker/
-data/
+data/*
 getty/
 exp100/archieve
 .Rhistory
