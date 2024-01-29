@@ -75,41 +75,49 @@
    },
    {
     "name": "AddressID",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/AddressID"
    },
    {
     "name": "DateBegin",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/DateBegin"
    },
    {
     "name": "DateEnd",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/DateEnd"
    },
    {
     "name": "Prefix",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/Prefix"
    },
    {
     "name": "Remarks",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/Remarks"
    },
    {
     "name": "ConStatement",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/ConStatement"
    },
    {
     "name": "Suffix",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/Suffix"
    },
    {
     "name": "Amount",
+    "null": ["NULL"], 
     "datatype": "string",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/Amount"
    },
