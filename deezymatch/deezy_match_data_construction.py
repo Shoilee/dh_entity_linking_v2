@@ -121,7 +121,7 @@ def generate_test_data(source_file, directory):
     id_to_names = dict()
     for i, row in df.iterrows():
         id = row['wiki_uri'].toPython()
-        altnames = list(set([row['name_label'].value] + [label.value for label in row["wiki_label"]]))
+        altnames = list(set([row['name_label']] + [label for label in row["wiki_label"]]))
         id_to_names[id] = altnames
 
     with open(directory+'id_to_names.pickle', 'wb') as file:
