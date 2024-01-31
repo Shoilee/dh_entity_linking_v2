@@ -1,0 +1,20 @@
+# 10/20/2023_15:36:21
+# Current directory: /gpfs/home4/sbintaalams/deezyMatchJRCnames/deezymatch_jrc
+# ------------------
+# Arguments:
+# input_file_path: /gpfs/home4/sbintaalams/deezyMatchJRCnames/deezymatch_jrc/inputs/input_dfm.yaml
+# dataset_path: /gpfs/home4/sbintaalams/deezyMatchJRCnames/deezymatch_jrc/data/dataset-string-matching-train.txt
+# model_name: jrc001
+# n_train_examples: None
+# ------------------
+10/20/2023_16:57:26 -- Epoch: 1/5; Train; loss: 0.101; acc: 0.964; precision: 0.963, recall: 0.967, macrof1: 0.964, weightedf1: 0.964
+10/20/2023_17:05:28 -- Epoch: 1/5; Valid; loss: 0.072; acc: 0.976; precision: 0.974, recall: 0.979, macrof1: 0.976, weightedf1: 0.976
+10/20/2023_18:26:04 -- Epoch: 2/5; Train; loss: 0.072; acc: 0.976; precision: 0.975, recall: 0.978, macrof1: 0.976, weightedf1: 0.976
+10/20/2023_18:34:00 -- Epoch: 2/5; Valid; loss: 0.073; acc: 0.976; precision: 0.974, recall: 0.979, macrof1: 0.976, weightedf1: 0.976
+10/20/2023_19:54:30 -- Epoch: 3/5; Train; loss: 0.070; acc: 0.977; precision: 0.976, recall: 0.979, macrof1: 0.977, weightedf1: 0.977
+10/20/2023_20:02:26 -- Epoch: 3/5; Valid; loss: 0.071; acc: 0.977; precision: 0.976, recall: 0.979, macrof1: 0.977, weightedf1: 0.977
+10/20/2023_21:23:03 -- Epoch: 4/5; Train; loss: 0.070; acc: 0.977; precision: 0.976, recall: 0.979, macrof1: 0.977, weightedf1: 0.977
+10/20/2023_21:31:03 -- Epoch: 4/5; Valid; loss: 0.071; acc: 0.977; precision: 0.976, recall: 0.979, macrof1: 0.977, weightedf1: 0.977
+10/20/2023_22:52:05 -- Epoch: 5/5; Train; loss: 0.073; acc: 0.976; precision: 0.975, recall: 0.977, macrof1: 0.976, weightedf1: 0.976
+10/20/2023_23:00:03 -- Epoch: 5/5; Valid; loss: 0.079; acc: 0.974; precision: 0.970, recall: 0.978, macrof1: 0.974, weightedf1: 0.974
+11/07/2023_17:01:45 -- Epoch: 0/0; Test; loss: 0.071; acc: 0.977; precision: 0.975, recall: 0.979, macrof1: 0.977, weightedf1: 0.977

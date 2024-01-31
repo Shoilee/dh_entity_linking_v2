@@ -1,0 +1,21 @@
+# 01/30/2024_10:55:27
+# Current directory: /Users/sarah_shoilee/PycharmProjects/deezymatch_jrcnames
+# ------------------
+# Arguments:
+# input_file_path: /Users/sarah_shoilee/PycharmProjects/deezymatch_jrcnames/inputs/input_dfm.yaml
+# dataset_path: /Users/sarah_shoilee/PycharmProjects/deezymatch_jrcnames/data/dataset-string-matching_train.txt
+# model_name: finetuned_001
+# pretrained_model_path: /Users/sarah_shoilee/PycharmProjects/deezymatch_jrcnames/models/jrc001/jrc001.model
+# pretrained_vocab_path: /Users/sarah_shoilee/PycharmProjects/deezymatch_jrcnames/models/jrc001/jrc001.vocab
+# n_train_examples: None
+# ------------------
+01/30/2024_10:58:18 -- Epoch: 1/5; Train; loss: 0.405; acc: 0.917; precision: 0.921, recall: 0.913, macrof1: 0.917, weightedf1: 0.917
+01/30/2024_10:58:53 -- Epoch: 1/5; Valid; loss: 0.136; acc: 0.945; precision: 0.958, recall: 0.934, macrof1: 0.945, weightedf1: 0.945
+01/30/2024_11:01:42 -- Epoch: 2/5; Train; loss: 0.119; acc: 0.951; precision: 0.955, recall: 0.949, macrof1: 0.951, weightedf1: 0.951
+01/30/2024_11:02:18 -- Epoch: 2/5; Valid; loss: 0.123; acc: 0.950; precision: 0.950, recall: 0.952, macrof1: 0.950, weightedf1: 0.950
+01/30/2024_11:05:06 -- Epoch: 3/5; Train; loss: 0.096; acc: 0.961; precision: 0.964, recall: 0.959, macrof1: 0.961, weightedf1: 0.961
+01/30/2024_11:05:45 -- Epoch: 3/5; Valid; loss: 0.112; acc: 0.955; precision: 0.961, recall: 0.950, macrof1: 0.955, weightedf1: 0.955
+01/30/2024_11:08:43 -- Epoch: 4/5; Train; loss: 0.081; acc: 0.969; precision: 0.971, recall: 0.967, macrof1: 0.969, weightedf1: 0.969
+01/30/2024_11:09:17 -- Epoch: 4/5; Valid; loss: 0.111; acc: 0.958; precision: 0.959, recall: 0.958, macrof1: 0.958, weightedf1: 0.958
+01/30/2024_11:12:04 -- Epoch: 5/5; Train; loss: 0.068; acc: 0.974; precision: 0.975, recall: 0.972, macrof1: 0.974, weightedf1: 0.974
+01/30/2024_11:12:38 -- Epoch: 5/5; Valid; loss: 0.112; acc: 0.961; precision: 0.961, recall: 0.962, macrof1: 0.961, weightedf1: 0.961
