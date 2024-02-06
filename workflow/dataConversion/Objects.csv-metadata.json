@@ -141,29 +141,56 @@
         "propertyUrl": "rdfs:label",
         "csvw:value": "Accession Number"
     },
+    {
+        "dc:description": "intermediary Medium uri",
+        "null": ["NULL"],
+        "propertyUrl": "cidoc:P45_consists_of",
+        "valueUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "@id": "https://example.com/id/Objects.csv/virtual/Medium"
+    },
+    {
+        "virtual":true,
+        "aboutUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E57_Material"
+    },
+    {
+        "name": "Medium",
+        "aboutUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "propertyUrl": "rdfs:label",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Objects.csv/column/Medium"
+    },
+    {
+        "name": "Dimensions",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Objects.csv/column/Dimensions"
+    },
+       {
+        "name": "Signed",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Objects.csv/column/Signed"
+       },
+       {
+        "name": "Inscribed",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Objects.csv/column/Inscribed"
+       },
+       {
+        "name": "Markings",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Objects.csv/column/Markings"
+       },
    {
     "name": "SortNumber",
     "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/SortNumber"
-   },
-   {
-    "name": "ObjectCount",
-    "null": ["NULL"],
-    "datatype": "integer",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectCount"
-   },
-   {
-    "name": "DepartmentID",
-    "null": ["NULL"],
-    "datatype": "integer",
-    "@id": "https://example.com/id/Objects.csv/column/DepartmentID"
-   },
-   {
-    "name": "ObjectStatusID",
-    "null": ["NULL"],
-    "datatype": "integer",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectStatusID"
    },
    {
     "name": "ClassificationID",
@@ -188,36 +215,6 @@
     "null": ["NULL"],
     "datatype": "string",
     "@id": "https://example.com/id/Objects.csv/column/Dated"
-   },
-   {
-    "name": "Medium",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Medium"
-   },
-   {
-    "name": "Dimensions",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Dimensions"
-   },
-   {
-    "name": "Signed",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Signed"
-   },
-   {
-    "name": "Inscribed",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Inscribed"
-   },
-   {
-    "name": "Markings",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/Markings"
    },
    {
     "name": "CreditLine",
