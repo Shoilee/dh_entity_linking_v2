@@ -64,7 +64,7 @@
         "@id": "https://example.com/id/Objects.csv/column/ObjectName"
     },
     {
-        "dc:description": ["objects primary title"],
+        "dc:description": ["intermediatry uri objects primary title"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
         "valueUrl":  "https://example.com/Bronbeek/object_primary_name/{_row}",
@@ -102,11 +102,45 @@
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Title"
     },
-   {
-    "name": "ObjectNumber",
-    "datatype": "string",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
-   },
+    {
+        "dc:description": ["intermediatry URI for object number"],
+        "datatype": "string",
+        "propertyUrl": "cidoc:P1_is_identified_by",
+        "valueUrl":  "https://example.com/Bronbeek/object_number/{_row}",
+        "@id": "https://example.com/id/Objects.csv/virtual/ObjectNumber"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E42_Identifier",
+        "@id": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"
+    },
+    {
+        "name": "ObjectNumber",
+        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "propertyUrl": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300312355",
+        "@id": "aat:300312355"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300312355",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300312355",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Accession Number"
+    },
    {
     "name": "SortNumber",
     "null": ["NULL"],
