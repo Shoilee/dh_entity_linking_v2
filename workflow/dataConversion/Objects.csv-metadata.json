@@ -90,11 +90,6 @@
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Title"
     },
-    {
-    "name": "ObjectID",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Objects.csv/column/ObjectID"
-   },
    {
     "name": "ObjectNumber",
     "datatype": "string",
