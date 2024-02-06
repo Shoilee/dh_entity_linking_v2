@@ -79,10 +79,22 @@
     },
     {
         "virtual": true,
-        "null": ["NULL"],
         "aboutUrl" : "https://example.com/Bronbeek/object_primary_name/{_row}",
         "propertyUrl": "cidoc:P2_has_type",
-        "valueUrl": "aat:300404670"
+        "valueUrl": "aat:300404670",
+        "@id": "aat:300404670"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404670",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404670",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Primary Name"
     },
     {
         "name": "Title",
