@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/Constituents/"
+   "@base": "https://example.com/Bronbeek/Constituents/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
