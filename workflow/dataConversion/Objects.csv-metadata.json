@@ -142,12 +142,6 @@
         "csvw:value": "Accession Number"
     },
     {
-        "name": "ObjectNumber",
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
-        "propertyUrl": "cidoc:P190_has_symbolic_content",
-        "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
-    },
-    {
         "dc:description": "intermediary Medium uri",
         "null": ["NULL"],
         "propertyUrl": "cidoc:P45_consists_of",
