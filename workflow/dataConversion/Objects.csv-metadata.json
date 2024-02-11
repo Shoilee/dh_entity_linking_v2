@@ -260,6 +260,12 @@
    },
    {
     "virtual": true,
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production",
+    "propertyUrl": "rdf:type",
+    "valueUrl": "cidoc:E12_Production"
+   },
+   {
+    "virtual": true,
     "dc:description": ["time-span for production event"],
     "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production",
     "propertyUrl": "cidoc:P4_has_time-span",
