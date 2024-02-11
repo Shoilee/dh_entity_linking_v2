@@ -222,25 +222,24 @@
         "propertyUrl": "rdfs:label",
         "csvw:value": "Brief Text"
     },
-
-       {
+    {
         "name": "Signed",
         "null": ["NULL"],
         "datatype": "string",
         "@id": "https://example.com/id/Objects.csv/column/Signed"
-       },
-       {
+    },
+    {
         "name": "Inscribed",
         "null": ["NULL"],
         "datatype": "string",
         "@id": "https://example.com/id/Objects.csv/column/Inscribed"
-       },
-       {
+    },
+    {
         "name": "Markings",
         "null": ["NULL"],
         "datatype": "string",
         "@id": "https://example.com/id/Objects.csv/column/Markings"
-       },
+    },
    {
     "name": "SortNumber",
     "null": ["NULL"],
@@ -254,21 +253,44 @@
     "@id": "https://example.com/id/Objects.csv/column/ClassificationID"
    },
    {
+    "virtual": true,
+    "dc:description": ["production event"],
+    "propertyUrl": "cidoc:P108i_was_produced_by",
+    "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Production"
+   },
+   {
+    "virtual": true,
+    "dc:description": ["time-span for production event"],
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production",
+    "propertyUrl": "cidoc:P4_has_time-span",
+    "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span"
+   },
+   {
+    "virtual": true,
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "propertyUrl": "rdf:type",
+    "valueUrl": "cidoc:E52_Time-Span"
+   },
+   {
     "name": "DateBegin",
-    "null": ["NULL"],
-    "datatype": "string",
+    "null": 0,
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "propertyUrl": "cidoc:P82a_begin_of_the_begin",
     "@id": "https://example.com/id/Objects.csv/column/DateBegin"
    },
    {
     "name": "DateEnd",
-    "null": ["NULL"],
-    "datatype": "string",
+    "null": 0,
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "propertyUrl": "cidoc:P82b_end_of_the_end",
     "@id": "https://example.com/id/Objects.csv/column/DateEnd"
    },
    {
     "name": "Dated",
     "null": ["NULL"],
     "datatype": "string",
+    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "propertyUrl": "rdfs:label",
     "@id": "https://example.com/id/Objects.csv/column/Dated"
    },
    {
