@@ -67,19 +67,19 @@
         "dc:description": ["intermediatry uri objects primary title"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/object_primary_name/{_row}",
+        "valueUrl":  "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
         "@id": "https://example.com/id/Objects.csv/virtual/Title"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/object_primary_name/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation",
         "@id": "http://www.cidoc-crm.org/cidoc-crm/E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/object_primary_name/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404670",
         "@id": "aat:300404670"
@@ -98,7 +98,7 @@
     },
     {
         "name": "Title",
-        "aboutUrl" : "https://example.com/Bronbeek/object_primary_name/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Title"
     },
@@ -106,25 +106,25 @@
         "dc:description": ["intermediatry URI for object number"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/object_number/{_row}",
+        "valueUrl":  "https://example.com/Bronbeek/{ObjectID}/object_number",
         "@id": "https://example.com/id/Objects.csv/virtual/ObjectNumber"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E42_Identifier",
         "@id": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"
     },
     {
         "name": "ObjectNumber",
-        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/object_number/{_row}",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300312355",
         "@id": "aat:300312355"
@@ -142,32 +142,87 @@
         "csvw:value": "Accession Number"
     },
     {
+        "name": "ObjectNumber",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
+        "propertyUrl": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
+    },
+    {
         "dc:description": "intermediary Medium uri",
         "null": ["NULL"],
         "propertyUrl": "cidoc:P45_consists_of",
-        "valueUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
         "@id": "https://example.com/id/Objects.csv/virtual/Medium"
     },
     {
         "virtual":true,
-        "aboutUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E57_Material"
     },
     {
         "name": "Medium",
-        "aboutUrl": "https://example.com/Bronbeek/Medium/{_row}",
+        "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
         "propertyUrl": "rdfs:label",
         "null": ["NULL"],
         "datatype": "string",
         "@id": "https://example.com/id/Objects.csv/column/Medium"
     },
     {
+        "dc:description": "intermediary dimention statement",
+        "propertyUrl": "cidoc:P67i_is_referred_to_by",
+        "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "@id": "https://example.com/id/Objects.csv/virtual/Dimensions"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_Linguistic_Object"
+    },
+    {
         "name": "Dimensions",
-        "null": ["NULL"],
-        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "propertyUrl": "crm:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Dimensions"
     },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "http://vocab.getty.edu/page/aat/300435430"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435430",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435430",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "dimensions description"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435430",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "http://vocab.getty.edu/aat/300418049"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300418049",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300418049",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Brief Text"
+    },
+
        {
         "name": "Signed",
         "null": ["NULL"],
