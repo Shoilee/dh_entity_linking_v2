@@ -51,163 +51,443 @@
   "aboutUrl": "{ConstituentID}",
   "primaryKey": "ConstituentID",
   "columns": [
-   {
-    "name": "ConstituentTypeID",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/ConstituentTypeID"
-   },
-   {
-    "name": "Active",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/Active"
-   },
-   {
-    "name": "AlphaSort",
-    "null": ["NULL"],
-    "datatype": "string",
-    "propertyURL": "rdfs:label",
-    "@id": "https://example.com/id/Constituents.csv/column/AlphaSort"
-   },
-   {
-    "name": "LastName",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/LastName"
-   },
-   {
-    "name": "FirstName",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/FirstName"
-   },
-   {
-    "name": "NameTitle",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/NameTitle"
-   },
-   {
-    "name": "Institution",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Institution"
-   },
-   {
-    "name": "DisplayName",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/DisplayName"
-   },
-   {
-    "name": "BeginDate",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/BeginDate"
-   },
-   {
-    "name": "EndDate",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/EndDate"
-   },
-   {
-    "name": "DisplayDate",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/DisplayDate"
-   },
-   {
-    "name": "Biography",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Biography"
-   },
-   {
-    "name": "Code",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Code"
-   },
-   {
-    "name": "Nationality",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Nationality"
-   },
-   {
-    "name": "School",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/School"
-   },
-   {
-    "name": "Remarks",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Remarks"
-   },
-   {
-    "name": "Position",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Position"
-   },
-   {
-    "name": "MiddleName",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/MiddleName"
-   },
-   {
-    "name": "Suffix",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/Suffix"
-   },
-   {
-    "name": "CultureGroup",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/CultureGroup"
-   },
-   {
-    "name": "salutation",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/salutation"
-   },
-   {
-    "name": "DefaultNameID",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/DefaultNameID"
-   },
-   {
-    "name": "SystemFlag",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/SystemFlag"
-   },
-   {
-    "name": "InternalStatus",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/InternalStatus"
-   },
-   {
-    "name": "DefaultDisplayBioID",
-    "datatype": "integer",
-    "@id": "https://example.com/id/Constituents.csv/column/DefaultDisplayBioID"
-   },
-   {
-    "name": "BeginDateISO",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/BeginDateISO"
-   },
-   {
-    "name": "EndDateISO",
-    "null": ["NULL"],
-    "datatype": "string",
-    "@id": "https://example.com/id/Constituents.csv/column/EndDateISO"
-   }
+    {   
+        "virtual": true,
+        "dc:description": ["captures the class of the actor"],
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E21_Person"
+    },
+    {
+        "name": "ConstituentTypeID",
+        "datatype": "integer",
+        "@id": "https://example.com/id/Constituents.csv/column/ConstituentTypeID"
+    },
+    {
+        "name": "DisplayName",
+        "datatype": "string",
+        "propertyURL": "rdfs:label",
+        "@id": "https://example.com/id/Constituents.csv/column/DisplayName"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["intermediatry uri of primary name"],
+        "datatype": "string",
+        "propertyUrl": "cidoc:P1_is_identified_by",
+        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/primary_name"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300404670"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404670",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404670",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Primary Name"
+    },
+    {
+        "name": "AlphaSort",
+        "null": "NULL",
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyURL": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Constituents.csv/column/AlphaSort"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["intermediatry uri of first name"],
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyUrl": "cidoc:P106_is_composed_of",
+        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/first_name"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300404651"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404651",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404651",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Given Name"
+    },
+    {
+        "name": "FirstName",
+        "null": "NULL",
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "propertyURL": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Constituents.csv/column/FirstName"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["intermediatry uri of last name"],
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyUrl": "cidoc:P106_is_composed_of",
+        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/last_name"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300404652"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404652",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404652",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Family Name"
+    },
+    {
+        "name": "LastName",
+        "null": "NULL",
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "propertyURL": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Constituents.csv/column/LastName"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["intermediatry uri of middle name"],
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "propertyUrl": "cidoc:P106_is_composed_of",
+        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/middle_name"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300404654"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404654",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404654",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Middle Name"
+    },
+    {
+        "name": "MiddleName",
+        "null": "NULL",
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "propertyURL": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Constituents.csv/column/MiddleName"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["intermediatry URI for constituent id"],
+        "datatype": "integer",
+        "propertyUrl": "cidoc:P1_is_identified_by",
+        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/constituent_id"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E42_Identifier"
+    },
+    {
+        "name": "ConstituentID",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "propertyUrl": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Objects.csv/column/ConstituentID"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "aat:300404621",
+        "@id": "aat:300404621"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404621",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "aat:300404621",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Owner-Assigned Number"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["birth event"],
+        "propertyUrl": "cidoc:P98i_was_born",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event"
+    },
+    {
+        "virtual": true,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E67_Birth"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["time-span for birth event"],
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event",
+        "propertyUrl": "cidoc:P4_has_time-span",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span"
+    },
+    {
+        "virtual": true,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E52_Time-Span"
+    },
+    {
+        "name": "BeginDateISO",
+        "null": 0,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "propertyUrl": "cidoc:P82a_begin_of_the_begin",
+        "@id": "https://example.com/id/Constituents.csv/column/BeginDateISO"
+    },
+    {
+        "name": "BeginDateISO",
+        "null": 0,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "propertyUrl": "cidoc:P82b_end_of_the_end",
+        "@id": "https://example.com/id/Objects.csv/column/BeginDateISO"
+    },
+    {
+        "name": "BeginDate",
+        "null": ["NULL"],
+        "datatype": "string",
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "propertyUrl": "rdfs:label",
+        "@id": "https://example.com/id/Objects.csv/column/BeginDate"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["death event"],
+        "propertyUrl": "cidoc:P100i_died_in",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event"
+    },
+    {
+        "virtual": true,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E69_Death"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["time-span for death event"],
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event",
+        "propertyUrl": "cidoc:P4_has_time-span",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span"
+    },
+    {
+        "virtual": true,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E52_Time-Span"
+    },
+    {
+        "name": "EndDateISO",
+        "null": 0,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "propertyUrl": "cidoc:P82a_begin_of_the_begin",
+        "@id": "https://example.com/id/Constituents.csv/column/EndDateISO"
+    },
+    {
+        "name": "EndDateISO",
+        "null": 0,
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "propertyUrl": "cidoc:P82b_end_of_the_end",
+        "@id": "https://example.com/id/Objects.csv/column/EndDateISO"
+    },
+    {
+        "name": "EndDate",
+        "null": ["NULL"],
+        "datatype": "string",
+        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "propertyUrl": "rdfs:label",
+        "@id": "https://example.com/id/Objects.csv/column/EndDate"
+    },
+    {
+        "dc:description": "biography",
+        "propertyUrl": "cidoc:P67i_is_referred_to_by",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/biography"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E33_Linguistic_Object"
+    },
+    {
+        "name": "Biography",
+        "null": "NULL",
+        "datatype":"string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "propertyUrl": "cidoc:P190_has_symbolic_content",
+        "@id": "https://example.com/id/Constituents.csv/column/Biography"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "http://vocab.getty.edu/page/aat/300435422"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435422",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435422",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Biography Statement"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/page/aat/300435422",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "http://vocab.getty.edu/aat/300418049"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300418049",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300418049",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Brief Text"
+    },
+    {
+        "name": "Code",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/Code"
+    },
+    {
+        "virtual": true,
+        "dc:description": ["nationality"],
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/nationality"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "name": "Nationality",
+        "null": ["NULL"],
+        "datatype": "string",
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "propertyUrl": "rdfs:label",
+        "@id": "https://example.com/id/Constituents.csv/column/Nationality"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "propertyUrl": "cidoc:P2_has_type",
+        "valueUrl": "http://vocab.getty.edu/aat/300379842"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300379842",
+        "propertyUrl": "rdf:type",
+        "valueUrl": "cidoc:E55_Type"
+    },
+    {
+        "virtual": true,
+        "aboutUrl" : "http://vocab.getty.edu/aat/300379842",
+        "propertyUrl": "rdfs:label",
+        "csvw:value": "Nationality"
+    },
+    {
+        "name": "CultureGroup",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/CultureGroup"
+    },
+    {
+        "name": "School",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/School"
+    },
+    {
+        "name": "Remarks",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/Remarks"
+    },
+    {
+        "name": "Position",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/Position"
+    },
+    {
+        "name": "Suffix",
+        "null": ["NULL"],
+        "datatype": "string",
+        "@id": "https://example.com/id/Constituents.csv/column/Suffix"
+    }
   ]
  },
  "url": "Constituents.csv",
