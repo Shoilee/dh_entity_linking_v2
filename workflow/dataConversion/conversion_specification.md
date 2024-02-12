@@ -71,7 +71,7 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
 
 ### Actor/Constiteunts
 [Actor Schema](https://linked.art/model/actor/)
-
+- TODO: actor should have rdfs:label
 - I am assuming all constituent f type: "crm:E21_Person"
 - Ignored attribute:
   - Active
