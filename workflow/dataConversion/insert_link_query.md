@@ -1,4 +1,4 @@
-##### Query to insert skos:related links among object and conxref
+### 1. Query to insert skos:related links among object and conxref
 
 - in practice, instead of "CONSTRUCT" I used "SELECT" and then used the [script](insert_links_conxrefs_to_objects.ipynb) to generate graph.
 
@@ -21,7 +21,7 @@ WHERE{
 }
 ```
 
-#### query to find out which objects are connected through same person in both dataset
+### 2. query to find out which objects are connected through same person in both dataset
 
 ```SPARQL
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
