@@ -24,3 +24,4 @@ workflow/objects_from_15_const.ttl
 workflow/dataConversion/bronbeek_data/Roles.csv.nq
 workflow/dataConversion/bronbeek_data/sorted_Roles.csv.nq
 workflow/dataDirectory/*s
+workflow/dataConversion/conxref_object_link.csv
