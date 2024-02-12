@@ -1,10 +1,13 @@
-###### Quuery to insert owl:sameAS links
+###### Quuery to insert skos:related links among object and conxref
+
+- in practice, instead of "CONSTRUCT" I used "SELECT" and then used the [script](insert_links_conxrefs_to_objects.ipynb) to generate graph.
+-  
 ```SPARQL
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 CONSTRUCT {?s skos:related ?object}
 WHERE{
-  Graph <https://example.com/ConXrefs/ConXrefs/assertion/d8c707c2/2024-01-07T17:23>{
+  Graph <https://example.com/ConXrefDetails/ConXrefDetails/assertion/c413cbfc/2024-02-12T06:55>{
     ?s <https://example.com/ConXrefs/vocab/ID> ?ID .
     ?s <https://example.com/ConXrefs/vocab/TableID> ?TableID .
     ?s <https://example.com/ConXrefs/vocab/TableID> ?TableID .
@@ -12,8 +15,10 @@ WHERE{
     UNION {?s <https://example.com/ConXrefs/vocab/RoleTypeID> <https://example.com/RoleTypes/2>} 
     UNION {?s <https://example.com/ConXrefs/vocab/RoleTypeID> <https://example.com/RoleTypes/5>} .
   }
-  Graph <https://example.com/Objects/Objects/assertion/bad21d24/2024-01-07T20:54>{
-    ?object <https://example.com/Objects/vocab/ObjectID> ?ID .
+  Graph <https://example.com/Bronbeek/Objects/Objects/assertion/bad21d24/2024-02-12T14:20>{
+    ?object <https://example.com/Bronbeek/Objects/vocab/ObjectID> ?ID .
   }
 }
 ```
+
+https://example.com/Bronbeek/Objects/10000
