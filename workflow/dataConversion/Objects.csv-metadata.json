@@ -57,6 +57,11 @@
         "@id": "http://www.cidoc-crm.org/cidoc-crm/E22_Human-Made_Object"
     },
     {
+        "name": "ObjectID",
+        "datatype": "integer",
+        "@id": "https://example.com/id/Objects.csv/column/ObjectID"
+    },
+    {
         "name": "ObjectName",
         "null": ["NULL"],
         "propertyUrl": "rdfs:label",
