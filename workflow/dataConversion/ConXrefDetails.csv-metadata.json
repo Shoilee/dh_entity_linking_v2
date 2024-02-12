@@ -70,7 +70,7 @@
    {
     "name": "ConstituentID",
     "datatype": "integer",
-    "valueUrl": "https://example.com/Constituents/{ConstituentID}",
+    "valueUrl": "https://example.com/Bronbeek/Constituents/{ConstituentID}",
     "@id": "https://example.com/id/ConXrefDetails.csv/column/ConstituentID"
    },
    {
