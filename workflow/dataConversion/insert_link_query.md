@@ -1,7 +1,7 @@
-###### Quuery to insert skos:related links among object and conxref
+##### Query to insert skos:related links among object and conxref
 
 - in practice, instead of "CONSTRUCT" I used "SELECT" and then used the [script](insert_links_conxrefs_to_objects.ipynb) to generate graph.
--  
+
 ```SPARQL
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -21,4 +21,24 @@ WHERE{
 }
 ```
 
-https://example.com/Bronbeek/Objects/10000
+#### query to find out which objects are connected through same person in both dataset
+
+```SPARQL
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?name ?constituentID ?conxrefdetailID ?conxrefID ?object_bronbeek ?nmvw_constituent ?event ?nmvw_object
+WHERE{
+    ?constituentID <https://example.com/Bronbeek/Constituents/vocab/DisplayName> ?name .
+    ?conxrefdetailID <https://example.com/ConXrefDetails/vocab/ConstituentID> ?constituentID .
+    ?conxrefde25tailID <https://example.com/ConXrefDetails/vocab/ConXrefID> ?conxrefID .
+  	?conxrefID skos:related ?object_bronbeek .
+  	?nmvw_constituent owl:sameAs ?constituentID .
+  	?event ?p ?nmvw_constituent .
+  	?nmvw_object ?p1 ?event .
+  	?nmvw_object a crm:E22_Human-Made_Object .
+} LIMIT 100
+
+```
