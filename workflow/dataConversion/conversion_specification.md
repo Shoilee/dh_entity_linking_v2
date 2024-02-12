@@ -97,7 +97,7 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
 
 # Concerns:
 - can I use type crm:E22_Human-Made_Object for all objects? 
-- if some input is NULL, I still end up adding a intermidiatry node or blank node for it.
+- if some input is NULL, I still end up adding a intermidiatry node or blank node for it. How do I get rid of it?
 - Do I consider "medium" as material or shall I consider this field as linguistic description as example given in Linkedart. 
     ```
         @prefix crm: <http://www.cidoc-crm.org/cidoc-crm/> .
@@ -121,3 +121,4 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
             crm:P2_has_type <http://vocab.getty.edu/aat/300418049> .
     ```
 - According to Linkedart, I should use la:equivalent to link person, not owl:sameAs
+- 
