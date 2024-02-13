@@ -169,6 +169,7 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
             crm:P2_has_type <http://vocab.getty.edu/aat/300418049> .
     ```
 - According to Linkedart, I should use la:equivalent to link person, not owl:sameAs
+- I added crm:P51_has_former_or_current_owner based on RoleTypeID=5, where the text is "oorspronkelijk bezit van" or "original property of"
 
 ### Provenance activity
 1. get all the constitients and objects where the roletypeID=2
@@ -207,4 +208,10 @@ www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
     rdfs:label "Provenance Activity" .
 ```
 
+### Former owner
 
+- RoleType ID = 5(vroegere eigenaar or former owner) lists all the previous owner of an object 
+
+```
+   <object> crm:P51_has_former_or_current_owner <constituent>
+```
