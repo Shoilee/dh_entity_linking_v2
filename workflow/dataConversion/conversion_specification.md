@@ -1,3 +1,51 @@
+# Steps: 
+1. Run cow build on the file and generate metadata.json file for conversion
+2. modify the metadata.json file with your specification 
+3. Look into the linkedart specification and modify "objects" and "constituent" metadata
+4. run query to find objectID and related conxrefID
+```SPARQL
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CONSTRUCT {?s skos:related ?object}
+WHERE{
+  Graph <https://example.com/ConXrefDetails/ConXrefDetails/assertion/c413cbfc/2024-02-12T06:55>{
+    ?s <https://example.com/ConXrefs/vocab/ID> ?ID .
+    ?s <https://example.com/ConXrefs/vocab/TableID> ?TableID .
+    ?s <https://example.com/ConXrefs/vocab/TableID> ?TableID .
+    {?s <https://example.com/ConXrefs/vocab/RoleTypeID> <https://example.com/RoleTypes/1>}
+    UNION {?s <https://example.com/ConXrefs/vocab/RoleTypeID> <https://example.com/RoleTypes/2>} 
+    UNION {?s <https://example.com/ConXrefs/vocab/RoleTypeID> <https://example.com/RoleTypes/5>} .
+  }
+  Graph <https://example.com/Bronbeek/Objects/Objects/assertion/bad21d24/2024-02-12T14:20>{
+    ?object <https://example.com/Bronbeek/Objects/vocab/ObjectID> ?ID .
+  }
+}
+```
+5. run (script)[dataConversion/insert_links_conxrefs_to_objects.ipynb] to generate triples
+   ```
+   conxrefID skos:related objectID
+   ```
+6. run query to find constituent related to object provenance
+    ```
+    SPARQL
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+    PREFIX owl: <http://www.w3.org/2002/07/owl#>
+    PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+    SELECT ?name ?constituentID ?conxrefdetailID ?conxrefID ?object_bronbeek
+    WHERE{
+        ?constituentID <https://example.com/Bronbeek/Constituents/vocab/DisplayName> ?name .
+        ?conxrefdetailID <https://example.com/ConXrefDetails/vocab/ConstituentID> ?constituentID .
+        ?conxrefdetailID <https://example.com/ConXrefDetails/vocab/ConXrefID> ?conxrefID .
+        ?conxrefID skos:related ?object_bronbeek .
+        ?object_bronbeek a crm:E22_Human-Made_Object .
+    }LIMIT 100
+    ```
+7. 
+
+
+
 # Remarks:
 cow-csvw basic propeties:
 
@@ -121,4 +169,42 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
             crm:P2_has_type <http://vocab.getty.edu/aat/300418049> .
     ```
 - According to Linkedart, I should use la:equivalent to link person, not owl:sameAs
-- 
+
+### Provenance activity
+1. get all the constitients and objects where the roletypeID=2
+
+run SPAQRL query
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?event ?constituent ?object
+WHERE{
+    ?conxrefdetailID <https://example.com/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  	?conxrefdetailID <https://example.com/ConXrefDetails/vocab/Prefix> ?event .
+  	?conxrefdetailID <https://example.com/ConXrefDetails/vocab/RoleTypeID> ?RoleTypeID .
+    ?conxrefdetailID <https://example.com/ConXrefDetails/vocab/ConXrefID> ?conxrefID .
+  	?conxrefID skos:related ?object .
+    FILTER (?RoleTypeID = <https://example.com/RoleTypes/2>).
+}
+```
+2.  For each row [add](insert_links_conxrefs_to_objects.ipynb) an provenance activity that consists of an acqusistion 
+
+```
+<www.example.com/Bronbeek/Provenance/1> a crm:E7_Activity ;
+    crm:P14_carried_out_by <https://example.com/Bronbeek/Constituents/2658> ;
+    crm:P2_has_type <http://vocab.getty.edu/aat/300055863> ;
+    crm:P9_consists_of <www.example.com/Bronbeek/Acquisition/1> .
+
+www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
+    rdfs:label " " ;
+    crm:P23_transferred_titled_from <https://example.com/Bronbeek/Constituents/2658> ;
+    crm:P24_transferred_titled_of <https://example.com/Bronbeek/Objects/30966> .
+
+<http://vocab.getty.edu/aat/300055863> a crm:E55_Type ;
+    rdfs:label "Provenance Activity" .
+```
+
+
