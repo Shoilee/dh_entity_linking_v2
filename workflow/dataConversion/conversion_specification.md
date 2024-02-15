@@ -215,3 +215,11 @@ www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
 ```
    <object> crm:P51_has_former_or_current_owner <constituent>
 ```
+
+### Person related to object
+- RoleType ID = 1 lists person related to object, for example, person photographed or depicted, data subject, from drawing by
+- I am also deleting previously created triples as `conxref_to_object.ttl` as I added all the RoleTypeID=1 2 and 5 seperately.
+```
+  <object> skos:related <constituent>
+```
+
