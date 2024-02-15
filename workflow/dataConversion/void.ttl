@@ -1,0 +1,35 @@
+@prefix     void: <http://rdfs.org/ns/void#> .
+@prefix     vann: <http://purl.org/vocab/vann/> .
+@prefix      lib: <http://www.swi-prolog.org/rdf/library/> .
+@prefix      owl: <http://www.w3.org/2002/07/owl#> .
+@prefix	 dcterms: <http://purl.org/dc/terms/> .
+
+<bronbeek>
+        a void:Dataset ;
+        dcterms:title "Bronbeek Museum Data" ;
+        lib:source <http://example.com/Bronbeek/> ; 
+        void:dataDump 
+            <../Bronbeek_Data/LOD/Objects.csv.nq.gz>  ,
+                <../Bronbeek_Data/LOD/Constituents.csv.nq.gz>  ,
+                <../Bronbeek_Data/LOD/RoleTypes.csv.nq.gz>  ,
+                <../Bronbeek_Data/LOD/Roles.csv.nq.gz>  ,
+                <../Bronbeek_Data/LOD/ConXrefDetails.csv.nq.gz>  ,
+                <../Bronbeek_Data/LOD/ConXrefs.csv.nq.gz>  .
+
+<bronbeek-enriched>
+        a void:Dataset ;
+        dcterms:title "Bronbeek Museum Data Enriched by Sarah" ;
+        lib:source <http://example.com/Bronbeek/> ; 
+        void:dataDump 
+            <../Bronbeek_Data/LOD/former_owner.ttl.gz> ,
+                <../Bronbeek_Data/LOD/provenance_activity.ttl.gz> ,
+                <../Bronbeek_Data/LOD/person_related.ttl.gz> .
+
+<nmvw>
+        a void:Dataset ;
+        dcterms:title "NMVW data related 15 known correspondance" ;
+        lib:source <http://example.com/NMVW/> ; 
+        void:dataDump 
+            <../test_workflow/ccrdfobjacquisition_15_names.ttl> ,
+                <../test_workflow/constituents_15.ttl> ,
+                <../test_workflow/constituents_links.ttl> .
