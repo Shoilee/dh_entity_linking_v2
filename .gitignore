@@ -25,4 +25,3 @@ workflow/dataDirectory/*s
 workflow/dataConversion/conxref_object_link.csv
 workflow/dataConversion/conxreftoobject_graph.ttl
 workflow/dataConversion/provenance_activity.csv
-workflow/dataConversion/*.csv
