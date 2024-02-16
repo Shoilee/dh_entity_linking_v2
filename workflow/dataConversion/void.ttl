@@ -4,13 +4,21 @@
 @prefix      owl: <http://www.w3.org/2002/07/owl#> .
 @prefix	 dcterms: <http://purl.org/dc/terms/> .
 
+[ vann:preferredNamespacePrefix "ex" ;
+  vann:preferredNamespaceUri "https://example.com/"
+] .
+
+[ vann:preferredNamespacePrefix "pm" ;
+  vann:preferredNamespaceUri "https://pressingmatter.nl/"
+] .
+
 <bronbeek>
         a void:Dataset ;
         dcterms:title "Bronbeek Museum Data" ;
-        lib:source <https://example.com/Bronbeek/> ; 
+        lib:source <https://pressingmatter.nl/Bronbeek/> ; 
         void:dataDump 
             <../Bronbeek_Data/LD/Objects.csv.nq.gz>  ,
-                <../Bronbeek_Data/Constituents.csv.nq.gz>  ,
+                <../Bronbeek_Data/LD/Constituents.csv.nq.gz>  ,
                 <../Bronbeek_Data/LD/RoleTypes.csv.nq.gz>  ,
                 <../Bronbeek_Data/LD/Roles.csv.nq.gz>  ,
                 <../Bronbeek_Data/LD/ConXrefDetails.csv.nq.gz>  ,
@@ -19,7 +27,7 @@
 <bronbeek-enriched>
         a void:Dataset ;
         dcterms:title "Bronbeek Museum Data Enriched by Sarah" ;
-        lib:source <https://example.com/Bronbeek/> ; 
+        lib:source <https://pressingmatter.nl/Bronbeek-enriched/> ; 
         void:dataDump 
             <../Bronbeek_Data/LD/former_owner.ttl.gz> ,
                 <../Bronbeek_Data/LD/provenance_activity.ttl.gz> ,
@@ -28,7 +36,7 @@
 <nmvw-15>
         a void:Dataset ;
         dcterms:title "NMVW data related 15 known correspondance" ;
-        lib:source <https://example.com/NMVW/> ; 
+        lib:source <https://pressingmatter.nl/NMVW/> ; 
         void:dataDump 
             <../test_workflow/ccrdfobjacquisition_15_names.ttl> ,
                 <../test_workflow/constituents_15.ttl> ,
