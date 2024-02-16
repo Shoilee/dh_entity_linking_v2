@@ -7,7 +7,7 @@
 <bronbeek>
         a void:Dataset ;
         dcterms:title "Bronbeek Museum Data" ;
-        lib:source <http://example.com/Bronbeek/> ; 
+        lib:source <https://example.com/Bronbeek/> ; 
         void:dataDump 
             <../Bronbeek_Data/LOD/Objects.csv.nq.gz>  ,
                 <../Bronbeek_Data/LOD/Constituents.csv.nq.gz>  ,
@@ -19,7 +19,7 @@
 <bronbeek-enriched>
         a void:Dataset ;
         dcterms:title "Bronbeek Museum Data Enriched by Sarah" ;
-        lib:source <http://example.com/Bronbeek/> ; 
+        lib:source <https://example.com/Bronbeek/> ; 
         void:dataDump 
             <../Bronbeek_Data/LOD/former_owner.ttl.gz> ,
                 <../Bronbeek_Data/LOD/provenance_activity.ttl.gz> ,
@@ -28,7 +28,7 @@
 <nmvw>
         a void:Dataset ;
         dcterms:title "NMVW data related 15 known correspondance" ;
-        lib:source <http://example.com/NMVW/> ; 
+        lib:source <https://example.com/NMVW/> ; 
         void:dataDump 
             <../test_workflow/ccrdfobjacquisition_15_names.ttl> ,
                 <../test_workflow/constituents_15.ttl> ,
