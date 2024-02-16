@@ -9,23 +9,23 @@
         dcterms:title "Bronbeek Museum Data" ;
         lib:source <https://example.com/Bronbeek/> ; 
         void:dataDump 
-            <../Bronbeek_Data/LOD/Objects.csv.nq.gz>  ,
-                <../Bronbeek_Data/LOD/Constituents.csv.nq.gz>  ,
-                <../Bronbeek_Data/LOD/RoleTypes.csv.nq.gz>  ,
-                <../Bronbeek_Data/LOD/Roles.csv.nq.gz>  ,
-                <../Bronbeek_Data/LOD/ConXrefDetails.csv.nq.gz>  ,
-                <../Bronbeek_Data/LOD/ConXrefs.csv.nq.gz>  .
+            <../Bronbeek_Data/LD/Objects.csv.nq.gz>  ,
+                <../Bronbeek_Data/Constituents.csv.nq.gz>  ,
+                <../Bronbeek_Data/LD/RoleTypes.csv.nq.gz>  ,
+                <../Bronbeek_Data/LD/Roles.csv.nq.gz>  ,
+                <../Bronbeek_Data/LD/ConXrefDetails.csv.nq.gz>  ,
+                <../Bronbeek_Data/LD/ConXrefs.csv.nq.gz>  .
 
 <bronbeek-enriched>
         a void:Dataset ;
         dcterms:title "Bronbeek Museum Data Enriched by Sarah" ;
         lib:source <https://example.com/Bronbeek/> ; 
         void:dataDump 
-            <../Bronbeek_Data/LOD/former_owner.ttl.gz> ,
-                <../Bronbeek_Data/LOD/provenance_activity.ttl.gz> ,
-                <../Bronbeek_Data/LOD/person_related.ttl.gz> .
+            <../Bronbeek_Data/LD/former_owner.ttl.gz> ,
+                <../Bronbeek_Data/LD/provenance_activity.ttl.gz> ,
+                <../Bronbeek_Data/LD/person_related.ttl.gz> .
 
-<nmvw>
+<nmvw-15>
         a void:Dataset ;
         dcterms:title "NMVW data related 15 known correspondance" ;
         lib:source <https://example.com/NMVW/> ; 
