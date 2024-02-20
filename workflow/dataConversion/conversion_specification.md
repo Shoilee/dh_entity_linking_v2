@@ -1,3 +1,9 @@
+# Requirements
+- cow_tool
+- cliopatria
+
+https://app.diagrams.net/#G16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4#%7B%22pageId%22%3A%22prtHgNgQTEPvFCAcTncT%22%7D
+
 # Steps: 
 1. Run cow build on the file and generate metadata.json file for conversion
     ```
@@ -20,19 +26,27 @@
 
 3. Look into the linkedart specification and modify "objects" and "constituent" metadata
    all the metatdata is in [here](conversion_metadata/).
-4. Once the metadata has the specific details as you want, run the following commands
+4. Once the metadata has the specific details as you want, run the following command (can take a bit of time.)
    ```
    cow_tool convert <file-path-csv>
    ```
 5. run query to find objectID and related conxrefID
 6. run [script](dataConversion/insert_links_conxrefs_to_objects.ipynb) to generate enriched triples with constituents and objects connections
 7. run in prolog interface rdf_library:rdf_attach_library(<path-to-void.ttl-directory>).
+8. run in prolog interface rdf_library:rdf_load_library('bronbeek').  
 
 
  > NOW YOU HAVE ALL THE LINKED DATA UPLOADED TO CLIOPATRIA INTERFACE!!!
 
 
 ## Modelling Decisions:
+
+### BASE URIs
+- I keeping all the cow generated metatdata of the current data with base uri: "https://example.com"; this should not be in assersion triple.
+  - For example: attribute @id: is used to map how columns value from originial data is used. 
+- Now my base uri is: `https://pressingmatter.nl/Bronbeek/<base-of-file-name>`
+- Hypothesis: I should not be able to see any "example.com" in the assesrtion graph
+
 ### Objects
 
 [Linkedart basic pattern](https://linked.art/model/base/)
