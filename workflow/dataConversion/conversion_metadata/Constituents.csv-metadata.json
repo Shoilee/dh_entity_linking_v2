@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/Bronbeek/Constituents/"
+   "@base": "https://pressingmatter.nl/Bronbeek/Constituents/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -73,17 +73,17 @@
         "dc:description": ["intermediatry uri of primary name"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/primary_name"
+        "valueUrl":  "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404670"
     },
@@ -103,7 +103,7 @@
         "name": "AlphaSort",
         "null": "NULL",
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyURL": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Constituents.csv/column/AlphaSort"
     },
@@ -111,19 +111,19 @@
         "virtual": true,
         "dc:description": ["intermediatry uri of first name"],
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyUrl": "cidoc:P106_is_composed_of",
-        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/first_name"
+        "valueUrl":  "https://pressingmatter.nl/Bronbeek/{ConstituentID}/first_name"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/first_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/first_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404651"
     },
@@ -143,7 +143,7 @@
         "name": "FirstName",
         "null": "NULL",
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/first_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/first_name",
         "propertyURL": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Constituents.csv/column/FirstName"
     },
@@ -151,19 +151,19 @@
         "virtual": true,
         "dc:description": ["intermediatry uri of last name"],
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyUrl": "cidoc:P106_is_composed_of",
-        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/last_name"
+        "valueUrl":  "https://pressingmatter.nl/Bronbeek/{ConstituentID}/last_name"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/last_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/last_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404652"
     },
@@ -183,7 +183,7 @@
         "name": "LastName",
         "null": "NULL",
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/last_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/last_name",
         "propertyURL": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Constituents.csv/column/LastName"
     },
@@ -191,19 +191,19 @@
         "virtual": true,
         "dc:description": ["intermediatry uri of middle name"],
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/primary_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/primary_name",
         "propertyUrl": "cidoc:P106_is_composed_of",
-        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/middle_name"
+        "valueUrl":  "https://pressingmatter.nl/Bronbeek/{ConstituentID}/middle_name"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/middle_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/middle_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404654"
     },
@@ -223,7 +223,7 @@
         "name": "MiddleName",
         "null": "NULL",
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/middle_name",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/middle_name",
         "propertyURL": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Constituents.csv/column/MiddleName"
     },
@@ -232,23 +232,23 @@
         "dc:description": ["intermediatry URI for constituent id"],
         "datatype": "integer",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/{ConstituentID}/constituent_id"
+        "valueUrl":  "https://pressingmatter.nl/Bronbeek/{ConstituentID}/constituent_id"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/constituent_id",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E42_Identifier"
     },
     {
         "name": "ConstituentID",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/constituent_id",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/ConstituentID"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/constituent_id",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/constituent_id",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404621",
         "@id": "aat:300404621"
@@ -269,38 +269,38 @@
         "virtual": true,
         "dc:description": ["birth event"],
         "propertyUrl": "cidoc:P98i_was_born",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event"
     },
     {
         "virtual": true,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E67_Birth"
     },
     {
         "virtual": true,
         "dc:description": ["time-span for birth event"],
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event",
         "propertyUrl": "cidoc:P4_has_time-span",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event/time-span"
     },
     {
         "virtual": true,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event/time-span",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E52_Time-Span"
     },
     {
         "name": "BeginDateISO",
         "null": 0,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event/time-span",
         "propertyUrl": "cidoc:P82a_begin_of_the_begin",
         "@id": "https://example.com/id/Constituents.csv/column/BeginDateISO"
     },
     {
         "name": "BeginDateISO",
         "null": 0,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event/time-span",
         "propertyUrl": "cidoc:P82b_end_of_the_end",
         "@id": "https://example.com/id/Objects.csv/column/BeginDateISO"
     },
@@ -308,7 +308,7 @@
         "name": "BeginDate",
         "null": ["NULL"],
         "datatype": "string",
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/birth_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/birth_event/time-span",
         "propertyUrl": "rdfs:label",
         "@id": "https://example.com/id/Objects.csv/column/BeginDate"
     },
@@ -316,38 +316,38 @@
         "virtual": true,
         "dc:description": ["death event"],
         "propertyUrl": "cidoc:P100i_died_in",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event"
     },
     {
         "virtual": true,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E69_Death"
     },
     {
         "virtual": true,
         "dc:description": ["time-span for death event"],
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event",
         "propertyUrl": "cidoc:P4_has_time-span",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event/time-span"
     },
     {
         "virtual": true,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event/time-span",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E52_Time-Span"
     },
     {
         "name": "EndDateISO",
         "null": 0,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event/time-span",
         "propertyUrl": "cidoc:P82a_begin_of_the_begin",
         "@id": "https://example.com/id/Constituents.csv/column/EndDateISO"
     },
     {
         "name": "EndDateISO",
         "null": 0,
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event/time-span",
         "propertyUrl": "cidoc:P82b_end_of_the_end",
         "@id": "https://example.com/id/Objects.csv/column/EndDateISO"
     },
@@ -355,18 +355,18 @@
         "name": "EndDate",
         "null": ["NULL"],
         "datatype": "string",
-        "aboutUrl": "https://example.com/Bronbeek/{ConstituentID}/death_event/time-span",
+        "aboutUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/death_event/time-span",
         "propertyUrl": "rdfs:label",
         "@id": "https://example.com/id/Objects.csv/column/EndDate"
     },
     {
         "dc:description": "biography",
         "propertyUrl": "cidoc:P67i_is_referred_to_by",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/biography"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/biography"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/biography",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_Linguistic_Object"
     },
@@ -374,13 +374,13 @@
         "name": "Biography",
         "null": "NULL",
         "datatype":"string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/biography",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Constituents.csv/column/Biography"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/biography",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/biography",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "http://vocab.getty.edu/page/aat/300435422"
     },
@@ -424,11 +424,11 @@
         "virtual": true,
         "dc:description": ["nationality"],
         "propertyUrl": "cidoc:P2_has_type",
-        "valueUrl": "https://example.com/Bronbeek/{ConstituentID}/nationality"
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/{ConstituentID}/nationality"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/nationality",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E55_Type"
     },
@@ -436,13 +436,13 @@
         "name": "Nationality",
         "null": ["NULL"],
         "datatype": "string",
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/nationality",
         "propertyUrl": "rdfs:label",
         "@id": "https://example.com/id/Constituents.csv/column/Nationality"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ConstituentID}/nationality",
+        "aboutUrl" : "https://pressingmatter.nl/Bronbeek/{ConstituentID}/nationality",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "http://vocab.getty.edu/aat/300379842"
     },

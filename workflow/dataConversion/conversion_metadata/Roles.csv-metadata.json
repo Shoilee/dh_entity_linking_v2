@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/Roles/"
+   "@base": "https://pressingmatter.nl/Bronbeek/Roles/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -54,7 +54,7 @@
     "name": "RoleTypeID",
     "titles": ["RoleTypeID"],
     "propertyUrl": "vocab/RoleTypeID",
-    "valueUrl": "https://example.com/RoleTypes/{RoleTypeID}",
+    "valueUrl": "https://pressingmatter.nl/Bronbeek/RoleTypes/{RoleTypeID}",
     "@id": "https://example.com/id/Roles.csv/column/RoleTypeID"
    },
    {
