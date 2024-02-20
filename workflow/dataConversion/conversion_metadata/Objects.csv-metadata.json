@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/Bronbeek/Objects/"
+   "@base": "https://pressingmatter.nl/Bronbeek/Objects/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -72,19 +72,19 @@
         "dc:description": ["intermediatry uri objects primary title"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
+        "valueUrl":  "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_primary_name",
         "@id": "https://example.com/id/Objects.csv/virtual/Title"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_E41_Linguistic_Appellation",
         "@id": "http://www.cidoc-crm.org/cidoc-crm/E33_E41_Linguistic_Appellation"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300404670",
         "@id": "aat:300404670"
@@ -103,7 +103,7 @@
     },
     {
         "name": "Title",
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_primary_name",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_primary_name",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Title"
     },
@@ -111,25 +111,25 @@
         "dc:description": ["intermediatry URI for object number"],
         "datatype": "string",
         "propertyUrl": "cidoc:P1_is_identified_by",
-        "valueUrl":  "https://example.com/Bronbeek/{ObjectID}/object_number",
+        "valueUrl":  "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_number",
         "@id": "https://example.com/id/Objects.csv/virtual/ObjectNumber"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E42_Identifier",
         "@id": "http://www.cidoc-crm.org/cidoc-crm/E42_Identifier"
     },
     {
         "name": "ObjectNumber",
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/ObjectNumber"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/object_number",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/object_number",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "aat:300312355",
         "@id": "aat:300312355"
@@ -150,18 +150,18 @@
         "dc:description": "intermediary Medium uri",
         "null": ["NULL"],
         "propertyUrl": "cidoc:P45_consists_of",
-        "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
+        "valueUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Medium",
         "@id": "https://example.com/id/Objects.csv/virtual/Medium"
     },
     {
         "virtual":true,
-        "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
+        "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Medium",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E57_Material"
     },
     {
         "name": "Medium",
-        "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Medium",
+        "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Medium",
         "propertyUrl": "rdfs:label",
         "null": ["NULL"],
         "datatype": "string",
@@ -170,24 +170,24 @@
     {
         "dc:description": "intermediary dimention statement",
         "propertyUrl": "cidoc:P67i_is_referred_to_by",
-        "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "valueUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Dimensions",
         "@id": "https://example.com/id/Objects.csv/virtual/Dimensions"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/Dimensions",
         "propertyUrl": "rdf:type",
         "valueUrl": "cidoc:E33_Linguistic_Object"
     },
     {
         "name": "Dimensions",
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/Dimensions",
         "propertyUrl": "crm:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Dimensions"
     },
     {
         "virtual": true,
-        "aboutUrl" : "https://example.com/Bronbeek/{ObjectID}/Dimensions",
+        "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/Dimensions",
         "propertyUrl": "cidoc:P2_has_type",
         "valueUrl": "http://vocab.getty.edu/page/aat/300435430"
     },
@@ -255,38 +255,38 @@
     "virtual": true,
     "dc:description": ["production event"],
     "propertyUrl": "cidoc:P108i_was_produced_by",
-    "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Production"
+    "valueUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production"
    },
    {
     "virtual": true,
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production",
     "propertyUrl": "rdf:type",
     "valueUrl": "cidoc:E12_Production"
    },
    {
     "virtual": true,
     "dc:description": ["time-span for production event"],
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production",
     "propertyUrl": "cidoc:P4_has_time-span",
-    "valueUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span"
+    "valueUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production/Time-span"
    },
    {
     "virtual": true,
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production/Time-span",
     "propertyUrl": "rdf:type",
     "valueUrl": "cidoc:E52_Time-Span"
    },
    {
     "name": "DateBegin",
     "null": 0,
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production/Time-span",
     "propertyUrl": "cidoc:P82a_begin_of_the_begin",
     "@id": "https://example.com/id/Objects.csv/column/DateBegin"
    },
    {
     "name": "DateEnd",
     "null": 0,
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production/Time-span",
     "propertyUrl": "cidoc:P82b_end_of_the_end",
     "@id": "https://example.com/id/Objects.csv/column/DateEnd"
    },
@@ -294,7 +294,7 @@
     "name": "Dated",
     "null": ["NULL"],
     "datatype": "string",
-    "aboutUrl": "https://example.com/Bronbeek/{ObjectID}/Production/Time-span",
+    "aboutUrl": "http://pressingmatter.nl/Bronbeek/{ObjectID}/Production/Time-span",
     "propertyUrl": "rdfs:label",
     "@id": "https://example.com/id/Objects.csv/column/Dated"
    },

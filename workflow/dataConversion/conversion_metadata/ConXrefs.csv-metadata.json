@@ -3,7 +3,7 @@
   "https://raw.githubusercontent.com/CLARIAH/COW/master/csvw.json",
   {
    "@language": "en",
-   "@base": "https://example.com/ConXrefs/"
+   "@base": "https://pressingmatter.nl/Bronbeek/ConXrefs/"
   },
   {
    "aat": "http://vocab.getty.edu/aat/",
@@ -59,7 +59,7 @@
    {
     "name": "RoleID",
     "datatype": "integer",
-    "valueUrl": "https://example.com/Roles/{RoleID}",
+    "valueUrl": "https://pressingmatter.nl/Bronbeek/Roles/{RoleID}",
     "@id": "https://example.com/id/ConXrefs.csv/column/RoleID"
    },
    {
@@ -75,7 +75,7 @@
    {
     "name": "RoleTypeID",
     "datatype": "integer",
-    "valueUrl": "https://example.com/RoleTypes/{RoleTypeID}",
+    "valueUrl": "https://pressingmatter.nl/Bronbeek/RoleTypes/{RoleTypeID}",
     "@id": "https://example.com/id/ConXrefs.csv/column/RoleTypeID"
    },
    {
