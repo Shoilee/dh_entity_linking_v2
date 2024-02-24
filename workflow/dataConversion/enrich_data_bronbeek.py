@@ -34,16 +34,12 @@ def add_acquisition_event(directory, graphs):
     def run_query(graph):
         query = """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            PREFIX owl: <http://www.w3.org/2002/07/owl#>
-            PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 
             SELECT ?event ?constituent ?object
             WHERE{
                 ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
                 ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
-                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/RoleTypeID> ?RoleTypeID .
-                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conxref .
+                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
                 ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
                 ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
                 FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
@@ -105,21 +101,18 @@ def add_former_owner(directory, graphs):
     def run_query(graph):
         query = """
             PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-            PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-            PREFIX owl: <http://www.w3.org/2002/07/owl#>
-            PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 
             SELECT ?event ?constituent ?object
             WHERE{
                 ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
                 ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
-                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/RoleTypeID> ?RoleTypeID .
-                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conxref .
+                ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
                 ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
                 ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
                 FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
-                ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/2> .
+                ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/5> .
                 ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+            }
             }
         """
 
