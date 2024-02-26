@@ -48,7 +48,7 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 # Linking
 
-![](https://github.com/Shoilee/actor_linking)
+[All the experiment and the algorith used can be found here](https://github.com/Shoilee/actor_linking)
 
 
 # Upload
