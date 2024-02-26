@@ -1,8 +1,8 @@
-## Data Conversion and enrichment
-1. [convert_csv2rdf](convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
+## Data Conversion
+[convert_csv2rdf](convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
      - To run this script you need to provide path-to-directory where your csv and metadata is stored.
      > Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
-2.  enrich data with the [enrich_data_bronbeek](enrich_data_bronbeek) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
+
 
 
 ## Upload to cliopatria
@@ -23,3 +23,11 @@
    rdf_load_library('<library-name>').
    e.g., rdf_library:rdf_load_library('bronbeek').
    ```
+
+## Data Enrichment
+Linked data enrichment with the [enrich_data_bronbeek](enrich_data_bronbeek) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
+
+```
+python enrich_data_bronbeek.py   <folder-path-of-all-nq-files>
+```
+> [enrich_data_bronbeek.py](enrich_data_bronbeek.py) expects .nq files.
