@@ -2,6 +2,7 @@ import os, pandas, sys
 from rdflib import Graph, URIRef
 from rdflib.namespace import OWL
 
+
 def create_link_graph(df):
     g = Graph()
 
@@ -22,4 +23,4 @@ if __name__ == "__main__":
     file_path = sys.argv[1]
 
     df = pandas.read_csv(file_path, sep='\t', index_col=0)
-    create_link_graph(df).serialize(destination=os.path.join(os.path.dirname*(file_path), os.path.basename(file_path), '.ttl'))
+    create_link_graph(df).serialize(destination=os.path.join(os.path.dirname(file_path), f"{os.path.basename(file_path)}.ttl"))
