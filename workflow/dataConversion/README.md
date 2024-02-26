@@ -1,3 +1,5 @@
+Diagram: https://drive.google.com/file/d/16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4/view?usp=sharing 
+
 ## Data Conversion
 [convert_csv2rdf](convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
      - To run this script you need to provide path-to-directory where your csv and metadata is stored.
@@ -31,3 +33,8 @@ Linked data enrichment with the [enrich_data_bronbeek](enrich_data_bronbeek) scr
 python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 ```
 > [enrich_data_bronbeek.py](enrich_data_bronbeek.py) expects .nq files.
+
+
+## Data 
+1. [Bronbeek]() (format: csv)
+2. [NMVW](https://surfdrive.surf.nl/files/index.php/apps/files/?dir=/Shared/Work%20Package%201B/data/linkedart_nmvw_data/ccrdfconst&fileid=12458101919) (format: rdf/ttl)
