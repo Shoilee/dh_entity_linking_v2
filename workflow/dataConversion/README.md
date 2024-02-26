@@ -1,7 +1,7 @@
 ## Data Conversion and enrichment
-1. [convert_csv2rdf](convert_csv2rdf) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
+1. [convert_csv2rdf](convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
      - To run this script you need to provide path-to-directory where your csv and metadata is stored.
-     - convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
+     > Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
 2.  enrich data with the [enrich_data_bronbeek](enrich_data_bronbeek) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
 
 
@@ -13,13 +13,13 @@
    ```
 
 2. from cliopatria CLI, type
-```
-# attach the libraries
-rdf_library:rdf_attach_library(<path-to-folder-of-void.ttl>).
-```
-[void.ttl](void.ttl) expects triple files are in the same folder as void.ttl.
-```
-# upload files by library
-rdf_load_library('<library-name>').
-e.g., rdf_library:rdf_load_library('bronbeek').
-```
+   ```
+   # attach the libraries
+   rdf_library:rdf_attach_library(<path-to-folder-of-void.ttl>).
+   ```
+> Note: [void.ttl](void.ttl) expects triple files are in the same folder as void.ttl.
+   ```
+   # upload files by library
+   rdf_load_library('<library-name>').
+   e.g., rdf_library:rdf_load_library('bronbeek').
+   ```
