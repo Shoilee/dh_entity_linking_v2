@@ -168,6 +168,17 @@ www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
   <object> skos:related <constituent>
 ```
 
+#### Remarks
+> RoleTypes = 1, 2, 5 are connected with objects
+
+| RoleTypeID | Roletype               | Translated          |                                                                                                                                                                                                                                                                                             |
+| ---------- | ---------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1          | Objecten gerelateerd   | Objects related     | This type has different roles;<br>RoleID (19, 21, 24, 28, 30, 65, 71, 72, 73) --> can best be described as object related to this `actor` <br>RoleID: 21 = new owner <br>RoleID: 29 = collector #todo not sure how to portray it<br>RoleID: 31 = borrower  #todo not sure how to portray it |
+| 2          | Verwerving gerelateerd | Acquisition Related | RoleID specify specific type of acquisition                                                                                                                                                                                                                                                 |
+| 5          | Pedigree gerelateerd   | Pedigree Related    | RoleID = 5; vroegere eigenaar or former owner                                                                                                                                                                                                                                               |
+
+
+
 # Concerns:
 - can I use type crm:E22_Human-Made_Object for all objects? 
 - if some input is NULL, I still end up adding a intermidiatry node or blank node for it. How do I get rid of it?
