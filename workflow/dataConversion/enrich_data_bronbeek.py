@@ -113,7 +113,6 @@ def add_former_owner(directory, graphs):
                 ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/5> .
                 ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
             }
-            }
         """
 
         result = graph.query(query)
