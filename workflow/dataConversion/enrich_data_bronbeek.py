@@ -83,8 +83,8 @@ def add_acquisition_event(directory, graphs):
                 g.add((prov_activity, crm.P2_has_type, URIRef(u"http://vocab.getty.edu/aat/300055863")))
                 g.add((prov_activity, crm.P9_consists_of, acquisition))
                 g.add((acquisition, RDF.type, crm.E8_Acquisition))
-                g.add((acquisition, crm.P23_transferred_titled_from, constituent))
-                g.add((acquisition, crm.P24_transferred_titled_of, object))
+                g.add((acquisition, crm.P23_transferred_title_from, constituent))
+                g.add((acquisition, crm.P24_transferred_title_of, object))
                 g.add((acquisition, RDFS.label, Literal(event)))
 
         finally:
