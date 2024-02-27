@@ -11,8 +11,8 @@
 
 ## Data Conversion
 [convert_csv2rdf](convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
-     - To run this script you need to provide path-to-directory where your csv and metadata is stored.
-     > Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
+- To run this script you need to provide path-to-directory where your csv and metadata is stored.
+> Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
 
 
 ## Data Enrichment
@@ -26,7 +26,7 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 # Linking
 
-[All the experiment and the algorith used can be found here](https://github.com/Shoilee/actor_linking)
+[All the experiment and the algorithm used can be found here](https://github.com/Shoilee/actor_linking)
 
 
 # Upload
