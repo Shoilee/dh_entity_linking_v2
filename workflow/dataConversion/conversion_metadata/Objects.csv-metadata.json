@@ -182,7 +182,7 @@
     {
         "name": "Dimensions",
         "aboutUrl" : "http://pressingmatter.nl/Bronbeek/{ObjectID}/Dimensions",
-        "propertyUrl": "crm:P190_has_symbolic_content",
+        "propertyUrl": "cidoc:P190_has_symbolic_content",
         "@id": "https://example.com/id/Objects.csv/column/Dimensions"
     },
     {
