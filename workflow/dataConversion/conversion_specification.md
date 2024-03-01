@@ -74,7 +74,6 @@ DateBegin	DateEnd Dated --> Considered production date
 will ignore: 
 - ObjectCount
 - DepartmentID	
-- ObjectStatusID
 - LoanClassID
 - CreditLine
 - PublicAccess
@@ -117,7 +116,7 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
 
 
 ### Provenance activity
-1. get all the constitients and objects where the roletypeID=2
+1. get all the constitients and objects where the roletypeID=2 
 
 run SPAQRL query
 ```
