@@ -169,7 +169,9 @@ www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
 ```
 
 #### Remarks
-> RoleTypes = 1, 2, 5 are connected with objects
+> - RoleTypes = 1, 2, 5 are connected with objects
+> - RoleTypeID = 4 is not interesting
+>  - RoleTypeID 9(Gebeurtenis gerelateerd) and 11(Media Related/ Gerelateerde persoon/instelling) could be interesting
 
 | RoleTypeID | Roletype               | Translated          |                                                                                                                                                                                                                                                                                             |
 | ---------- | ---------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
