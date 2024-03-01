@@ -62,6 +62,12 @@
         "@id": "https://example.com/id/Objects.csv/column/ObjectID"
     },
     {
+        "name": "ObjectStatusID",
+        "datatype": "integer",
+        "valueUrl": "https://pressingmatter.nl/Bronbeek/ObjectStatuses/{ObjectStatusID}",
+        "@id": "https://example.com/id/Objects.csv/column/ObjectStatusID"
+    },
+    {
         "name": "ObjectName",
         "null": ["NULL"],
         "propertyUrl": "rdfs:label",
