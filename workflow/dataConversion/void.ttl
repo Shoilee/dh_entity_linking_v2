@@ -22,7 +22,11 @@
                 <RoleTypes.csv.nq.gz>  ,
                 <Roles.csv.nq.gz>  ,
                 <ConXrefDetails.csv.nq.gz>  ,
-                <ConXrefs.csv.nq.gz>  .
+                <ConXrefs.csv.nq.gz>  ,
+                <ObjectStatuses.csv.nq.gz>  ,
+                <AccessionMethods.csv.nq.gz>  ,
+                <ObjAccession.csv.nq.gz>  .
+
 
 <bronbeek-enriched>
         a void:Dataset ;
