@@ -74,9 +74,16 @@ def add_acquisition_event(directory, graphs):
                 object = URIRef(str(row.iloc[2]).strip().replace('"', ''))
 
                 # print(f"event:{event}\n constituent:{constituent}\n object: {object}\n")
+                
+                object_number = str(row['object']).split("/")[-1]
+                acquisition_dict = {}
+                acquisition_dict[object_number] = acquisition_dict.get(object_number, 1) + 1
+                    
+                # write code for dictionary key doesn't exists
+    
 
-                prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(i + 1))
-                acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/" + str(i + 1))
+                prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(object_number))
+                acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/" + str(acquisition_dict[object_number]))
 
                 g.add((prov_activity, RDF.type, crm.E7_Activity))
                 g.add((prov_activity, crm.P14_carried_out_by, constituent))
