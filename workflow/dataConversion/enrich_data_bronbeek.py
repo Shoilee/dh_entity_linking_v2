@@ -75,10 +75,19 @@ def add_acquisition_event(directory, graphs):
 
                 # print(f"event:{event}\n constituent:{constituent}\n object: {object}\n")
                 
+<<<<<<< HEAD
                 # TODO: re-run this file to check code sanity
                 object_number = str(row['object']).split("/")[-1]
                 acquisition_dict = {}
                 acquisition_dict[object_number] = acquisition_dict.get(object_number, 1) + 1
+=======
+                object_number = str(row['object']).split("/")[-1]
+                acquisition_dict = {}
+                acquisition_dict[object_number] = acquisition_dict.get(object_number, 1) + 1
+                    
+                # write code for dictionary key doesn't exists
+    
+>>>>>>> 8f106fc9de10f097499f9bc3c683099c1e137967
 
                 prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(object_number))
                 acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/" + str(acquisition_dict[object_number]))
