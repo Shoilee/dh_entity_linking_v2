@@ -5,7 +5,7 @@ from tqdm import tqdm
 import os, sys, pandas
 
 """
-Documentation for nquad parser: https://rdflib.readthedocs.io/en/stable/_modules/rdflib/plugins/parsers/nquads.html
+Documentation for nq parser: https://rdflib.readthedocs.io/en/stable/_modules/rdflib/plugins/parsers/nquads.html
 Example: https://github.com/RDFLib/rdflib/blob/main/examples/conjunctive_graphs.py 
 """
 
@@ -75,18 +75,13 @@ def add_acquisition_event(directory, graphs):
 
                 # print(f"event:{event}\n constituent:{constituent}\n object: {object}\n")
 
-                # TODO: re-run this file to check code sanity
                 object_number = str(row['object']).split("/")[-1]
+
                 acquisition_dict = {}
-                acquisition_dict[object_number] = acquisition_dict.get(object_number, 1) + 1
-                object_number = str(row['object']).split("/")[-1]
-                acquisition_dict = {}
-                acquisition_dict[object_number] = acquisition_dict.get(object_number, 1) + 1
-                    
-                # write code for dictionary key doesn't exists
+                acquisition_dict[object_number] = acquisition_dict.get(object_number, 0) + 1
 
                 prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(object_number))
-                acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/" + str(acquisition_dict[object_number]))
+                acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/1/" + str(object_number) + "/" +str(acquisition_dict[object_number]))
 
                 g.add((prov_activity, RDF.type, crm.E7_Activity))
                 g.add((prov_activity, crm.P14_carried_out_by, constituent))
@@ -103,6 +98,86 @@ def add_acquisition_event(directory, graphs):
             g.add((URIRef(u"http://vocab.getty.edu/aat/300055863"), RDFS.label, Literal("Provenance Activity")))
             return g
 
+    insert_links(run_query(graphs))\
+        .serialize(destination=os.path.join(directory, 'acquisition_event.ttl'))
+
+
+def add_provenance_activity(directory, graphs):
+    # import uuid 
+    def run_query(graph):
+        query = """
+            SELECT ?object ?accession ?status ?method ?time
+            WHERE{
+            ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectStatusID> [rdfs:label ?status].
+            ?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/ObjectID> ?object .
+            ?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/AccessionMethodID> [rdfs:label ?method] .
+            OPTIONAL {?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/AccessionISODate> ?time .}
+            }
+        """
+
+        result = graph.query(query)
+
+        rows = []
+        for row in result:
+            object, accession, status, method, time = row
+            rows.append({
+                'object': str(object), 
+                'accession': str(accession),
+                'status': str(status),
+                'method': str(method),
+                'time': str(time)
+            })
+        df = pandas.DataFrame(rows)
+
+        return df
+
+    def insert_links(df):
+        import uuid
+
+        crm = Namespace("http://www.cidoc-crm.org/cidoc-crm/")
+        g = Graph()
+        g.bind("crm", crm)
+
+        try:
+            for _, row in tqdm(df.iterrows()):
+                
+                object = URIRef(str(row.iloc[0]).strip().replace('"', ''))
+                accession = URIRef(str(row.iloc[1]).strip().replace('"', ''))
+                status = str(row.iloc[2]).strip().replace('"', '')
+                method = str(row.iloc[3]).strip().replace('"', '')
+                
+                time = str(row.iloc[4]).strip().replace('"', '') if not row.iloc[4]=="" else None
+
+                object_number = str(object).split("/")[-1]
+                
+                acquisition_dict = {}
+                acquisition_dict[object_number] = acquisition_dict.get(object_number, 0) + 1
+
+                
+                prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(object_number))
+                acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/2/" + str(object_number) + "/" + str(acquisition_dict[object_number]))
+
+                g.add((prov_activity, RDF.type, crm.E7_Activity))
+                g.add((prov_activity, RDFS.label, Literal(status)))
+                g.add((prov_activity, crm.P2_has_type, URIRef(u"http://vocab.getty.edu/aat/300055863")))
+                g.add((prov_activity, crm.P9_consists_of, acquisition))
+                g.add((acquisition, RDF.type, crm.E8_Acquisition))
+                g.add((acquisition, crm.P24_transferred_title_of, object))
+                g.add((acquisition, RDFS.label, Literal(method)))
+                
+                if time: 
+                    time_BNode = URIRef("https://www.pressingmatter.nl/Bronbeek/time/" + str(uuid.uuid1()))
+                    g.add((acquisition, crm.P4_has-time, time_BNode))
+                    g.add((time_BNode, RDF.type, crm.E52_Time))
+                    g.add((time_BNode, crm.P82a_begin_of_the_begin, Literal(time))) 
+                    g.add((time_BNode, crm.P82b_end_of_the_end, Literal(time)))
+                    
+        finally:
+            print(len(g))
+            g.add((URIRef(u"http://vocab.getty.edu/aat/300055863"), RDF.type, crm.E55_Type))
+            g.add((URIRef(u"http://vocab.getty.edu/aat/300055863"), RDFS.label, Literal("Provenance Activity")))
+            return g
+    
     insert_links(run_query(graphs))\
         .serialize(destination=os.path.join(directory, 'provenance_activity.ttl'))
 
@@ -215,9 +290,10 @@ def enrich_data(directory):
     all_graphs = load_graph(directory)
     print(len(all_graphs))
 
-    add_acquisition_event(directory, all_graphs)
-    add_former_owner(directory, all_graphs)
-    add_related_constituents(directory, all_graphs)
+    # add_acquisition_event(directory, all_graphs)
+    add_provenance_activity(directory, all_graphs)
+    # add_former_owner(directory, all_graphs)
+    # add_related_constituents(directory, all_graphs)
 
 
 if __name__ == "__main__":
