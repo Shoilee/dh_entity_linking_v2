@@ -116,9 +116,42 @@ TODO: Exhibitions', 'Provenance', 'PubReferences', 'Notes'
 
 
 ### Provenance activity
-1. get all the constitients and objects where the roletypeID=2 
 
-run SPAQRL query
+#### THROUGH OBJECT ACCESSION LOT
+
+
+```
+SELECT ?object ?accession ?status ?method ?time
+            WHERE{
+            ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectStatusID> [rdfs:label ?status].
+            ?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/ObjectID> ?object .
+            ?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/AccessionMethodID> [rdfs:label ?method] .
+            OPTIONAL {?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/AccessionISODate> ?time .}
+            }
+```
+
+```
+<www.example.com/Bronbeek/Provenance/1> a crm:E7_Activity ;
+    rdfs:label " " ; #objectstatus
+    crm:P2_has_type <http://vocab.getty.edu/aat/300055863> ;
+    crm:P9_consists_of <www.example.com/Bronbeek/Acquisition/1> .
+
+www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
+    crm:P4_time-span [crm:P82a_begin_of_the_begin 
+                        crm:P82b_end_of_the_end ]; #accessionISODate
+    rdfs:label " " ; #accessionmethod
+    crm:P24_transferred_titled_of <https://example.com/Bronbeek/Objects/30966> .
+
+<http://vocab.getty.edu/aat/300055863> a crm:E55_Type ;
+    rdfs:label "Provenance Activity" .
+```
+
+> Remarks: we olso have object status or accession method "onbekend" / stolen; But, ignored in the conversion and considered everything as acquision, keeping the corresponding rdfs:label "object status"(provenance activity) and "acqusition method"(acquisition event)
+
+#### THROUGH CONSTITUENTS
+Get all the constitients and objects where the roletypeID=2;
+ 
+1. SPAQRL query
 ```
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -138,13 +171,15 @@ WHERE{
 2.  For each row [add](insert_links_conxrefs_to_objects.ipynb) an provenance activity that consists of an acqusistion 
 
 ```
-<www.example.com/Bronbeek/Provenance/1> a crm:E7_Activity ;
-    crm:P14_carried_out_by <https://example.com/Bronbeek/Constituents/2658> ;
+<www.example.com/Bronbeek/Provenance/1> a crm:E7_Activity ; 
+    crm:P14_carried_out_by <https://example.com/Bronbeek/Constituents/2658> ; #constituents
     crm:P2_has_type <http://vocab.getty.edu/aat/300055863> ;
     crm:P9_consists_of <www.example.com/Bronbeek/Acquisition/1> .
 
 www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
-    rdfs:label " " ;
+    crm:P4_timpe-span [crm:P82a_begin_of_the_begin 
+                        rm:P82b_end_of_the_end ]; #accessionISODate
+    rdfs:label " " ; #accessionmethod
     crm:P23_transferred_titled_from <https://example.com/Bronbeek/Constituents/2658> ;
     crm:P24_transferred_titled_of <https://example.com/Bronbeek/Objects/30966> .
 
@@ -208,3 +243,114 @@ www.example.com/Bronbeek/Acquisition/1> a crm:E8_Acquisition ;
 - According to Linkedart, I should use la:equivalent to link person, not owl:sameAs
 - I added crm:P51_has_former_or_current_owner based on RoleTypeID=5, where the text is "oorspronkelijk bezit van" or "original property of"
 
+
+
+# TRY OUT QUERIES
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectStatusID> <https://pressingmatter.nl/Bronbeek/ObjectStatuses/1> .
+}LIMIT 10
+```
+
+276968
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+}LIMIT 10
+```
+
+290196
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/2> .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+}LIMIT 10
+```
+
+182042
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/2> .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+  ?accession <https://pressingmatter.nl/Bronbeek/ObjAccession/vocab/ObjectID> ?object .
+}LIMIT 10
+```
+
+182042
+
+> so every conxrefdetailID has corresponding acqusiiton
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/2> .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectStatusID> <https://pressingmatter.nl/Bronbeek/ObjectStatuses/1> .
+}LIMIT 10
+```
+
+178270
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT(?conxrefdetailID)) AS ?n)
+ WHERE{
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConstituentID> ?constituent .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/Prefix> ?event .
+  ?conxrefdetailID <https://pressingmatter.nl/Bronbeek/ConXrefDetails/vocab/ConXrefID> ?conXref .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/ID> ?ID .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/TableID> ?TableID .
+  FILTER (?TableID = "108"^^<https://pressingmatter.nl/Bronbeek/ConXrefs/interger>) .
+  ?conXref <https://pressingmatter.nl/Bronbeek/ConXrefs/vocab/RoleTypeID> <https://pressingmatter.nl/Bronbeek/RoleTypes/2> .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectID> ?ID .
+  ?object <https://pressingmatter.nl/Bronbeek/Objects/vocab/ObjectStatusID> <https://pressingmatter.nl/Bronbeek/ObjectStatuses/3> .
+}LIMIT 10
+```
