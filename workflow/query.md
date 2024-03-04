@@ -1,6 +1,35 @@
 # CQ-1a
 
 1.  Is there any person involved in the provenance of this object with colonial background? 
+   ```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT *
+WHERE{
+ ?nmvw_object  a crm:E22_Human-Made_Object .
+  #acquisition event
+  {?nmvw_acq crm:P24_transferred_title_of ?nmvw_object .
+   ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+  UNION
+  #production event
+  {
+    ?nmvw_object crm:P108i_was_produced_by ?nmvw_prod .
+    ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+  }
+  UNION
+  {
+    ?nmvw_object crm:P52_has_current_owner ?nmvw_actor .
+  }
+  UNION
+  {
+    ?nmvw_object crm:P51_has_former_or_current_owner ?nmvw_actor .
+  }
+  
+  ?nmvw_actor owl:sameAs ?bronbeek_actor .
+}
+   ```
 
 > How many actor has military background?
 
@@ -40,7 +69,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT (COUNT(DISTINCT ?nmvw_object) AS ?n)
+SELECT (COUNT(DISTINCT ?nmvw_object) AS ?n) ?nmvw_actor
 WHERE{
  ?nmvw_object  a crm:E22_Human-Made_Object .
   #acquisition event
@@ -65,6 +94,7 @@ WHERE{
   
   ?nmvw_actor owl:sameAs ?bronbeek_actor .
 }GROUP BY ?nmvw_actor
+LIMIT 10
 ```
    
 # CQ-1b
@@ -167,3 +197,8 @@ SELECT * WHERE
   OPTIONAL {?p3 rdfs:label ?p3_name}.
 } 
 ```
+
+# CQ-4
+
+Which objects were collected in this geographical location? 
+
