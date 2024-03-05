@@ -42,6 +42,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT (COUNT(DISTINCT ?nmvw_actor) AS ?n) 
 WHERE{
+  Graph <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
  ?nmvw_object  a crm:E22_Human-Made_Object .
   #acquisition event
   {?nmvw_acq crm:P24_transferred_title_of ?nmvw_object .
@@ -59,6 +60,7 @@ WHERE{
   UNION
   {
     ?nmvw_object crm:P51_has_former_or_current_owner ?nmvw_actor .
+  }
   }
   
   ?nmvw_actor owl:sameAs ?bronbeek_actor .
@@ -139,6 +141,63 @@ WHERE{
 } GROUP BY ?nmvw_actor
 ```
 
+> alternate query
+```
+
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT (COUNT(DISTINCT ?nmvw_object) AS ?n_nmvw_object)  ?nmvw_actor (COUNT(DISTINCT ?bb_object) AS ?n_bb_object) 
+WHERE{
+  GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+    ?nmvw_object  a crm:E22_Human-Made_Object .
+  
+    {?nmvw_acq crm:P24_transferred_title_of ?nmvw_object .
+     ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+    UNION
+    {
+      ?nmvw_object crm:P108i_was_produced_by ?nmvw_prod .
+      ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+    }
+    UNION
+    {
+      	?nmvw_object crm:P52_has_current_owner ?nmvw_actor .
+    }
+    UNION
+    {
+      	?nmvw_object crm:P51_has_former_or_current_owner ?nmvw_actor .
+    }
+  }
+  
+  ?nmvw_actor owl:sameAs ?bb_actor .
+  
+GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    ?bb_object a crm:E22_Human-Made_Object .
+    }
+    #acquisition event
+    {
+      ?bb_acq crm:P24_transferred_title_of ?bb_object .
+      ?bb_acq crm:P23_transferred_title_from ?bb_actor . 
+    }
+  UNION
+    {
+    ?bb_object crm:P108i_was_produced_by ?bb_prod .
+    ?bb_prod crm:P14_carried_out_by ?bb_actor. 
+    }
+  UNION
+    {
+      	?bb_object crm:P52_has_current_owner ?bb_actor .
+    }
+  UNION
+    {
+      	?bb_object crm:P51_has_former_or_current_owner ?bb_actor .
+    }
+} GROUP BY ?nmvw_actor
+```
+> see calculation [results.ipynb](results.ipynb)
+
 # CQ-2
 
 2. Which objects are collected by person(s) with colonial history?
@@ -149,6 +208,7 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT (COUNT(DISTINCT ?nmvw_object) AS ?n)
 WHERE{
+  Graph <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
  ?nmvw_object  a crm:E22_Human-Made_Object .
   #acquisition event
   {
@@ -169,10 +229,49 @@ WHERE{
   {
     ?nmvw_object crm:P51_has_former_or_current_owner ?nmvw_actor .
   }
-  
+  }
   ?nmvw_actor owl:sameAs ?bronbeek_actor .
 }
 ```
+
+object per person
+
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT (COUNT(DISTINCT ?nmvw_object) AS ?n) ?nmvw_actor ?nmvw_actor_name 
+WHERE{
+  Graph <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+ ?nmvw_object  a crm:E22_Human-Made_Object .
+  #acquisition event
+  {
+   ?nmvw_acq crm:P24_transferred_title_of ?nmvw_object .
+   ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .
+  }
+  UNION
+  #production event
+  {
+    ?nmvw_object crm:P108i_was_produced_by ?nmvw_prod .
+    ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+  }
+  UNION
+  {
+    ?nmvw_object crm:P52_has_current_owner ?nmvw_actor .
+  }
+  UNION
+  {
+    ?nmvw_object crm:P51_has_former_or_current_owner ?nmvw_actor .
+  }
+  }
+  ?nmvw_actor owl:sameAs ?bronbeek_actor .
+  GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+    ?nmvw_actor rdfs:label ?nmvw_actor_name .}
+} GROUP BY ?nmvw_actor
+```
+
 
 # CQ-3
 3,. Is there a relationship between person A and person B through object collection event?    
@@ -324,9 +423,9 @@ WHERE{
 ```
 TODO: run on complete graph should work
 ```
-> they both have skos related connections to objects
+> they both have only skos related connections to objects
 >
-https://hdl.handle.net/20.500.11840/pi57757 --> pm::Bronbeek/Constituents/7329 
+https://hdl.handle.net/20.500.11840/pi57757 --> pm::Bronbeek/Constituents/7329  
 https://hdl.handle.net/20.500.11840/pi64129 --> https://pressingmatter.nl/Bronbeek/Constituents/5995
 
 ```
@@ -390,6 +489,7 @@ WHERE{
 # CQ-5
 Which objects were collected during this historical  event? 
 
+```
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 
 SELECT ?histevet_name ?histevet_btime ?histevet_etime ?nmvw_obj 
@@ -405,13 +505,14 @@ WHERE{
     # ?nmvw_obj a crm:E22_Human-Made_Object .
   } 
 }
+```
 
 > For Bronbeek, only If you can define the event with specific time and place? We do not need to put the historical events in the data for that. 
 
 # CQ-6
 
 Which objects were potentially collected in this geographical location during this time period from both dataset?  
-
+```
 SELECT ?obj ?place ?b_time ?e_time WHERE
 {
   ?obj a crm:E24_Physical_Human-Made_Thing .
@@ -422,8 +523,15 @@ SELECT ?obj ?place ?b_time ?e_time WHERE
   ?time crm:P82b_end_of_the_end ?e_time.
   ?activity crm:P24_transferred_title_of ?obj .
 } 
-
+```
 
 # Validation data
 https://book.validatingrdf.com/bookHtml011.html 
 https://sphn-semantic-framework.readthedocs.io/en/latest/user_guide/data_quality.html 
+
+
+
+
+
+
+
