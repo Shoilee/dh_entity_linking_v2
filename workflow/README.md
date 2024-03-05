@@ -30,6 +30,11 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 
 # Upload
+- Upload Bronbeek data
+- Upload Bronbeek enriched
+- Upload NMVW data
+- Upload person-person links
+- Upload ontologies (CIDOC, rdfs, etc)
 ## Upload to cliopatria
 
 1. compress the .nq files with bash command
