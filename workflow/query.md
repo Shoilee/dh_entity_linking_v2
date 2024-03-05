@@ -201,6 +201,229 @@ SELECT * WHERE
 ```
 
 # CQ-4
-
 Which objects were collected in this geographical location? 
 
+> E8_Acqusition do not have P7_took_place_at for both NMVW and Bronbeek .
+```
+# TODO: if you query acqusition event for place, we get zero matches.
+```
+> But, if we encorporate production and take that place into account, we get some results back
+```
+  PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+  SELECT *
+  WHERE{
+    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobjacquisition_15_names.ttl>{
+      ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
+      ?nmvw_prod_place a crm:E53_Place. 
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+      ?nmvw_obj a crm:E22_Human-Made_Object. 
+      ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+      
+      #acquisition event
+      {?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+      UNION
+      #production event
+      {
+        ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+        ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P52_has_current_owner ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P51_has_former_or_current_owner ?nmvw_actor .
+      }
+    }
+    ?nmvw_actor owl:sameAs ?bronbeek_actor .
+  }
+```
+
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT *
+WHERE{
+  GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    OPTIONAL {?bb_prod crm:P7_took_place_at ?bb_prod_place.
+    ?bb_prod_place a crm:E53_Place. }
+    ?bb_obj crm:P108i_was_produced_by ?bb_prod .
+    ?bb_obj a crm:E22_Human-Made_Object. 
+    ?bb_acq crm:P24_transferred_title_of ?bb_obj .
+    
+    #acquisition event
+    {?bb_acq crm:P23_transferred_title_from ?bb_actor .}
+    UNION
+    #production event
+    {
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+      ?bb_prod crm:P14_carried_out_by ?nmvw_actor .
+    }
+    UNION
+    {
+      ?bb_obj crm:P52_has_current_owner ?bb_actor .
+    }
+    UNION
+    {
+      ?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
+    }
+  }
+  ?nmvw_actor owl:sameAs ?bb_actor .
+}
+```
+
+> TODO: shall we consider culture as origin of production?
+> Bronbeek production do not have an actor
+
+> Bronbeek object do not have production place; but we can consider ``culture'' as P7_took_place for E12_Production event.
+> So, the count now is 0. 
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT (?bb_obj)) AS ?n)
+WHERE{
+  GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    OPTIONAL {?bb_prod crm:P7_took_place_at ?bb_prod_place.
+      ?bb_prod_place a crm:E53_Place. }
+    ?bb_obj crm:P108i_was_produced_by ?bb_prod .
+    ?bb_obj a crm:E22_Human-Made_Object. 
+    }
+  	?bb_acq crm:P24_transferred_title_of ?bb_obj .
+  
+  #acquisition event
+    {
+    	?bb_acq crm:P23_transferred_title_from ?bb_actor .	
+  	}
+    UNION
+    {
+      	?bb_obj crm:P52_has_current_owner ?bb_actor .
+    }
+    UNION
+    {
+      	?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
+    }
+  
+  	?nmvw_actor owl:sameAs ?bb_actor
+
+  
+} LIMIT 10
+```
+
+> complete query
+```
+TODO: run on complete graph should work
+```
+> they both have skos related connections to objects
+>
+https://hdl.handle.net/20.500.11840/pi57757 --> pm::Bronbeek/Constituents/7329 
+https://hdl.handle.net/20.500.11840/pi64129 --> https://pressingmatter.nl/Bronbeek/Constituents/5995
+
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT (?bb_obj)) AS ?n)
+WHERE{
+  GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    OPTIONAL {?bb_prod crm:P7_took_place_at ?bb_prod_place.
+      ?bb_prod_place a crm:E53_Place. }
+    ?bb_obj crm:P108i_was_produced_by ?bb_prod .
+    ?bb_obj a crm:E22_Human-Made_Object. 
+    }
+  	?bb_acq crm:P24_transferred_title_of ?bb_obj .
+  
+  #acquisition event
+    {
+    	?bb_acq crm:P23_transferred_title_from ?bb_actor .	
+  	}
+    UNION
+    {
+      	?bb_obj crm:P52_has_current_owner ?bb_actor .
+    }
+    UNION
+    {
+      	?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
+    }
+  	?nmvw_actor owl:sameAs ?bb_actor
+
+    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobjacquisition_15_names.ttl>{
+      ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
+      ?nmvw_prod_place a crm:E53_Place. 
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+      ?nmvw_obj a crm:E22_Human-Made_Object. 
+      ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+      
+      #acquisition event
+      {?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+      UNION
+      #production event
+      {
+        ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+        ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P52_has_current_owner ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P51_has_former_or_current_owner ?nmvw_actor .
+      }
+    }
+} 
+```
+
+
+# CQ-5
+Which objects were collected during this historical  event? 
+
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+
+SELECT ?histevet_name ?histevet_btime ?histevet_etime ?nmvw_obj 
+WHERE{
+    GRAPH <https://pressingmatter.nl/NMVW/>{
+    ?histevet crm:P140i_was_attributed_by ?o .
+    ?histevet  crm:P1_is_identified_by ?title .
+    ?histevet crm:P4_has_time-span [crm:P82a_begin_of_the_begin ?histevet_btime;
+									crm:P82b_end_of_the_end ?histevet_etime] .
+    ?title crm:P190_has_symbolic_content ?histevet_name .
+    ?o a crm:E13_Attribute_Assignment .
+    ?o crm:P141_assigned ?nmvw_obj .
+    # ?nmvw_obj a crm:E22_Human-Made_Object .
+  } 
+}
+
+> For Bronbeek, only If you can define the event with specific time and place? We do not need to put the historical events in the data for that. 
+
+# CQ-6
+
+Which objects were potentially collected in this geographical location during this time period from both dataset?  
+
+SELECT ?obj ?place ?b_time ?e_time WHERE
+{
+  ?obj a crm:E24_Physical_Human-Made_Thing .
+  ?activity crm:P9_consists_of ?sub .
+  ?sub crm:P7_took_place_at ?place. 
+  ?sub crm:P4_has_time-span ?time .
+  ?time crm:P82a_begin_of_the_begin ?b_time .
+  ?time crm:P82b_end_of_the_end ?e_time.
+  ?activity crm:P24_transferred_title_of ?obj .
+} 
+
+
+# Validation data
+https://book.validatingrdf.com/bookHtml011.html 
+https://sphn-semantic-framework.readthedocs.io/en/latest/user_guide/data_quality.html 
