@@ -153,7 +153,6 @@ def add_provenance_activity(directory, graphs):
                 acquisition_dict = {}
                 acquisition_dict[object_number] = acquisition_dict.get(object_number, 0) + 1
 
-                
                 prov_activity = URIRef("https://www.pressingmatter.nl/Bronbeek/Provenance/" + str(object_number))
                 acquisition = URIRef("https://www.pressingmatter.nl/Bronbeek/Acquisition/2/" + str(object_number) + "/" + str(acquisition_dict[object_number]))
 
@@ -167,8 +166,8 @@ def add_provenance_activity(directory, graphs):
                 
                 if time: 
                     time_BNode = URIRef("https://www.pressingmatter.nl/Bronbeek/time/" + str(uuid.uuid1()))
-                    g.add((acquisition, crm.P4_has-time, time_BNode))
-                    g.add((time_BNode, RDF.type, crm.E52_Time))
+                    g.add((acquisition, crm['P4_has_time-span'], time_BNode))
+                    g.add((time_BNode, RDF.type, crm['E52_Time-Span']))
                     g.add((time_BNode, crm.P82a_begin_of_the_begin, Literal(time))) 
                     g.add((time_BNode, crm.P82b_end_of_the_end, Literal(time)))
                     
