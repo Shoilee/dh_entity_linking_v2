@@ -79,3 +79,20 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 | CQ-5  | Which objects were collected during this event?                                     | Which objects were collected during this historical  event?                      |                                      | only If you can define the event with specific time and place? We do not need to put the historical events in the data for that.    |       |
 | CQ-6  | Which objects were collected in this geographical location during this time period? | Which objects were potentially collected in this geographical location during this time period from both dataset?       | ```<br>PREFIX skos: <http://www.w3.org/2004/02/skos/core#><br>PREFIX owl: <http://www.w3.org/2002/07/owl#><br><br>SELECT *<br>WHERE{<br>  # ?s ?p ?nmvw_uri .<br>  ?nmvw_uri owl:sameAs <https://example.com/Constituents/7329> .<br>  ?conxrefDetails <https://example.com/ConXrefDetails/vocab/ConstituentID> <https://example.com/Constituents/7329> .<br>  ?conxrefDetails <https://example.com/ConXrefDetails/vocab/ConXrefID> ?conxref .<br>  ?conxref skos:related ?bronbeek_object .<br>}<br>``` |                 |                  |
 |       |        |          |                 |        |                 |
+
+
+### Result Table 
+
+
+
+| CQ    | Competency Question                                                                    | Alternate CQ                                                                                               | Count Before Link | Count after link |
+| ----- | -------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| CQ-1  |                                                                                        | How many person has colonial background?                                                                   | 0                 | 277              |
+| CQ-1b | Is there a possible relation between objects that are linked to a same person?         | How many object (avg per person) could have possible relation as they are collected by same actor?         | 107               | 107              |
+| CQ-2  |                                                                                        | Which objects are collected by person(s) with colonial history?                                            | 0                 | 18551            |
+| CQ-3  | Is there a relationship between person A and person B through object collection event? | How many pair of people can be linked together?                                                            |                   |                  |
+| CQ-4  | Which objects were collected in this geographical location from both dataset?          | If the objects production location is not known, for how many objects we can project potential geographic? | 45756             | 1841 / 47597     |
+| CQ-5  | Which objects were collected during this event?                                        |                                                                                                            |                   |                  |
+| CQ-6  | Which objects were collected in this geographical location during this time period?    |                                                                                                            |                   |                  |
+|       |                                                                                        |                                                                                                            |                   |                  |
+|       |                                                                                        |                                                                                                            |                   |                  |
