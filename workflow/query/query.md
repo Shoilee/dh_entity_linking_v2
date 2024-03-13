@@ -315,7 +315,7 @@ Which objects were collected in this geographical location?
 
   SELECT *
   WHERE{
-    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobjacquisition_15_names.ttl>{
+    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
       ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
       ?nmvw_prod_place a crm:E53_Place. 
       ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
@@ -340,7 +340,7 @@ Which objects were collected in this geographical location?
       }
     }
     ?nmvw_actor owl:sameAs ?bronbeek_actor .
-  }
+  }LIMIT 10
 ```
 
 ```
@@ -352,10 +352,12 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT *
 WHERE{
   GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    ?bb_obj a crm:E22_Human-Made_Object. 
+    }
     OPTIONAL {?bb_prod crm:P7_took_place_at ?bb_prod_place.
     ?bb_prod_place a crm:E53_Place. }
     ?bb_obj crm:P108i_was_produced_by ?bb_prod .
-    ?bb_obj a crm:E22_Human-Made_Object. 
+    
     ?bb_acq crm:P24_transferred_title_of ?bb_obj .
     
     #acquisition event
@@ -374,7 +376,6 @@ WHERE{
     {
       ?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
     }
-  }
   ?nmvw_actor owl:sameAs ?bb_actor .
 }
 ```
@@ -484,7 +485,149 @@ WHERE{
     }
 } 
 ```
+##### working query
+```
+ PREFIX owl: <http://www.w3.org/2002/07/owl#>
+  PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
+  SELECT *WHERE{
+    ?nmvw_actor owl:sameAs ?bb_actor .
+
+    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+      #acquisition event
+      {?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+      UNION
+      #production event
+      {
+        ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P52_has_current_owner ?nmvw_actor .
+      }
+      UNION
+      {
+        ?nmvw_obj crm:P51_has_former_or_current_owner ?nmvw_actor .
+      }
+      ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+      ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
+      # ?nmvw_prod_place a crm:E53_Place. 
+    }
+
+    # bronbeek 
+    {
+      ?bb_acq crm:P24_transferred_title_of ?bb_obj .
+    	?bb_acq crm:P23_transferred_title_from ?bb_actor .	
+  	}
+    UNION
+    {
+      	?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
+    }
+ GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    ?bb_obj a crm:E22_Human-Made_Object. }
+} ?LIMIT 10
+```
+##### object before link
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+
+SELECT (AVG(?no) AS ?avg) WHERE{
+  SELECT (COUNT(DISTINCT ?nmvw_obj) AS ?no) WHERE
+  {
+    ?nmvw_actor owl:sameAs ?bronbeek_actor .
+
+    GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+      ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor.
+      ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+      ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
+            #acquisition event
+            {?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor .}
+            UNION
+            #production event
+            {
+              ?nmvw_prod crm:P14_carried_out_by ?nmvw_actor .
+            }
+            UNION
+            {
+              ?nmvw_obj crm:P52_has_current_owner ?nmvw_actor .
+            }
+            UNION
+            {
+              ?nmvw_obj crm:P51_has_former_or_current_owner ?nmvw_actor .
+            }
+    }
+  } GROUP BY ?nmvw_prod_place
+}
+```
+> result 18.984034833091435
+
+##### These are the objects, where we do not know it's production place, but do know the acqusuiton actor.
+> For 49152 object we did not know the production location
+
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?nmvw_obj) AS ?no_object) ?nmvw_actor
+WHERE{
+ GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+    ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor.
+    ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+    ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+    FILTER NOT EXISTS {
+      ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.}
+    }
+} GROUP BY ?nmvw_actor 
+
+###### These are the objects, where we DO KNOW it's production place, and acqusuiton actor.
+> For 457722 object, we did not know the production location
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?nmvw_obj) AS ?no_object) (COUNT(DISTINCT ?nmvw_prod_place) AS ?no_place) ?nmvw_actor
+WHERE{
+ GRAPH <https://pressingmatter.nl/NMVW/ccrdfobj.ttl>{
+     ?nmvw_acq crm:P23_transferred_title_from ?nmvw_actor.
+      ?nmvw_acq crm:P24_transferred_title_of ?nmvw_obj .
+      ?nmvw_obj crm:P108i_was_produced_by ?nmvw_prod .
+     ?nmvw_prod crm:P7_took_place_at ?nmvw_prod_place.
+    }
+} GROUP BY ?nmvw_actor 
+```
+
+> If we connect them with acqusistion_actor, for 45756 objects we can prioritise possible location .
+
+##### Object connected to Bronbeek actors that as sameAs Links with NMVW
+
+```
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT (COUNT(DISTINCT ?bb_obj) AS ?no_object) ?bb_actor
+WHERE{
+    ?nmvw_actor owl:sameAs ?bb_actor .
+    {?bb_acq crm:P23_transferred_title_from ?bb_actor .	
+    ?bb_acq crm:P24_transferred_title_of ?bb_obj .}
+    UNION{
+          ?bb_obj crm:P51_has_former_or_current_owner ?bb_actor .
+}
+
+ GRAPH <https://pressingmatter.nl/Bronbeek/Objects/Objects/assertion/bad21d24/2024-03-01T12:54>{
+    ?bb_obj a crm:E22_Human-Made_Object. }
+} GROUP BY ?bb_actor . 
+
+```
+> total object 7996
 
 # CQ-5
 Which objects were collected during this historical  event? 
@@ -533,5 +676,13 @@ https://sphn-semantic-framework.readthedocs.io/en/latest/user_guide/data_quality
 
 
 
-
-
+| CQ    | Competency Question                                                                    | Alternate CQ                                                                                       | Count Before Link | Count after link |
+| ----- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ----------------- | ---------------- |
+| CQ-1  |                                                                                        | How many person has colonial background?                                                           | 0                 | 277              |
+| CQ-1b | Is there a possible relation between objects that are linked to a same person?         | How many object (avg per person) could have possible relation as they are collected by same actor? | 107               | 107              |
+| CQ-2  |                                                                                        | Which objects are collected by person(s) with colonial history?                                    | 0                 | 18551            |
+| CQ-3  | Is there a relationship between person A and person B through object collection event? | How many pair of people can be linked together?                                                    |                   |                  |
+| CQ-4  | Which objects were collected in this geographical location from both dataset?          | If the objects production location is not known, for how many objects we can project potential geographic location?                       |                   |                  |
+|       |                                                                                        |                                                                                                    |                   |                  |
+|       |                                                                                        |                                                                                                    |                   |                  |
+|       |                                                                                        |                                                                                                    |                   |                  |
