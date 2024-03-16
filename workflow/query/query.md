@@ -635,19 +635,24 @@ Which objects were collected during this historical  event?
 ```
 PREFIX crm: <http://www.cidoc-crm.org/cidoc-crm/>
 
-SELECT ?histevet_name ?histevet_btime ?histevet_etime ?nmvw_obj 
-WHERE{
-    GRAPH <https://pressingmatter.nl/NMVW/>{
-    ?histevet crm:P140i_was_attributed_by ?o .
-    ?histevet  crm:P1_is_identified_by ?title .
-    ?histevet crm:P4_has_time-span [crm:P82a_begin_of_the_begin ?histevet_btime;
-									crm:P82b_end_of_the_end ?histevet_etime] .
-    ?title crm:P190_has_symbolic_content ?histevet_name .
-    ?o a crm:E13_Attribute_Assignment .
-    ?o crm:P141_assigned ?nmvw_obj .
-    # ?nmvw_obj a crm:E22_Human-Made_Object .
-  } 
+SELECT (AVG(?n) AS ?avg) WHERE
+{
+  SELECT (COUNT(DISTINCT ?nmvw_obj) AS ?n) 
+  WHERE{
+      GRAPH <https://pressingmatter.nl/NMVW/ccrdfhiseve.ttl>{
+      ?histevet a crm:E7_Activity .
+      ?histevet crm:P140i_was_attributed_by ?o .
+      ?histevet  crm:P1_is_identified_by ?title .
+      ?histevet crm:P4_has_time-span [crm:P82a_begin_of_the_begin ?histevet_btime;
+                                       crm:P82b_end_of_the_end ?histevet_etime] .
+      ?title crm:P190_has_symbolic_content ?histevet_name .
+      ?o a crm:E13_Attribute_Assignment .
+      ?o crm:P141_assigned ?nmvw_obj .
+    } 
+    ?nmvw_obj a crm:E22_Human-Made_Object .
+}GROUP BY ?histevet
 }
+
 ```
 
 > For Bronbeek, only If you can define the event with specific time and place? We do not need to put the historical events in the data for that. 
@@ -667,6 +672,23 @@ SELECT ?obj ?place ?b_time ?e_time WHERE
   ?activity crm:P24_transferred_title_of ?obj .
 } 
 ```
+
+```
+SELECT ?obj ?place ?b_time ?e_time WHERE
+{
+  ?obj a crm:E24_Physical_Human-Made_Thing .
+  ?activity a crm:E7_Activity .
+  ?activity crm:P9_consists_of ?sub .
+  ?sub crm:P7_took_place_at ?place. 
+  ?sub crm:P4_has_time-span ?time .
+  ?time crm:P82a_begin_of_the_begin ?b_time .
+  ?time crm:P82b_end_of_the_end ?e_time.
+  {?activity crm:P30_transferred_custody_of ?obj} 
+UNION
+  {?activity crm:P24_transferred_title_of ?obj}
+  FILTER (?b_time > "1909-01-01"^^xsd:date) .
+  FILTER (?e_time < "1910-01-01"^^xsd:date) .
+} ```
 
 # Validation data
 https://book.validatingrdf.com/bookHtml011.html 
