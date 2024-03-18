@@ -68,7 +68,7 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 ## SPARQL Queries
 
-see the (results.ipynb)[results.ipynb]
+see the [results.ipynb](results.ipynb)
 
 ### Result Table 
 
