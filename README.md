@@ -1,52 +1,63 @@
-# ENTITY LINKING ON HISTORICAL DATA
+Diagram: https://drive.google.com/file/d/16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4/view?usp=sharing 
+
+## Data Extraction and Conversion
+
+### Wereldmuseum (formerly known as NMVW) data extraction
+Using this [script](nmvwdatadump/data_dump.py), Wereldmuseum data was extracted from a remote server.
+
+`run` function retrieves data from an endpoint by making API requests with specified ranges. It saves the response data as files in the `nmvw_data' directory, organized by the specified component. The function loops through the entire data range, making consecutive API calls until it reaches or exceeds the highest value. It handles various exceptions that may occur during the process, such as network errors, empty responses, and conversion errors. It logs encountered errors to separate text files for further analysis.
 
 ```
-entity_linking
-|   README.md
-|   main.py
-└───nmvwdatadump
-|   |   data_dump.py
-|   |   filter_wiki_human.py
-└───naive
-|   |   naive_string_matching.py
-└───dezzymatch
-|   └───data
-|   └───inputs
-|   |   deezy_match_data_construction.py
-|   |   fuzzy_string_matching.py
-|   |   line_count_text_file.py
-|   |   deezymatch.ipynb
-└───utils
-|   |   utils.py
-|   |   result.py
-└───exp100
-|   └───data
-|   └───results
-|   └───k_fold_validation
-|   |   construct_ground_truth.py
-|   |   exp100.ipynb
-|   |   README.md
-└───exp200
-|   └───data
-|   └───results
-|   |   README.md
-|   |   bronbeek_const_data_processing.py
-|   |   bronbeekDeezyMatchExp.ipynb
+def run(component, highest_value, range, start_limit=1):
+    """
+    Extract data from an endpoint and store it in files.
+
+    :param component: (str) Specifies which component to access from the endpoint.
+    :param highest_value: (int) The possible highest number for the component range.
+    :param range: (int) The range of data to request in each API call.
+    :param start_limit: (int) Default is 1; indicates the starting range value for the GET request.
+    """
 ```
+Example usage:
+```run(component='ccrdfconst', highest_value=58000, range=20)```
 
-## Task Description
-Given two (or more) Knowledge Graph, the task is to find the corresponding links of two person instance from two different data sources that indicates the same real-world person. <br>
+### Bronbeek Data Conversion
+[convert_csv2rdf](bronbeekdataconversion/dataConversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
+     - To run this script you need to provide path-to-directory where your csv and metadata is stored.
 
-![task_description_image](resources/task_description.png)
-[edit_image](https://app.diagrams.net/#G1ZMdnviCDEguLUWB5kzItnAMo7Y3TQBse)
-## Experiment Look-up Table
 
-| Experiment no. | Data | Query size | Candidate size | Algorithms |  Evaluation | Task/ Description | File | 
-| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- | -----------| ----------- |
-| exp100 | NMVW-Wikidata |  6178 | -(all wikidata person instance) | Naive, DeezyMatch | Based on Ground Truth | Retrieve wikidata identifier based on generated candidate| [File](exp100) | 
-| exp300 | NMVW-Wikidata | 6178 | 11501 | Naive, Abbrv. Match, Surname Match, Fuzzy String, Match |  Based on human evaluation | Match X to corresponding Y| [File](exp300/exp300.ipynb) | 
-| ~~exp200~~ | ~~NMVW-Bronbeek~~ | - |~~(num of NMVW) - (num of Bronbeek)~~ | ~~Naive, DeezyMatch~~ |  ~~Based on human evaluation~~ | ~~Match X to corresponding Y~~| [~~File~~](exp200/exp200) | 
-| exp201 | Bronbeek-NMVW | 15382 (num of Bronbeek)| 39567 (num of NMVW)| Naive, Abbrv. Match, Surname Match, Fuzzy String, Match |  Based on human evaluation | Match X to corresponding Y| [File](./exp201/exp201.ipynb) | 
+> Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
 
-## Evaluation 
-Report on Recall, Precision and F-score [code](utils/calculate_result.py)
+
+
+## Upload to cliopatria
+
+1. compress the .nq files with bash command
+   ```bash
+   gzip <path-to-folder>/*.nq
+   ```
+
+2. from cliopatria CLI, type
+   ```
+   # attach the libraries
+   rdf_library:rdf_attach_library(<path-to-folder-of-void.ttl>).
+   ```
+> Note: [void.ttl](void.ttl) expects triple files are in the same folder as void.ttl.
+   ```
+   # upload files by library
+   rdf_load_library('<library-name>').
+   e.g., rdf_library:rdf_load_library('bronbeek').
+   ```
+
+## Data Enrichment
+Linked data enrichment with the [enrich_data_bronbeek](enrich_data_bronbeek) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
+
+```bash
+python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
+```
+> [enrich_data_bronbeek.py](enrich_data_bronbeek.py) expects .nq files.
+
+
+## Data 
+1. [Bronbeek]() (format: csv)
+2. [NMVW](https://surfdrive.surf.nl/files/index.php/apps/files/?dir=/Shared/Work%20Package%201B/data/linkedart_nmvw_data/ccrdfconst&fileid=12458101919) (format: rdf/ttl)
