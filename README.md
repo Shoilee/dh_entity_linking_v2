@@ -22,7 +22,10 @@ Example usage:
 ```run(component='ccrdfconst', highest_value=58000, range=20)```
 
 ### Bronbeek Data Conversion
-[convert_csv2rdf](bronbeekdataconversion/dataConversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](conversion_metadata). 
+
+#### Step-1: convert csv to n-quad using cow_tool
+
+[convert_csv2rdf](bronbeekdataconversion/dataConversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](bronbeekdataconversion/dataConversion/conversion_metadata). 
      - To run this script you need to provide path-to-directory where your csv and metadata is stored.
 
 
@@ -30,7 +33,7 @@ Example usage:
 
 
 
-## Upload to cliopatria
+#### Step-2: Upload to cliopatria
 
 1. compress the .nq files with bash command
    ```bash
@@ -49,15 +52,10 @@ Example usage:
    e.g., rdf_library:rdf_load_library('bronbeek').
    ```
 
-## Data Enrichment
+#### Step-3: Data Enrichment
 Linked data enrichment with the [enrich_data_bronbeek](enrich_data_bronbeek) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
 
 ```bash
 python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 ```
 > [enrich_data_bronbeek.py](enrich_data_bronbeek.py) expects .nq files.
-
-
-## Data 
-1. [Bronbeek]() (format: csv)
-2. [NMVW](https://surfdrive.surf.nl/files/index.php/apps/files/?dir=/Shared/Work%20Package%201B/data/linkedart_nmvw_data/ccrdfconst&fileid=12458101919) (format: rdf/ttl)
