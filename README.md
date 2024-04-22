@@ -3,7 +3,7 @@ Diagram: https://drive.google.com/file/d/16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4/view?
 ## Data Extraction and Conversion
 
 ### Wereldmuseum (formerly known as NMVW) data extraction
-Using this [script](nmvwdatadump/data_dump.py), Wereldmuseum data was extracted from a remote server.
+Using this [script](data_preparation/nmvwdatadump/data_dump.py), Wereldmuseum data was extracted from a remote server.
 
 `run` function retrieves data from an endpoint by making API requests with specified ranges. It saves the response data as files in the `nmvw_data' directory, organized by the specified component. The function loops through the entire data range, making consecutive API calls until it reaches or exceeds the highest value. It handles various exceptions that may occur during the process, such as network errors, empty responses, and conversion errors. It logs encountered errors to separate text files for further analysis.
 
@@ -25,7 +25,7 @@ Example usage:
 
 #### Step-1: convert csv to n-quad using cow_tool
 
-[convert_csv2rdf](bronbeekdataconversion/dataConversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](bronbeekdataconversion/dataConversion/conversion_metadata). 
+[convert_csv2rdf](data_preparation/bronbeekdataconversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](data_preparation/bronbeekdataConversion/conversion_metadata). 
      - To run this script you need to provide path-to-directory where your csv and metadata is stored.
 
 
@@ -45,7 +45,7 @@ Example usage:
    # attach the libraries
    rdf_library:rdf_attach_library(<path-to-folder-of-void.ttl>).
    ```
-> Note: [void.ttl](void.ttl) expects triple files are in the same folder as void.ttl.
+> Note: [void.ttl](data_preparation/bronbeekdataConversion/void.ttl) expects triple files are in the same folder as void.ttl.
    ```
    # upload files by library
    rdf_load_library('<library-name>').
@@ -59,3 +59,14 @@ Linked data enrichment with the [enrich_data_bronbeek](enrich_data_bronbeek) scr
 python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 ```
 > [enrich_data_bronbeek.py](enrich_data_bronbeek.py) expects .nq files.
+
+
+## Entity Alignment
+
+### Pscedu-ground Truth 
+[Experiment on Pscedu-ground Truth](exp300/exp300.ipynb)
+
+### Random Sample 
+[Evalaution on randon sample](exp202/exp202.ipynb)
+
+## Knowledge Discovery
