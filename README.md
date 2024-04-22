@@ -53,7 +53,7 @@ Example usage:
    ```
 
 #### Step-3: Data Enrichment
-Linked data enrichment with the [enrich_data_bronbeek](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
+Linked data enrichment with the [enrich_data_bronbeek.py](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
 
 ```bash
 python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
