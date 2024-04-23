@@ -30,3 +30,4 @@ bronbeekdataconversion/query/CQ3_bb_obj.csv
 __pycache__
 knowledge_discovery/*/*.csv
 bronbeekdataconversion/Bronbeek_Data
+entity_alignment/nmvw_bronbeek/results
