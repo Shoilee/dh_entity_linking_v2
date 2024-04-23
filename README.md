@@ -38,8 +38,6 @@ Example usage:
 
 > Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
 
-
-
 #### Step-2: Upload to cliopatria
 
 1. compress the .nq files with bash command
@@ -69,20 +67,38 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 
 ## Entity Alignment
+### Generate Links:
 
-| Techniques            | Code |
-| ----------            | ---- |
-| Exact String Match    | [Code](entity_alignment/matchexactstring/match_exact_string.py) |
-| Initial+Surname Match | [Code](entity_alignment/matchwithabbreviation/match_with_abbreviation.py) |
-| Surname Match         | [Code](entity_alignment/matchsurname/match_surname.py) |
-| Fuzzy String Match    | [Code](entity_alignment/matchfuzzystring/match_fuzzy_string.py) |
-| Deezy Match           | [Code](entity_alignment/deezymatch/deezymatch.ipynb) |
+ [entity_alignment](entity_alignment) directory contains a set of Python scripts and experiments designed to perform various string matching tasks. The scripts provided cover a range of matching techniques, including exact string matching, intial+surname(abbraviation) matching, surname matching and fuzzy string matching,.
+
+#### Supported String Matching Strategies
+
+##### Exact String Matching: 
+The script, [match_exact_string.py](entity_alignment/matchexactstring/match_exact_string.py), deals with exact string matching. It provides a straightforward method to match strings precisely, without considering any variations or similarities.
+
+##### Initial+Surname Match: 
+The script, [match_with_abbreviation.py](entity_alignment/matchwithabbreviation/match_with_abbreviation.py), is dedicated to initial+surname matching. It implements a method to extract initials from a given name or a name with specific patterns. It intelligently handles various cases, ensuring accurate extraction and formatting of initials.
+
+##### Surname Match: 
+The script, [match_surname.py](entity_alignment/matchsurname/match_surname.py), focuses on surname matching. It provides functionality to compare and match surnames, considering variations and common misspellings.
+
+##### Fuzzy String Match: 
+[match_fuzzy_string.py](entity_alignment/matchfuzzystring/match_fuzzy_string.py) script is designed for fuzzy string matching. It employs algorithms that allow for matching strings that are similar but not necessarily identical, considering typos, variations, and other discrepancies.
+
+##### DeezyMatch:
+
+The deezy match trained and fine-tuned under a different repo. 
+For more detail please visit git repo: https://github.com/Shoilee/deezymatch_jrcnames
+
+The trained model and the execution code can be found [here](entity_alignment/deezymatch/deezymatch.ipynb).
 
 ### Pscedu-ground Truth 
-[Experiment on Pseudo-ground Truth](entity_alignment/ground_truth/exp300.ipynb)
+[Experiment on Pseudo-ground Truth](entity_alignment/ground_truth/exp300.ipynb) script represents experiment with pseudo-ground truth data, which involves running different variations of the matching algorithms and generating results. Please refer to the script for detailed information on the experiment.
 
 ### Random Sample 
-[Evalaution on randon sample](exp202/exp202.ipynb)
+Similarly, [Evalaution on randon sample](exp202/exp202.ipynb) script represents experiment with Wereldmuseum persons vs Bronbeek person name. Please, refer to the script for detailed insights.
+
+TODO: add detail about how it was evaluated.
 
 ## Knowledge Discovery
 The detail steps of the conversion from the Competency question to the question answered by the SPARQL Query.
@@ -104,5 +120,36 @@ The detail steps of the conversion from the Competency question to the question 
 > 
 > Statistical distribution of different set-up was calculated using this [script](knowledge_discovery/stats/stats.ipynb).
 
-## Enviroment
-TODO: add the environment to run code
+
+## Usage
+TODO: update the environment to run code, i.e., install cow_tool and others...
+
+To use the provided scripts, follow these general steps:
+
+1. Clone the repository to your local machine:
+```bash
+git clone https://github.com/Shoilee/actor_linking.git
+```
+2. Install and activate the environment
+```bash
+conda env create -f environment.yml
+conda activate actor_linking
+```
+3. Navigate to the project directory:
+```bash
+# go the experiment directory
+cd exp300
+```
+4. Execute the desired script using iPython:
+```bash
+ipython
+python exp300.ipynb
+```
+5. Deactivate environment
+```bash
+conda deactivate
+```
+
+## Bugs
+- TODO: Fix DeezyMatch before and after fine-tuning code
+- TODO: Add the k-fold validation in exp300
