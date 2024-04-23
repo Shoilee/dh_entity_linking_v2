@@ -28,4 +28,4 @@ bronbeekdataconversion/stats/*.csv
 bronbeekdataconversion/query/*.csv
 bronbeekdataconversion/query/CQ3_bb_obj.csv
 __pycache__
-bronbeekdataconversion/Bronbeek_Data
+knowledge_discovery/*/*.csv
