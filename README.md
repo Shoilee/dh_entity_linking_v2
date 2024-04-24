@@ -70,7 +70,13 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
  [entity_alignment](entity_alignment) directory contains a set of Python scripts and experiments designed to perform various string matching tasks. The scripts provided cover a range of matching techniques, including exact string matching, intial+surname(abbraviation) matching, surname matching and fuzzy string matching,.
 
 ### Supported String Matching Strategies
-
+| Techniques            | Code |
+| ----------            | ---- |
+| Exact String Match    | [Code](entity_alignment/matchexactstring/match_exact_string.py) |
+| Initial+Surname Match | [Code](entity_alignment/matchwithabbreviation/match_with_abbreviation.py) |
+| Surname Match         | [Code](entity_alignment/matchsurname/match_surname.py) |
+| Fuzzy String Match    | [Code](entity_alignment/matchfuzzystring/match_fuzzy_string.py) |
+| Deezy Match           | [Code](entity_alignment/deezymatch/deezymatch.ipynb) |
 ##### 1. Exact String Matching: 
 The script, [match_exact_string.py](entity_alignment/matchexactstring/match_exact_string.py), deals with exact string matching. It provides a straightforward method to match strings precisely, without considering any variations or similarities.
 
@@ -99,14 +105,12 @@ python create_link_graph.py <input_file_path>
 
 The `input_file_path` expects to be a tsv(tab seperated format) file that contains the results of already aligned rows from two dataset based on the specific selected technique; where `nmvw_uri` is the same as corresponding `constituentID` from bronbeek.
 
-
-### Pscedu-ground Truth 
+### Experiments
+#### Pscedu-ground Truth 
 [Experiment on Pseudo-ground Truth](entity_alignment/ground_truth/exp300.ipynb) script represents experiment with pseudo-ground truth data, which involves running different variations of the matching algorithms and generating results. Please refer to the script for detailed information on the experiment.
 
-### Random Sample 
+#### Random Sample 
 Similarly, [Evalaution on randon sample](exp202/exp202.ipynb) script represents experiment with Wereldmuseum persons vs Bronbeek person name. Please, refer to the script for detailed insights.
-
-TODO: add detail about how it was evaluated.
 
 
 ## Knowledge Discovery
@@ -131,7 +135,6 @@ The detail steps of the conversion from the Competency question to the question 
 
 
 ## Usage
-TODO: update the environment to run code, i.e., install cow_tool and others...
 
 To use the provided scripts, follow these general steps:
 
@@ -147,7 +150,7 @@ conda activate actor_linking
 3. Navigate to the project directory:
 ```bash
 # go the experiment directory
-cd exp300
+cd entity_alignment/ground_truth
 ```
 4. Execute the desired script using iPython:
 ```bash
