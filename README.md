@@ -67,30 +67,38 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 
 
 ## Entity Alignment
-### Generate Links:
-
  [entity_alignment](entity_alignment) directory contains a set of Python scripts and experiments designed to perform various string matching tasks. The scripts provided cover a range of matching techniques, including exact string matching, intial+surname(abbraviation) matching, surname matching and fuzzy string matching,.
 
-#### Supported String Matching Strategies
+### Supported String Matching Strategies
 
-##### Exact String Matching: 
+##### 1. Exact String Matching: 
 The script, [match_exact_string.py](entity_alignment/matchexactstring/match_exact_string.py), deals with exact string matching. It provides a straightforward method to match strings precisely, without considering any variations or similarities.
 
-##### Initial+Surname Match: 
+##### 2. Initial+Surname Match: 
 The script, [match_with_abbreviation.py](entity_alignment/matchwithabbreviation/match_with_abbreviation.py), is dedicated to initial+surname matching. It implements a method to extract initials from a given name or a name with specific patterns. It intelligently handles various cases, ensuring accurate extraction and formatting of initials.
 
-##### Surname Match: 
+##### 3. Surname Match: 
 The script, [match_surname.py](entity_alignment/matchsurname/match_surname.py), focuses on surname matching. It provides functionality to compare and match surnames, considering variations and common misspellings.
 
-##### Fuzzy String Match: 
+##### 4. Fuzzy String Match: 
 [match_fuzzy_string.py](entity_alignment/matchfuzzystring/match_fuzzy_string.py) script is designed for fuzzy string matching. It employs algorithms that allow for matching strings that are similar but not necessarily identical, considering typos, variations, and other discrepancies.
 
-##### DeezyMatch:
+##### 5. DeezyMatch:
 
 The deezy match trained and fine-tuned under a different repo. 
 For more detail please visit git repo: https://github.com/Shoilee/deezymatch_jrcnames
 
 The trained model and the execution code can be found [here](entity_alignment/deezymatch/deezymatch.ipynb).
+
+### Generate Links:
+Based on selected technique, [this](entity_alignment/nmvw_bronbeek/create_links.py) script creates an RDF link graph by linking entities from a given dataset with entities from another source. It uses the RDFLib library to create an RDF graph and generates OWL sameAs links between corresponding entities.
+
+```
+python create_link_graph.py <input_file_path>
+```
+
+The `input_file_path` expects to be a tsv(tab seperated format) file that contains the results of already aligned rows from two dataset based on the specific selected technique; where `nmvw_uri` is the same as corresponding `constituentID` from bronbeek.
+
 
 ### Pscedu-ground Truth 
 [Experiment on Pseudo-ground Truth](entity_alignment/ground_truth/exp300.ipynb) script represents experiment with pseudo-ground truth data, which involves running different variations of the matching algorithms and generating results. Please refer to the script for detailed information on the experiment.
@@ -99,6 +107,7 @@ The trained model and the execution code can be found [here](entity_alignment/de
 Similarly, [Evalaution on randon sample](exp202/exp202.ipynb) script represents experiment with Wereldmuseum persons vs Bronbeek person name. Please, refer to the script for detailed insights.
 
 TODO: add detail about how it was evaluated.
+
 
 ## Knowledge Discovery
 The detail steps of the conversion from the Competency question to the question answered by the SPARQL Query.
