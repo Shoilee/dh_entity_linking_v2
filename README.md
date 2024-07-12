@@ -1,6 +1,6 @@
 
 ![Workflow Diagram](resources/data_workflow.png)
-<center>Figure: Pipeline to folow to recreate query results</center>
+<center>Figure: Pipeline to follow to recreate query results</center>
 
 
 [edit](https://app.diagrams.net/#G16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4#%7B%22pageId%22%3A%22prtHgNgQTEPvFCAcTncT%22%7D)
