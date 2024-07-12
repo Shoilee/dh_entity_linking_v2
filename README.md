@@ -5,6 +5,9 @@
 
 <!---[edit](https://app.diagrams.net/#G16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4#%7B%22pageId%22%3A%22prtHgNgQTEPvFCAcTncT%22%7D)-->
 
+
+<p>&nbsp;</p>
+
 ## Data Extraction and Conversion
 
 In this work, it is expected that user already have the Wereldmuseum data dump, therefore can ignore the following subsection and move to the `Bronbeek Data Conversion` section.
@@ -66,6 +69,8 @@ python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
 > [enrich_data_bronbeek.py](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) expects .nq files.
 
 
+<p>&nbsp;</p>
+
 ## Entity Alignment
  [entity_alignment](entity_alignment) directory contains a set of Python scripts and experiments designed to perform various string matching tasks. The scripts provided cover a range of matching techniques, including exact string matching, intial+surname(abbraviation) matching, surname matching and fuzzy string matching,.
 
@@ -112,6 +117,8 @@ The `input_file_path` expects to be a tsv(tab seperated format) file that contai
 #### Random Sample 
 Similarly, [Evalaution on randon sample](exp202/exp202.ipynb) script represents experiment with Wereldmuseum persons vs Bronbeek person name. Please, refer to the script for detailed insights.
 
+
+<p>&nbsp;</p>
 
 ## Knowledge Discovery
 The detail steps of the conversion from the Competency question to the question answered by the SPARQL Query.
@@ -161,7 +168,3 @@ python exp300.ipynb
 ```bash
 conda deactivate
 ```
-
-## Bugs
-- TODO: Fix DeezyMatch before and after fine-tuning code
-- TODO: Add the k-fold validation in exp300
