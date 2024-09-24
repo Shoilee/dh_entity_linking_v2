@@ -1,4 +1,22 @@
+# Introduction
 
+This project focuses on extracting, converting, enriching, and aligning data from the Wereldmuseum and Bronbeek datasets to support entity linking and knowledge discovery. It includes scripts for data extraction, conversion to RDF, enrichment, and string matching for entity alignment. The end goal is to answer competency questions using linked data.
+
+# Quick Start Instructions:
+1. Clone the repository and set up the environment:
+   ```bash
+   git clone https://github.com/Shoilee/actor_linking.git
+   conda env create -f environment.yml
+   conda activate actor_linking
+   ```
+2. Navigate to the desired experiment directory and run the scripts, e.g., :
+   ```bash
+   cd entity_alignment/ground_truth
+   ipython
+   python exp300.ipynb
+   ```
+
+# Step-by-step
 ![Workflow Diagram](resources/data_workflow.png)
 <center>Figure: Pipeline to follow to recreate query results</center>
 
@@ -7,6 +25,7 @@
 
 
 <p>&nbsp;</p>
+
 
 ## Data Extraction and Conversion
 
