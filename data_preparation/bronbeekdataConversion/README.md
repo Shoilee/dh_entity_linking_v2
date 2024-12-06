@@ -8,10 +8,8 @@ Diagram: https://drive.google.com/file/d/16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4/view?
 ```
 		AccessionMethods.csv
 		Constituents.csv
-		conxref_object_link.csv
 		ConXrefDetails.csv
 		ConXrefs.csv
-		former_owner.csv
 		HistEvents.csv
       ObjAccession.csv
       Objects.csv
