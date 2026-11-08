@@ -1,146 +1,202 @@
-# Introduction
+# Entity Linking across Museum Collections
 
-This project focuses on extracting, converting, enriching, and aligning data from the Wereldmuseum and Bronbeek datasets to support entity linking and knowledge discovery. It includes scripts for data extraction, conversion to RDF, enrichment, and string matching for entity alignment. The end goal is to answer competency questions using linked data.
+This project links person records (actors) between the **Wereldmuseum** (formerly NMVW) and **Bronbeek** collections, then uses those links for knowledge discovery. It covers the full pipeline:
 
-# Quick Start Instructions:
-1. Clone the repository and set up the environment:
-   ```bash
-   git clone https://github.com/Shoilee/actor_linking.git
-   conda env create -f environment.yml
-   conda activate actor_linking
-   ```
-2. Navigate to the desired experiment directory and run the scripts, e.g., :
-   ```bash
-   cd entity_alignment/ground_truth
-   ipython
-   python exp300.ipynb
-   ```
+1. Extract the Wereldmuseum data and convert the Bronbeek data to RDF.
+2. Align actors across the two datasets with five name-matching techniques.
+3. Publish the matches as `owl:sameAs` links.
+4. Answer competency questions over the linked data with SPARQL.
 
-# Step-by-step
-![Workflow Diagram](resources/data_workflow.png)
-<center>Figure: Pipeline to follow to recreate query results</center>
+The accompanying paper is [Sarah_Supporting_KD.pdf](Sarah_Supporting_KD.pdf), with additional detail in [Supplement_Materials.pdf](Supplement_Materials.pdf).
 
+![Workflow diagram](resources/data_workflow.png)
+
+*Pipeline to follow to recreate the query results.*
 
 <!---[edit](https://app.diagrams.net/#G16X1PiVgtSVrZNMkEIWW3eY17JztUH5w4#%7B%22pageId%22%3A%22prtHgNgQTEPvFCAcTncT%22%7D)-->
 
+## Contents
 
-<p>&nbsp;</p>
+- [Getting started](#getting-started)
+- [Repository layout](#repository-layout)
+- [Data preparation](#data-preparation)
+- [Entity alignment](#entity-alignment)
+- [Knowledge discovery](#knowledge-discovery)
 
+## Getting started
 
-## Data Extraction and Conversion
+### Prerequisites
 
-In this work, it is expected that user already have the Wereldmuseum data dump, therefore can ignore the following subsection and move to the `Bronbeek Data Conversion` section.
+- [Conda](https://docs.conda.io/). The environment uses Python 3.9 and was exported on macOS, so on other platforms you may need to remove macOS-only packages such as `appnope` from [environment.yml](environment.yml).
+- About 2 GB of disk space. Trained DeezyMatch models and intermediate results are committed to the repository.
+- [ClioPatria](https://cliopatria.swi-prolog.org/), only if you want to load the RDF and run the SPARQL queries yourself.
 
-### Wereldmuseum (formerly known as NMVW) data extraction
-Using this [script](data_preparation/nmvwdatadump/data_dump.py), Wereldmuseum data was extracted from a remote server.
+### Installation
 
-The `run` function the script retrieves data from an endpoint by making API requests with specified data ranges. It saves the response data as files in the `nmvw_data' directory, organized by the specified component(e.g, ccrdf, ccrdfcont etc). The function loops through the entire data range, making consecutive API (as it cannot make the entire dump altogether) calls until it reaches or exceeds the highest value for the range. It handles various exceptions that may occur during the process, such as network errors, empty responses, and conversion errors. It logs encountered errors to separate text files for further analysis.
-
-```
-def run(component, highest_value, range, start_limit=1):
-    """
-    Extract data from an endpoint and store it in files.
-
-    :param component: (str) Specifies which component to access from the endpoint.
-    :param highest_value: (int) The possible highest number for the component range.
-    :param range: (int) The range of data to request in each API call.
-    :param start_limit: (int) Default is 1; indicates the starting range value for the GET request.
-    """
-```
-Example usage:
-```run(component='ccrdfconst', highest_value=58000, range=20)```
-
-### Bronbeek Data Conversion
-
-#### Step-1: convert csv to n-quad using cow_tool
-
-[convert_csv2rdf](data_preparation/bronbeekdataconversion/convert_csv2rdf.py) script convert csv files into nq files based on the conversion metadata specifciations of the csv files in folder [conversion_metadata](data_preparation/bronbeekdataConversion/conversion_metadata). 
-     - To run this script you need to provide path-to-directory where your csv and metadata is stored.
-
-
-> Note: convert_csv2rdf.convert_csv_to_rdf() expects your csv and conversion metadata json file is in the same folder.
-
-#### Step-2: Upload to cliopatria
-
-1. compress the .nq files with bash command
-   ```bash
-   gzip <path-to-folder>/*.nq
-   ```
-
-2. from cliopatria CLI, type
-   ```
-   # attach the libraries
-   rdf_library:rdf_attach_library(<path-to-folder-of-void.ttl>).
-   ```
-> Note: [void.ttl](data_preparation/bronbeekdataConversion/void.ttl) expects triple files are in the same folder as void.ttl.
-   ```
-   # upload files by library
-   rdf_load_library('<library-name>').
-   e.g., rdf_library:rdf_load_library('bronbeek').
-   ```
-
-#### Step-3: Data Enrichment
-Linked data enrichment with the [enrich_data_bronbeek.py](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) script to add provenance activity (i.e., acqusition events, former owner and objects related to person.)
+The current code is on the `serendipity` branch. The default `main` branch has an older layout that does not match this guide.
 
 ```bash
-python enrich_data_bronbeek.py <folder-path-of-all-nq-files>
-```
-> [enrich_data_bronbeek.py](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) expects .nq files.
-
-
-<p>&nbsp;</p>
-
-## Entity Alignment
- [entity_alignment](entity_alignment) directory contains a set of Python scripts and experiments designed to perform various string matching tasks. The scripts provided cover a range of matching techniques, including exact string matching, intial+surname(abbraviation) matching, surname matching and fuzzy string matching,.
-
-### Supported String Matching Strategies
-| Techniques            | Code |
-| ----------            | ---- |
-| Exact String Match    | [Code](entity_alignment/matchexactstring/match_exact_string.py) |
-| Initial+Surname Match | [Code](entity_alignment/matchwithabbreviation/match_with_abbreviation.py) |
-| Surname Match         | [Code](entity_alignment/matchsurname/match_surname.py) |
-| Fuzzy String Match    | [Code](entity_alignment/matchfuzzystring/match_fuzzy_string.py) |
-| Deezy Match           | [Code](entity_alignment/deezymatch/deezymatch.ipynb) |
-##### 1. Exact String Matching: 
-The script, [match_exact_string.py](entity_alignment/matchexactstring/match_exact_string.py), deals with exact string matching. It provides a straightforward method to match strings precisely, without considering any variations or similarities.
-
-##### 2. Initial+Surname Match: 
-The script, [match_with_abbreviation.py](entity_alignment/matchwithabbreviation/match_with_abbreviation.py), is dedicated to initial+surname matching. It implements a method to extract initials from a given name or a name with specific patterns. It intelligently handles various cases, ensuring accurate extraction and formatting of initials.
-
-##### 3. Surname Match: 
-The script, [match_surname.py](entity_alignment/matchsurname/match_surname.py), focuses on surname matching. It provides functionality to compare and match surnames, considering variations and common misspellings.
-
-##### 4. Fuzzy String Match: 
-[match_fuzzy_string.py](entity_alignment/matchfuzzystring/match_fuzzy_string.py) script is designed for fuzzy string matching. It employs algorithms that allow for matching strings that are similar but not necessarily identical, considering typos, variations, and other discrepancies.
-
-##### 5. DeezyMatch:
-
-The deezy match trained and fine-tuned under a different repo. 
-For more detail please visit git repo: https://github.com/Shoilee/deezymatch_jrcnames
-
-The trained model and the execution code can be found [here](entity_alignment/deezymatch/deezymatch.ipynb).
-
-### Generate Links:
-Based on selected technique, [this](entity_alignment/nmvw_bronbeek/create_links.py) script creates an RDF link graph by linking entities from a given dataset with entities from another source. It uses the RDFLib library to create an RDF graph and generates OWL sameAs links between corresponding entities.
-
-```
-python create_link_graph.py <input_file_path>
+git clone --branch serendipity https://github.com/Shoilee/dh_entity_linking_v2.git
+cd dh_entity_linking_v2
+conda env create -f environment.yml
+conda activate actor_linking
 ```
 
-The `input_file_path` expects to be a tsv(tab seperated format) file that contains the results of already aligned rows from two dataset based on the specific selected technique; where `nmvw_uri` is the same as corresponding `constituentID` from bronbeek.
+### Running a notebook
+
+Experiments are Jupyter notebooks and use paths relative to their own folder, so run them with that folder as the working directory. JupyterLab does the following automatically, as does VS Code when you select the `actor_linking` kernel. JupyterLab is not part of `environment.yml`, so install it first:
+
+```bash
+pip install jupyterlab
+jupyter lab entity_alignment/ground_truth/exp300.ipynb
+```
+
+### Data
+
+The source datasets are not included in this repository, so you need your own copy to re-run the extraction, conversion and matching steps. The locations used by the project are listed in the [Bronbeek conversion notes](data_preparation/bronbeekdataConversion/README.md).
+
+The repository does include the competency-question query results, so you can reproduce those numbers without a triple store. See [Knowledge discovery](#knowledge-discovery).
+
+## Repository layout
+
+| Path | Contents |
+| ---- | -------- |
+| [data_preparation/nmvwdatadump](data_preparation/nmvwdatadump) | Wereldmuseum extraction and filtering scripts |
+| [data_preparation/bronbeekdataConversion](data_preparation/bronbeekdataConversion) | Bronbeek CSV-to-RDF conversion, mappings, enrichment and ClioPatria library definition |
+| [entity_alignment](entity_alignment) | String-matching techniques and shared [utilities](entity_alignment/utils) |
+| [entity_alignment/ground_truth](entity_alignment/ground_truth) | Experiment on the pseudo-ground truth (Wereldmuseum vs Wikidata) |
+| [entity_alignment/nmvw_bronbeek](entity_alignment/nmvw_bronbeek) | Wereldmuseum vs Bronbeek matching, evaluation and link generation |
+| [knowledge_discovery](knowledge_discovery) | SPARQL queries, result analysis and statistics |
+| [workflow/query](workflow/query) | CSV exports of the query results |
+| [main.py](main.py) | Historical scratch file. Its imports use the older layout, so it does not run on this branch |
+
+## Data preparation
+
+If you already have the Wereldmuseum data dump, skip to [Bronbeek data conversion](#bronbeek-data-conversion).
+
+### Wereldmuseum data extraction
+
+[data_dump.py](data_preparation/nmvwdatadump/data_dump.py) downloads the data from the Wereldmuseum endpoint in consecutive ranges, because the whole dump cannot be requested at once. Responses are saved under `nmvw_data/<component>/`, and failed requests are logged to text files in the same folder.
+
+```python
+run(component, highest_value, range, start_limit=1)
+```
+
+| Parameter | Meaning |
+| --------- | ------- |
+| `component` | Endpoint component to fetch, such as `ccrdf` or `ccrdfconst` |
+| `highest_value` | Highest possible number in the component's range |
+| `range` | Number of records to request per API call |
+| `start_limit` | Value to start from (default `1`) |
+
+Run it from the repository root, with `entity_alignment` on the Python path so that `utils` can be imported:
+
+```bash
+PYTHONPATH=entity_alignment:data_preparation python -c \
+  "from nmvwdatadump.data_dump import run; run(component='ccrdfconst', highest_value=58000, range=20)"
+```
+
+### Bronbeek data conversion
+
+More detail on the mappings is in [conversion_specification.md](data_preparation/bronbeekdataConversion/conversion_specification.md) and [cow_process.md](data_preparation/bronbeekdataConversion/cow_process.md). Run the following steps in order, because enrichment reads uncompressed `.nq` files.
+
+#### 1. Convert CSV to N-Quads
+
+[convert_csv2rdf.py](data_preparation/bronbeekdataConversion/convert_csv2rdf.py) uses [COW](https://github.com/CLARIAH/COW) to convert each CSV file using its metadata from [conversion_metadata](data_preparation/bronbeekdataConversion/conversion_metadata). Each CSV file and its `.csv-metadata.json` file must be in the same folder.
+
+The script's command-line entry point always reads from `data/`. To use another folder, call the function from `data_preparation/bronbeekdataConversion`:
+
+```bash
+python -c "from convert_csv2rdf import convert_csv_to_rdf; convert_csv_to_rdf('<path-to-csv-folder>')"
+```
+
+#### 2. Enrich the data
+
+[enrich_data_bronbeek.py](data_preparation/bronbeekdataConversion/enrich_data_bronbeek.py) adds provenance information to the converted data and writes Turtle files into the input folder.
+
+```bash
+python enrich_data_bronbeek.py <folder-with-nq-files>
+```
+
+| Step in `enrich_data()` | Output | Enabled by default |
+| ----------------------- | ------ | ------------------ |
+| `add_provenance_activity` | `provenance_activity.ttl` | Yes |
+| `add_acquisition_event` | `acquisition_event.ttl` | No |
+| `add_former_owner` | `former_owner.ttl` | No |
+| `add_related_constituents` | `person_related.ttl` | No |
+
+The `bronbeek-enriched` library in `void.ttl` expects `former_owner`, `provenance_activity` and `person_related`, so uncomment those calls in `enrich_data()` if you plan to load it.
+
+#### 3. Load into ClioPatria
+
+Put [void.ttl](data_preparation/bronbeekdataConversion/void.ttl) in the same folder as the RDF files, then compress them:
+
+```bash
+gzip <path-to-folder>/*.nq <path-to-folder>/*.ttl
+gunzip <path-to-folder>/void.ttl.gz
+```
+
+From the ClioPatria console, attach the folder and load a library:
+
+```prolog
+rdf_library:rdf_attach_library('<path-to-folder-of-void.ttl>').
+rdf_library:rdf_load_library('bronbeek').
+```
+
+## Entity alignment
+
+### Matching techniques
+
+Each technique is a Python function that takes two DataFrames, and the experiment notebooks call them.
+
+| Technique | Function | Approach |
+| --------- | -------- | -------- |
+| Exact string | [`matchExactString`](entity_alignment/matchexactstring/match_exact_string.py) | Matches identical names only |
+| Initial + surname | [`match_with_abbreviation`](entity_alignment/matchwithabbreviation/match_with_abbreviation.py) | Reduces names to initials and surname before comparing |
+| Surname | [`matchLastName`](entity_alignment/matchsurname/match_surname.py) | Compares surnames only |
+| Fuzzy string | [`match_fuzzy_string`](entity_alignment/matchfuzzystring/match_fuzzy_string.py) | Scores similarity to tolerate typos and variants |
+| DeezyMatch | [deezymatch.ipynb](entity_alignment/deezymatch/deezymatch.ipynb) | Uses a trained neural model for fuzzy matching |
+
+The DeezyMatch model was trained and fine-tuned in a separate repository, [deezymatch_jrcnames](https://github.com/Shoilee/deezymatch_jrcnames). The trained model and inference code are included here.
 
 ### Experiments
-#### Pscedu-ground Truth 
-[Experiment on Pseudo-ground Truth](entity_alignment/ground_truth/exp300.ipynb) script represents experiment with pseudo-ground truth data, which involves running different variations of the matching algorithms and generating results. Please refer to the script for detailed information on the experiment.
 
-#### Random Sample 
-Similarly, [Evalaution on randon sample](exp202/exp202.ipynb) script represents experiment with Wereldmuseum persons vs Bronbeek person name. Please, refer to the script for detailed insights.
+| Experiment | Notebook | Input data needed (relative to the notebook) |
+| ---------- | -------- | -------------------------------------------- |
+| Pseudo-ground truth: Wereldmuseum names vs Wikidata labels | [exp300.ipynb](entity_alignment/ground_truth/exp300.ipynb) | `data/ground_truth.pkl` |
+| All Wereldmuseum vs all Bronbeek persons | [exp202.ipynb](entity_alignment/nmvw_bronbeek/exp202.ipynb) | `../nmvw_data/person_names.pkl`, `../data/bronbeek_constituents.csv` |
+| Evaluation on 16 expert-provided names | [evaluation_on_16_expert_given_names.ipynb](entity_alignment/nmvw_bronbeek/evaluation_on_16_expert_given_names.ipynb) | Included in the repository |
 
+### Generating links
 
-<p>&nbsp;</p>
+[create_links.py](entity_alignment/nmvw_bronbeek/create_links.py) turns a table of matches into an RDF graph of `owl:sameAs` links.
 
-## Knowledge Discovery
-The detail steps of the conversion from the Competency question to the question answered by the SPARQL Query.
+```bash
+python entity_alignment/nmvw_bronbeek/create_links.py <matches.tsv>
+```
+
+The input is a tab-separated file whose first column is an index and which has the columns `nmvw_uri` and `ConstituentID` (the Bronbeek ID). The graph is written next to the input as `<matches.tsv>.ttl`. Load it into ClioPatria with the datasets before running the queries.
+
+## Knowledge discovery
+
+The SPARQL queries are in [query.md](knowledge_discovery/query/query.md) and were run on ClioPatria.
+
+| Notebook | Purpose | Input |
+| -------- | ------- | ----- |
+| [results.ipynb](knowledge_discovery/query/results.ipynb) | Answers the competency questions | Query result CSVs |
+| [stats.ipynb](knowledge_discovery/stats/stats.ipynb) | Compares the statistical distribution across set-ups | Query result CSVs |
+
+Both notebooks read the CSV files from their own folder. To run `results.ipynb` without a triple store, copy the exports first:
+
+```bash
+cp workflow/query/*.csv knowledge_discovery/query/
+```
+
+`stats.ipynb` also needs per-technique results (for example `CQ1a_deezy.csv`) and `attribute_per_actor_nmvw.csv`, which are not in the repository. Generate them with the queries in `query.md`.
+
+### Competency questions
+
+The table shows how each competency question becomes the query reported in the results.
 
 |   | **Original Competency Question (CQ)** | **Instance of CQ Based on Dataset** | **Information Retrieval Question to Support CQ** | **Query Used to Report Result ($\delta$ count)** |
 |---|---------------------------------------|-------------------------------------|-------------------------------------------------|---------------------------------------------------|
@@ -153,37 +209,3 @@ The detail steps of the conversion from the Competency question to the question 
 | CQ-6a | Which objects were collected in this geographical location during this time period? | Which objects were collected in this geographical location during this time period from both datasets? | How many objects can be connected with other objects based on their being collected during a similar time by the same actor? | How many Bronbeek objects were collected by Wereldmuseum actors and have a similar acquisition time as some of their Wereldmuseum objects? |
 | CQ-6b | ~ | ~ | How many objects can we possibly project the time of acquisition for based on their being collected by the same actor? (where we do not know the acquisition date, but we do know the acquisition date for some other object by the same actor) | How many Bronbeek objects have unknown acquisition dates and are connected to Wereldmuseum actors, where at least one (Wereldmuseum) object per actor has a known acquisition time? |
 | CQ-6c | ~ | ~ | How many objects can be connected with other objects based on their being collected during a similar time and from a similar location by the same actor? | How many Bronbeek objects have connections with Wereldmuseum actors, where at least one (Wereldmuseum) object per actor has a connection with a historical event and the acquisition date is similar (+/- 20 years) to other objects from the same actor? |
-
-
-> All the competency questions were answered using this [script](knowledge_discovery/query/results.ipynb).
-> 
-> Statistical distribution of different set-up was calculated using this [script](knowledge_discovery/stats/stats.ipynb).
-
-
-## Usage
-
-To use the provided scripts, follow these general steps:
-
-1. Clone the repository to your local machine:
-```bash
-git clone https://github.com/Shoilee/actor_linking.git
-```
-2. Install and activate the environment
-```bash
-conda env create -f environment.yml
-conda activate actor_linking
-```
-3. Navigate to the project directory:
-```bash
-# go the experiment directory
-cd entity_alignment/ground_truth
-```
-4. Execute the desired script using iPython:
-```bash
-ipython
-python exp300.ipynb
-```
-5. Deactivate environment
-```bash
-conda deactivate
-```
